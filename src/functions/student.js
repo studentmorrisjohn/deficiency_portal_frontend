@@ -63,3 +63,21 @@ export async function fetchOrganizationOptions(inputValue) {
     const jsonData = await response.json();
     return jsonData;
 }
+
+export async function fetchAddAffiliation(organization, role) {
+    const url = `${process.env.REACT_APP_API_URL}/api/student/affiliations`
+    const body = JSON.stringify({ organization, role });
+
+    const response = await fetch(url, {
+        method: 'POST',
+        body: body,
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': Cookies.get('csrftoken')
+        },
+        credentials: 'include'
+    });
+
+    return response;
+}

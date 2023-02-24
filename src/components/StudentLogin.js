@@ -43,8 +43,6 @@ const StudentLogin = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log(username);
-        console.log(password);
         attemptLogin(username, password);
     };
 

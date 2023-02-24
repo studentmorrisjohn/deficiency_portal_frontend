@@ -43,7 +43,7 @@ const AffiliationTable = () => {
                 </thead>
                 <tbody>
                     {affiliationList}
-                    <AddAffiliationRow />                    
+                    <AddAffiliationRow refreshList={getAffiliationList} />                    
                 </tbody>
             </table>
         </div>

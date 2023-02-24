@@ -1,0 +1,65 @@
+import Cookies from 'js-cookie';
+
+export async function fetchName () {
+    const url = `${process.env.REACT_APP_API_URL}/api/student/student-name`;
+    
+    const response = await fetch(url);
+    const jsonData = await response.json();
+    return jsonData;
+}
+
+export async function fetchDeficiencyList() {
+    const url = `${process.env.REACT_APP_API_URL}/api/student/deficiencies`;
+
+    const response = await fetch(url);
+    const jsonData = await response.json();
+    return jsonData;
+}
+
+export async function fetchDeficiencyDetails(deficiency_id) {
+    const url = `${process.env.REACT_APP_API_URL}/api/student/deficiency-details/${deficiency_id}`;
+
+    const response = await fetch(url);
+    const jsonData = await response.json();
+    return jsonData;
+}
+
+export async function fetchProfileData() {
+    const url = `${process.env.REACT_APP_API_URL}/api/student/profile`;
+
+    const response = await fetch(url);
+    const jsonData = await response.json();
+    return jsonData;
+}
+
+export async function fetchAffiliationList() {
+    const url = `${process.env.REACT_APP_API_URL}/api/student/affiliations`;
+
+    const response = await fetch(url);
+    const jsonData = await response.json();
+    return jsonData;
+}
+
+export async function fetchDeleteAffiliation(affiliationId) {
+    const url = `${process.env.REACT_APP_API_URL}/api/student/affiliation/${affiliationId}`;
+
+    const response = await fetch(url, {
+            method: 'DELETE',
+            credentials: 'include',
+            headers: {
+                'X-CSRFToken': Cookies.get('csrftoken')
+            }
+        });
+
+    const jsonData = await response.json();
+    return jsonData;
+}
+
+export async function fetchOrganizationOptions(inputValue) {
+    const url = `${process.env.REACT_APP_API_URL}/api/student/organizations?name=${inputValue}`;
+
+    const response = await fetch(url);
+
+    const jsonData = await response.json();
+    return jsonData;
+}

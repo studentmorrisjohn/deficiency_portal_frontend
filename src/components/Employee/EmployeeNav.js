@@ -8,8 +8,7 @@ const pupLOGO = new URL("../images/PUPLOGO.png", import.meta.url)
 const house = new URL("../images/House.png", import.meta.url)
 const usercircle = new URL("../images/UserCircle.png", import.meta.url)
 
-
-const StudentNav = () => {
+const EmployeeNav = () => {
     const [openDropdown, setOpenDropdown] = useState(false);
     const navigate = useNavigate();
 
@@ -23,14 +22,13 @@ const StudentNav = () => {
         if (response.isAuthenticated === "error") {
             navigate('/');
         } else {
-
             authenticate();
 
-            if (response.role === "EMPLOYEE") {
-                navigate('/HomescreenEmployee');
+            if (response.role === "STUDENT") {
+                navigate('/HomescreenStudent');
             }
         }
-    }
+    } 
 
     async function logout() {
         const response = await fetchLogout();
@@ -41,23 +39,23 @@ const StudentNav = () => {
         }
     }
 
-    // useEffect(() => {
-    //     if (!isAuthenticated) {
-    //         checkAuthenticationStatus();
-    //     }
+    useEffect(() => {
+        if (!isAuthenticated) {
+            checkAuthenticationStatus();
+        }
         
-    // }, []);
+    }, []);
 
 
-    // useEffect(() => {
-    //     checkAuthenticationStatus();
-    // }, [isAuthenticated]);
+    useEffect(() => {
+        checkAuthenticationStatus();
+    }, [isAuthenticated]);
 
     return (
         <div className="header">
             <img src={pupLOGO} className="pupLogo2" />
             <span className="home-text9">Student Deficiency Portal</span>
-            <img src={house} className="image2" onClick={() => {navigate('/HomescreenStudent');}}/>
+            <img src={house} className="image2" onClick={() => {navigate('/HomescreenEmployee');}}/>
             <div className="dropdown">
                 <img src={usercircle} className="image3" onClick={() => setOpenDropdown(!openDropdown)} />
                 {openDropdown && (
@@ -78,6 +76,6 @@ const StudentNav = () => {
             </div>
         </div>
     )
-}
 
-export default StudentNav;
+}
+export default EmployeeNav;

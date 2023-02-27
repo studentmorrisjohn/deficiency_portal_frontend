@@ -6,7 +6,7 @@ import FacultyLogin from './components/FacultyLogin'
 import HomescreenStudent from './components/Student/HomescreenStudent'
 import ProfileStudent from './components/Student/ProfileStudent';
 import PasswordStudent from './components/Student/PasswordStudent'
-
+import HomescreenEmployee from './components/Employee/HomescreenEmployee'
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
           <Route path = "/HomescreenStudent" element={<HomescreenStudent/>} />
           <Route path = "/ProfileStudent" element={<ProfileStudent/>}/>
           <Route path = "/PasswordStudent" element={<PasswordStudent/>} />
+          <Route path = "/HomescreenEmployee" element={<HomescreenEmployee/>} />
         </Routes>
       </Router>
 

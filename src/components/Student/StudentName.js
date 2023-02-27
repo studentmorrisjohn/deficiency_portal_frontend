@@ -13,7 +13,7 @@ const StudentName = () => {
     useEffect(() => {
         async function getName() {
             const response = await fetchName();
-            console.log(response);
+            
 
             setStudentName(response);
         }

@@ -19,6 +19,7 @@ const StudentLogin = () => {
             if (response.isAuthenticated === "success") {
                 authenticate();
             }
+
         }
 
         if (!isAuthenticated) {

@@ -16,19 +16,19 @@ const EmployeeNav = () => {
     const authenticate = useAuthenticatedStore((state) => state.authenticate);
     const unAuthenticate = useAuthenticatedStore((state) => state.unAuthenticate);
 
-    async function checkAuthenticationStatus() {
-        const response = await checkAuthenticated();
+    // async function checkAuthenticationStatus() {
+    //     const response = await checkAuthenticated();
 
-        if (response.isAuthenticated === "error") {
-            navigate('/');
-        } else {
-            authenticate();
+    //     if (response.isAuthenticated === "error") {
+    //         navigate('/');
+    //     } else {
+    //         authenticate();
 
-            if (response.role === "STUDENT") {
-                navigate('/HomescreenStudent');
-            }
-        }
-    } 
+    //         if (response.role === "STUDENT") {
+    //             navigate('/HomescreenStudent');
+    //         }
+    //     }
+    // } 
 
     async function logout() {
         const response = await fetchLogout();
@@ -39,25 +39,36 @@ const EmployeeNav = () => {
         }
     }
 
-    useEffect(() => {
-        if (!isAuthenticated) {
-            checkAuthenticationStatus();
-        }
+    // useEffect(() => {
+    //     if (!isAuthenticated) {
+    //         checkAuthenticationStatus();
+    //     }
         
-    }, []);
+    // }, []);
+
+    // useEffect(() => {
+    //     console.log(openDropdown);
+        
+    // }, [openDropdown]);
 
 
-    useEffect(() => {
-        checkAuthenticationStatus();
-    }, [isAuthenticated]);
+    // useEffect(() => {
+    //     checkAuthenticationStatus();
+    // }, [isAuthenticated]);
+
+    function showDropdown() {
+        setOpenDropdown(!openDropdown);
+        console.log(openDropdown);
+        console.log("tangina mo gago ka ");
+    }
 
     return (
         <div className="header">
             <img src={pupLOGO} className="pupLogo2" />
             <span className="home-text9">Student Deficiency Portal</span>
             <img src={house} className="image2" onClick={() => {navigate('/HomescreenEmployee');}}/>
-            <div className="dropdown">
-                <img src={usercircle} className="image3" onClick={() => setOpenDropdown(!openDropdown)} />
+            {/* <div className="dropdown">
+                <img src={usercircle} className="image3" onClick={showDropdown}/>
                 {openDropdown && (
                     <div className="dropdown-menu">
                         <ul>
@@ -73,6 +84,24 @@ const EmployeeNav = () => {
                         </ul>
                     </div>
                 )}
+            </div> */}
+            <div className="dropdown">
+                <img src={usercircle} className="image3" onClick={() => setOpenDropdown(!openDropdown)} />
+                {openDropdown ? (
+                    <div className="dropdown-menu">
+                        <ul>
+
+                            <li onClick={() => {
+                                navigate('/ProfileStudent');
+                            }}> Profile</li>
+                            <li onClick={() => {
+                                navigate('/PasswordStudent');
+                            }}>Change Password</li>
+                            <li onClick={logout}>Sign Out</li>
+
+                        </ul>
+                    </div>
+                ) : " "}
             </div>
         </div>
     )

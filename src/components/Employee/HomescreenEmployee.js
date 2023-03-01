@@ -1,10 +1,11 @@
 import '../style.css'
 import React from "react"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import AddDeficiencyModal from "./AddDeficiencyModal";
 import EmployeeNav from './EmployeeNav';
 import DeficiencyNamesTable from './DeficiencyNamesTable';
+import DeficiencyNamesSearch from './DeficiencyNamesSearch';
 
 const pupLOGO = new URL("../images/PUPLOGO.png", import.meta.url)
 const house = new URL("../images/House.png", import.meta.url)
@@ -12,12 +13,6 @@ const usercircle = new URL("../images/UserCircle.png", import.meta.url)
 
 const HomescreenEmployee = () => {
     const [openModal, setOpenModal] = useState(false);
-
-    const [searchBoxInput, setSearchBoxInput] = useState("");
-
-    const onChange = (e) => {
-        setSearchBoxInput(e.target.value);
-    };
 
     return (
         <>
@@ -30,8 +25,8 @@ const HomescreenEmployee = () => {
                     <div className="container13">
                         <div className="container14">
                             <span className="home-text18">Enter Keyword:</span>
-                            <input placeholder="Deficiency" className="text-input3"></input>
-                            <button className="home-button4">Search</button>
+                            <DeficiencyNamesSearch />
+                            
                             <button className="home-button5" onClick={() => { setOpenModal(true); }}>Add New Deficiency</button>
                         </div>
                         <DeficiencyNamesTable />

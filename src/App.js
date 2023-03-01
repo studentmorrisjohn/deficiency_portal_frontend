@@ -7,6 +7,10 @@ import HomescreenStudent from './components/Student/HomescreenStudent'
 import ProfileStudent from './components/Student/ProfileStudent';
 import PasswordStudent from './components/Student/PasswordStudent'
 import HomescreenEmployee from './components/Employee/HomescreenEmployee'
+import StudentListDocument from './components/Employee/StudentListDocument';
+import StudentListFinance from './components/Employee/StudentListFinance'
+import ProfileEmployee from './components/Employee/ProfileEmployee'
+import PasswordEmployee from './components/Employee/PasswordEmployee'
 
 function App() {
   return (
@@ -20,6 +24,10 @@ function App() {
           <Route path = "/ProfileStudent" element={<ProfileStudent/>}/>
           <Route path = "/PasswordStudent" element={<PasswordStudent/>} />
           <Route path = "/HomescreenEmployee" element={<HomescreenEmployee/>} />
+          <Route path = "/PasswordEmployee" element={<PasswordEmployee/>} />
+          <Route path = "/ProfileEmployee" element={<ProfileEmployee/>} />
+          <Route path = "/StudentListDocument" element={<StudentListDocument/>} />
+          <Route path = "/StudentListFinance" element={<StudentListFinance/>} />
         </Routes>
       </Router>
 

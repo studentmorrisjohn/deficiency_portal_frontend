@@ -1,35 +1,18 @@
 import React from "react"
 import { useState, useEffect } from "react"
 import { fetchDeficiencyNames } from "../../functions/employee";
+import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 import DeficiencyNamesRow from "./DeficiencyNamesRow";
 
 const DeficiencyNamesTable = () => {
-    const [deficiencyNames, setDeficiencyNames] = useState([]);
-    
-
-    useEffect(() => {
-        async function getDeficiencyNames() {
-            const response = await fetchDeficiencyNames();
-            if (response.warning) {
-                setDeficiencyNames("You don't have any deficiencies");
-            } else {
-                const deficiencyList = response.map((deficiencyName) => 
-                    <DeficiencyNamesRow deficiencyName={deficiencyName} />
-                );
-                setDeficiencyNames(deficiencyList);
-            }
-        }
-
-        getDeficiencyNames();
-    }, []);
-
+    const deficiencyNames = useDeficiencyNamesStore((state) => state.deficiencyNames);
     return (
         <div className="container15">
             <table>
                 <thead>
                     <tr>
                         <th>
-                            Deficiency ID
+                            Deficiency Name
                         </th>
                         <th>
                             Category

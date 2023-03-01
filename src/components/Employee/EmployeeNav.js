@@ -63,45 +63,31 @@ const EmployeeNav = () => {
     }
 
     return (
-        <div className="header">
-            <img src={pupLOGO} className="pupLogo2" />
-            <span className="home-text9">Student Deficiency Portal</span>
-            <img src={house} className="image2" onClick={() => {navigate('/HomescreenEmployee');}}/>
-            {/* <div className="dropdown">
-                <img src={usercircle} className="image3" onClick={showDropdown}/>
-                {openDropdown && (
-                    <div className="dropdown-menu">
-                        <ul>
+        <div className="realheader">
+            <div className="headercontainer">
+                <img src={pupLOGO} className="pupLogo2" />
+                <span className="home-text9">Student Deficiency Portal</span>
+            </div>
+            <div className="headercontainer1">
+                <img src={house} className="image2" onClick={() => { navigate("/HomescreenEmployee"); }} />
+                <div className="dropdown">
+                    <img src={usercircle} className="image3" onClick={() => setOpenDropdown(!openDropdown)} />
+                    {openDropdown && (
+                        <div className="dropdown-menu">
+                            <ul>
 
-                            <li onClick={() => {
-                                navigate('/ProfileStudent');
-                            }}> Profile</li>
-                            <li onClick={() => {
-                                navigate('/PasswordStudent');
-                            }}>Change Password</li>
-                            <li onClick={logout}>Sign Out</li>
+                                <li onClick={() => {
+                                    navigate("/ProfileEmployee");
+                                }}> Profile</li>
+                                <li onClick={() => {
+                                    navigate("/PasswordEmployee");
+                                }}>Change Password</li>
+                                <li>Sign Out</li>
 
-                        </ul>
-                    </div>
-                )}
-            </div> */}
-            <div className="dropdown">
-                <img src={usercircle} className="image3" onClick={() => setOpenDropdown(!openDropdown)} />
-                {openDropdown ? (
-                    <div className="dropdown-menu">
-                        <ul>
-
-                            <li onClick={() => {
-                                navigate('/ProfileStudent');
-                            }}> Profile</li>
-                            <li onClick={() => {
-                                navigate('/PasswordStudent');
-                            }}>Change Password</li>
-                            <li onClick={logout}>Sign Out</li>
-
-                        </ul>
-                    </div>
-                ) : " "}
+                            </ul>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     )

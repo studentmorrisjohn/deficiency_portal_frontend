@@ -1,19 +1,31 @@
 import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 
 const AddDeficiencyModal = ({ closeModal }) => {
 
-    const [deficiencystate, setdeficiencystate] = useState("document");   
+    const [deficiencystate, setdeficiencystate] = useState("document");
+    const [deficiencyNameInput, setDeficiencyNameInput] = useState("");
+    const setActiveDeficiencyName = useDeficiencyNamesStore((state) => state.setActiveDeficiencyName);
     const navigate = useNavigate();
 
+    const onChange = (e) => {
+        setDeficiencyNameInput(e.target.value);
+    }
+
     const gotoPage = () => {
-        if (deficiencystate === "document") {
-           navigate("/StudentListDocument")
+        if (deficiencyNameInput !== "") {
+            if (deficiencystate === "document") {
+                setActiveDeficiencyName({"name":deficiencyNameInput, "category": "Document"});
+                navigate("/StudentListDocument");
+             }
+             if (deficiencystate === "finance") {
+                setActiveDeficiencyName({"name":deficiencyNameInput, "category": "Finance"});
+                 navigate("/StudentListFinance");
+            }    
         }
-        if (deficiencystate === "finance") {
-            navigate("/StudentListFinance")
-       }    
+        
     } 
 
     return (
@@ -29,7 +41,7 @@ const AddDeficiencyModal = ({ closeModal }) => {
                             <span className="modalText3">Category</span>
                         </div>
                         <div className="modalContainer11">
-                            <input className="modalInput" placeholder="Form 138"></input>
+                            <input className="modalInput" placeholder="Form 138" onChange={onChange}></input>
                             <select className="modalSelect" onChange={(e) => {
                                 const selectstate = e.target.value;
                                 setdeficiencystate(selectstate)

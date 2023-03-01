@@ -1,11 +1,11 @@
 import React from "react";
-import './style.css';
+import '../style.css'
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 
-const pupLOGO = new URL("./images/PUPLOGO.png", import.meta.url)
-const house = new URL("./images/House.png", import.meta.url)
-const usercircle = new URL("./images/UserCircle.png", import.meta.url)
+const pupLOGO = new URL("../images/PUPLOGO.png", import.meta.url)
+const house = new URL("../images/House.png", import.meta.url)
+const usercircle = new URL("../images/UserCircle.png", import.meta.url)
 const StudentListFinance = () => {
 
     const [openDropdown, setOpenDropdown] = useState(false);

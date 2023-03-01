@@ -7,7 +7,6 @@ import StudentNav from "./StudentNav"
 import StudentName from "./StudentName"
 import DeficiencyListTable from "./DeficiencyListTable"
 import useDeficiencyModalStore from "../../hooks/useDeficiencyModalStore"
-import TestModal from "./TestModal"
 
 const HomescreenStudent = () => {
     const deficiencyModal = useDeficiencyModalStore((state) => state.deficiencyModal);

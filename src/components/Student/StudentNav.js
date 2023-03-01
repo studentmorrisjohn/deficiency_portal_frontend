@@ -1,8 +1,8 @@
-import React, {useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 
 import useAuthenticatedStore from '../../hooks/useAuthenticatedStore'
-import {checkAuthenticated, fetchLogout} from '../../functions/auth';
+import { checkAuthenticated, fetchLogout } from '../../functions/auth';
 
 const pupLOGO = new URL("../images/PUPLOGO.png", import.meta.url)
 const house = new URL("../images/House.png", import.meta.url)
@@ -45,7 +45,7 @@ const StudentNav = () => {
     //     if (!isAuthenticated) {
     //         checkAuthenticationStatus();
     //     }
-        
+
     // }, []);
 
 
@@ -55,26 +55,31 @@ const StudentNav = () => {
 
     return (
         <div className="header">
-            <img src={pupLOGO} className="pupLogo2" />
-            <span className="home-text9">Student Deficiency Portal</span>
-            <img src={house} className="image2" onClick={() => {navigate('/HomescreenStudent');}}/>
-            <div className="dropdown">
-                <img src={usercircle} className="image3" onClick={() => setOpenDropdown(!openDropdown)} />
-                {openDropdown && (
-                    <div className="dropdown-menu">
-                        <ul>
+            <div className="logo_textContainer">
+                <img src={pupLOGO} className="headerLogo" />
+                <span className="headerText">Student Deficiency Portal</span>
+            </div>
 
-                            <li onClick={() => {
-                                navigate('/ProfileStudent');
-                            }}> Profile</li>
-                            <li onClick={() => {
-                                navigate('/PasswordStudent');
-                            }}>Change Password</li>
-                            <li onClick={logout}>Sign Out</li>
+            <div className="iconContainer">
+                <img src={house} className="homeLogo" onClick={() => { navigate('/HomescreenStudent'); }} />
+                <div className="dropdown">
+                    <img src={usercircle} className="userLogo" onClick={() => setOpenDropdown(!openDropdown)} />
+                    {openDropdown && (
+                        <div className="dropdown-menu">
+                            <ul>
 
-                        </ul>
-                    </div>
-                )}
+                                <li onClick={() => {
+                                    navigate('/ProfileStudent');
+                                }}> Profile</li>
+                                <li onClick={() => {
+                                    navigate('/PasswordStudent');
+                                }}>Change Password</li>
+                                <li onClick={logout}>Sign Out</li>
+
+                            </ul>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     )

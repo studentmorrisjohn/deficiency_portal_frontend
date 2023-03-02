@@ -61,23 +61,21 @@ const FacultyLogin = () => {
     return (
         <>
              <div className="pupBG">
-                <form onSubmit={e => onSubmit(e)}>
-                    <div className="pupside">
+                <form className = "pupside" onSubmit={e => onSubmit(e)}>
                         <img src={pupLOGO} className="pupLogo" />
-                        <span className="home-text5">PUP Student Deficiency Portal</span>
-                        <span className="home-text6">Sign in to start your session</span>
-                        <input name="username" type='text' placeholder="Student Number" className="textinput" onChange={e => onChange(e)} />
-                        <input name="password" type='password' placeholder="Password" className="textinput1" onChange={e => onChange(e)} />
-                        <div className="container">
-                            <img src={key} className="image1" />
-                            <span className="home-text7"> Forgot Password </span>
+                        <span className="main_heading">PUP Student Deficiency Portal</span>
+                        <span className="subtext_main">Sign in to start your session</span>
+                        <input name="username" type='text' placeholder="Username" className="username_input" onChange={e => onChange(e)} />
+                        <input name="password" type='password' placeholder="Password" className="password_input" onChange={e => onChange(e)} />
+                        <div className="forgotpass_container">
+                            <img src={key} className="forgotpass_image" />
+                            <span className="forgotpass_text"> Forgot Password </span>
                         </div>
-                        <button className="home-button2" type="submit">
+                        <button className="btn_stdnt" type="submit">
                             Sign in
                         </button>
-                        <span className="home-text8">By using this service, you understood and agree to the <br />
-                            PUP Online Services <span className="home-text4">Terms of Use</span> and <span className="home-text4">Privacy Statement</span></span>
-                    </div>
+                        <span className="subtext_main">By using this service, you understood and agree to the
+                            PUP Online Services <span className="subtext_blue">Terms of Use</span> and <span className="subtext_blue">Privacy Statement</span></span>
                 </form>
             </div>
         </>

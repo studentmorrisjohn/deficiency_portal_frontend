@@ -1,8 +1,8 @@
-import React, {useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 
 import useAuthenticatedStore from '../../hooks/useAuthenticatedStore'
-import {checkAuthenticated, fetchLogout} from '../../functions/auth';
+import { checkAuthenticated, fetchLogout } from '../../functions/auth';
 
 const pupLOGO = new URL("../images/PUPLOGO.png", import.meta.url)
 const house = new URL("../images/House.png", import.meta.url)
@@ -45,7 +45,7 @@ const StudentNav = () => {
     //     if (!isAuthenticated) {
     //         checkAuthenticationStatus();
     //     }
-        
+
     // }, []);
 
 

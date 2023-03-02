@@ -43,56 +43,56 @@ export async function fetchDeficiencyList() {
 }
 
 export async function fetchDeficiencyDetails(deficiency_id) {
-    // const url = `${process.env.REACT_APP_API_URL}/api/student/deficiency-details/${deficiency_id}`;
+    const url = `${process.env.REACT_APP_API_URL}/api/student/deficiency-details/${deficiency_id}`;
 
-    // const response = await fetch(url);
-    // const jsonData = await response.json();
+    const response = await fetch(url);
+    const jsonData = await response.json();
 
-    const jsonData = {
-        "id": 1,
-        "category": "Finance",
-        "name": "Utang Sa Club haha",
-        "status": "Pending",
-        "balance": 135.0,
-        "student_summary": {
-            "student_id": "2019-041799-MN-0",
-            "name": "Montemayor, Morris John Antipolo",
-            "affiliations": [
-                {
-                    "id": 7,
-                    "organization": {
-                        "name": "American Concrete Institute Philippines - Polytechnic University of the Philippines Student Chapter- (ACIP-PUPSC)"
-                    },
-                    "role": "Member"
-                },
-                {
-                    "id": 10,
-                    "organization": {
-                        "name": "Association of Concerned Computer Engineering Students for Service (ACCESS)"
-                    },
-                    "role": "Pogi sa Club"
-                },
-                {
-                    "id": 11,
-                    "organization": {
-                        "name": "Christians on Demand at Law"
-                    },
-                    "role": "Epal"
-                },
-                {
-                    "id": 12,
-                    "organization": {
-                        "name": "PUP KASARIANLAN"
-                    },
-                    "role": "Papa"
-                }
-            ]
-        },
-        "added_by": "John Doe",
-        "processed_by": "------",
-        "date_added": "2023-02-23",
-        "date_fulfilled": null
-    }
+    // const jsonData = {
+    //     "id": 1,
+    //     "category": "Finance",
+    //     "name": "Utang Sa Club haha",
+    //     "status": "Pending",
+    //     "balance": 135.0,
+    //     "student_summary": {
+    //         "student_id": "2019-041799-MN-0",
+    //         "name": "Montemayor, Morris John Antipolo",
+    //         "affiliations": [
+    //             {
+    //                 "id": 7,
+    //                 "organization": {
+    //                     "name": "American Concrete Institute Philippines - Polytechnic University of the Philippines Student Chapter- (ACIP-PUPSC)"
+    //                 },
+    //                 "role": "Member"
+    //             },
+    //             {
+    //                 "id": 10,
+    //                 "organization": {
+    //                     "name": "Association of Concerned Computer Engineering Students for Service (ACCESS)"
+    //                 },
+    //                 "role": "Pogi sa Club"
+    //             },
+    //             {
+    //                 "id": 11,
+    //                 "organization": {
+    //                     "name": "Christians on Demand at Law"
+    //                 },
+    //                 "role": "Epal"
+    //             },
+    //             {
+    //                 "id": 12,
+    //                 "organization": {
+    //                     "name": "PUP KASARIANLAN"
+    //                 },
+    //                 "role": "Papa"
+    //             }
+    //         ]
+    //     },
+    //     "added_by": "John Doe",
+    //     "processed_by": "------",
+    //     "date_added": "2023-02-23",
+    //     "date_fulfilled": null
+    // }
     return jsonData;
 }
 

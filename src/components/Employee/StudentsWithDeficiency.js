@@ -5,12 +5,17 @@ import { Navigate } from "react-router-dom";
 import EmployeeNav from './EmployeeNav.js'
 import StudentWithDeficiencyListTable from "./StudentWithDeficiencyListTable";
 import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
+import DeficiencyModal from "../Student/DeficiencyModal";
+import useDeficiencyModalStore from "../../hooks/useDeficiencyModalStore"
+import StudentsWithDeficiencySearch from "./StudentsWithDeficiencySearch";
 
-const StudentListDocument = () => {
+const StudentsWithDeficiency = () => {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
+    const deficiencyModal = useDeficiencyModalStore((state) => state.deficiencyModal);
 
     return (
         <>
+            <div> {deficiencyModal && <DeficiencyModal />} </div>
             <div className="container2">
                 <EmployeeNav />
                 <div className="container16">
@@ -18,14 +23,7 @@ const StudentListDocument = () => {
                         <span className="home-text19">{activeDeficiencyName.name} ({activeDeficiencyName.category})</span>
                     </div>
                     <div className="container18">
-                        <div className="container19">
-                            <span className="home-text20">Enter Keyword:</span>
-                            <input placeholder="Student Number"></input>
-                            <span className="home-text20">Enter Keyword:</span>
-                            <input placeholder="Name"></input>
-                            <button className="home-button6">Search</button>
-                            <button className="home-button7">Add New Student</button>
-                        </div>
+                        <StudentsWithDeficiencySearch />
                         <div className="container20">
                             <StudentWithDeficiencyListTable />
                         </div>
@@ -48,4 +46,4 @@ const StudentListDocument = () => {
     )
 }
 
-export default StudentListDocument;
+export default StudentsWithDeficiency;

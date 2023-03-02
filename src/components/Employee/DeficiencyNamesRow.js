@@ -7,7 +7,7 @@ function DeficiencyNamesRow({deficiencyName}) {
 
     const gotoPage = () => {
         setActiveDeficiencyName({"name":deficiencyName.name, "category": deficiencyName.category});
-        navigate(deficiencyName.category === "Finance" ? "/StudentListFinance" : "/StudentListDocument");
+        navigate("/StudentsWithDeficiency");
     }
 
     return ( 

@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { fetchStudentsWithDeficiencyList } from "../../functions/employee";
 import useStudentWithDeficiencyListStore from "../../hooks/useStudentWithDeficiencyListStore";
 import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
-import StudentListRow from "./StudentListRow";
+import StudentWithDeficiencyListRow from "./StudentWithDeficiencyListRow";
 
-function StudentListTable() {
+function StudentsWithDeficiencySearch() {
     const studentsWithDeficiencyList = useStudentWithDeficiencyListStore((state) => state.studentsWithDeficiencyList);
     const setStudentsWithDeficiencyList = useStudentWithDeficiencyListStore((state) => state.setStudentsWithDeficiencyList);
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
@@ -21,7 +21,7 @@ function StudentListTable() {
             );
         } else {
             const studentList = response.map((studentWithDeficiency) => 
-                <StudentListRow studentWithDeficiency={studentWithDeficiency} />
+                <StudentWithDeficiencyListRow studentWithDeficiency={studentWithDeficiency} />
             );
             setStudentsWithDeficiencyList(studentList);
             console.log(response);
@@ -32,30 +32,15 @@ function StudentListTable() {
         getStudentsWithDeficiency();
     }, []);
 
-    return ( <table>
-        <thead>
-            <tr>
-                <th>
-                    Student Number
-                </th>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Affiliation
-                </th>
-                <th>
-                    Status
-                </th>
-                <th>
-                    Action
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            {studentsWithDeficiencyList}            
-        </tbody>
-    </table> );
+
+    return ( <div className="container19">
+    <span className="home-text20">Enter Keyword:</span>
+    <input placeholder="Student Number"></input>
+    <span className="home-text20">Enter Keyword:</span>
+    <input placeholder="Name"></input>
+    <button className="home-button6">Search</button>
+    <button className="home-button7">Add New Student</button>
+</div> );
 }
 
-export default StudentListTable;
+export default StudentsWithDeficiencySearch;

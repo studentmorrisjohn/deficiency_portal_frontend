@@ -5,6 +5,8 @@ import useDeficiencyModalStore from "../../hooks/useDeficiencyModalStore"
 const DeficiencyModal = () => {
     const closeModal = useDeficiencyModalStore((state) => state.closeDeficiencyModal);
     const activeDeficiencyId = useDeficiencyModalStore((state) => state.activeDeficiencyId);
+    const adminMode = useDeficiencyModalStore((state) => state.adminMode);
+
     const [deficiencyDetails, setDeficiencyDetails] = useState({
         id: 0,
         category: "",
@@ -79,8 +81,13 @@ const DeficiencyModal = () => {
                         </div>
                     </div>
                     <div className="modalContainer6">
+
+                    {adminMode ? <button className="modalButton"
+                    onClick={closeModal}> Update </button> : ""}
+                    
                     <button className="modalButton"
                     onClick={closeModal}> Close </button>
+                    
                     </div>
                 </div>
             </div>

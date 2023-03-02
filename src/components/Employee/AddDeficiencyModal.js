@@ -16,14 +16,8 @@ const AddDeficiencyModal = ({ closeModal }) => {
 
     const gotoPage = () => {
         if (deficiencyNameInput !== "") {
-            if (deficiencystate === "document") {
-                setActiveDeficiencyName({"name":deficiencyNameInput, "category": "Document"});
-                navigate("/StudentListDocument");
-             }
-             if (deficiencystate === "finance") {
-                setActiveDeficiencyName({"name":deficiencyNameInput, "category": "Finance"});
-                 navigate("/StudentListFinance");
-            }    
+            navigate("/StudentsWithDeficiency");
+            setActiveDeficiencyName({"name":deficiencyNameInput, "category": deficiencystate === "document" ? "Document" : "Finance"});
         }
         
     } 

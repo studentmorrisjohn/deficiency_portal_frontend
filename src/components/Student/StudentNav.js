@@ -54,29 +54,34 @@ const StudentNav = () => {
     // }, [isAuthenticated]);
 
     return (
-        <div className="header">
-            <img src={pupLOGO} className="pupLogo2" />
-            <span className="home-text9">Student Deficiency Portal</span>
+        <div className="realheader">
+            <div className="headercontainer">
+                <img src={pupLOGO} className="pupLogo2" />
+                <span className="home-text9">Student Deficiency Portal</span>
+            </div>
+            <div className="headercontainer1">
             <img src={house} className="image2" onClick={() => {navigate('/HomescreenStudent');}}/>
-            <div className="dropdown">
-                <img src={usercircle} className="image3" onClick={() => setOpenDropdown(!openDropdown)} />
-                {openDropdown && (
-                    <div className="dropdown-menu">
-                        <ul>
+                <div className="dropdown">
+                    <img src={usercircle} className="image3" onClick={() => setOpenDropdown(!openDropdown)} />
+                    {openDropdown && (
+                        <div className="dropdown-menu">
+                            <ul>
 
-                            <li onClick={() => {
-                                navigate('/ProfileStudent');
-                            }}> Profile</li>
-                            <li onClick={() => {
-                                navigate('/PasswordStudent');
-                            }}>Change Password</li>
-                            <li onClick={logout}>Sign Out</li>
+                                <li onClick={() => {
+                                    navigate('/ProfileStudent');
+                                }}> Profile</li>
+                                <li onClick={() => {
+                                    navigate('/PasswordStudent');
+                                }}>Change Password</li>
+                                <li onClick={logout}>Sign Out</li>
 
-                        </ul>
-                    </div>
-                )}
+                            </ul>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
+
     )
 }
 

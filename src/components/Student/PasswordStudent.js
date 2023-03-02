@@ -29,7 +29,7 @@ const PasswordStudent = () => {
 
     return (
         <>
-            <div className="container2">
+            <div className="screenLayout">
                 <StudentNav />
                 <div className="container3">
                     <span className="home-text10">Change Password</span>

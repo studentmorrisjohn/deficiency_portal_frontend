@@ -11,7 +11,7 @@ const StudentListDocument = () => {
 
     return (
         <>
-            <div className="container2">
+            <div className="screenLayout">
                 <EmployeeNav />
                 <div className="container16">
                     <div className="container17">

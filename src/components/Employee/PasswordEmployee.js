@@ -28,7 +28,7 @@ const PasswordEmployee = () => {
 
     return (
         <>
-            <div className="container2">
+            <div className="screenLayout">
                 <div className="realheader">
                     <div className="headercontainer">
                         <img src={pupLOGO} className="pupLogo2" />

@@ -15,7 +15,7 @@ function DeficiencyNamesSearch() {
             setDeficiencyNames("You don't have any deficiencies");
         } else {
             const deficiencyList = response.map((deficiencyName) => 
-                <DeficiencyNamesRow deficiencyName={deficiencyName} />
+                <DeficiencyNamesRow deficiencyName={deficiencyName} key={deficiencyName.name} />
             );
             setDeficiencyNames(deficiencyList);
         }

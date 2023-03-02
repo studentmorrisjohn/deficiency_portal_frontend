@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
-import { fetchStudentsWithDeficiencyList } from "../../functions/employee";
+import { fetchAllStudentsList, fetchStudentsWithDeficiencyList } from "../../functions/employee";
 import useStudentWithDeficiencyListStore from "../../hooks/useStudentWithDeficiencyListStore";
 import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 import StudentWithDeficiencyListRow from "./StudentWithDeficiencyListRow";
-import { useNavigate } from "react-router-dom";
+import useAddStudentListStore from "../../hooks/useAddStudentListStore";
+import AddStudentRow from "./AddStudentRow";
 
-function StudentsWithDeficiencySearch() {
-    const studentsWithDeficiencyList = useStudentWithDeficiencyListStore((state) => state.studentsWithDeficiencyList);
+function AddStudentSearch() {
     const setStudentsWithDeficiencyList = useStudentWithDeficiencyListStore((state) => state.setStudentsWithDeficiencyList);
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
-    const navigate = useNavigate();
+    const setAddStudentList = useAddStudentListStore((state) => state.setAddStudentList);
 
     const [formData, setFormData] = useState({
         student_id: "",
@@ -18,39 +18,39 @@ function StudentsWithDeficiencySearch() {
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    async function getStudentsWithDeficiency(student_id, student_name) {
-        const response = await fetchStudentsWithDeficiencyList(activeDeficiencyName.name, student_id, student_name);
+    async function getAllStudents(student_id, student_name) {
+        const response = await fetchAllStudentsList(activeDeficiencyName.name, student_id, student_name);
         if (response.warning) {
-            setStudentsWithDeficiencyList(
+            setAddStudentList(
             <tr>
                 <td>
-                    There are no students with this deficiency yet.
+                    Something Went Wrong.
                 </td>
             </tr>
             );
         } else {
-            const studentList = response.map((studentWithDeficiency) => 
-                <StudentWithDeficiencyListRow studentWithDeficiency={studentWithDeficiency} />
+            const studentList = response.map((student) => 
+                <AddStudentRow student={student} />
             );
-            setStudentsWithDeficiencyList(studentList);
+            setAddStudentList(studentList);
         }
     }
 
     useEffect(() => {
-        getStudentsWithDeficiency("", "");
+        getAllStudents("", "");
     }, []);
 
 
     useEffect(() => {
         if (formData.student_id === "" && formData.student_name === "") {
-            getStudentsWithDeficiency("", "");
+            getAllStudents("", "");
         }
         
     }, [formData]);
 
 
     function searchStudents() {
-        getStudentsWithDeficiency(formData.student_id, formData.student_name);
+        getAllStudents(formData.student_id, formData.student_name);
     }
 
     return ( <div className="container19">
@@ -59,8 +59,7 @@ function StudentsWithDeficiencySearch() {
     <span className="home-text20">Enter Keyword:</span>
     <input placeholder="Name" name="student_name" onChange={onChange}></input>
     <button className="home-button6" onClick={searchStudents}>Search</button>
-    <button className="home-button7" onClick={() => {navigate("/AddStudent")}}>Add New Student</button>
 </div> );
 }
 
-export default StudentsWithDeficiencySearch;
+export default AddStudentSearch;

@@ -12,6 +12,7 @@ import StudentListFinance from './components/Employee/StudentListFinance'
 import ProfileEmployee from './components/Employee/ProfileEmployee'
 import PasswordEmployee from './components/Employee/PasswordEmployee'
 import StudentsWithDeficiency from './components/Employee/StudentsWithDeficiency';
+import AddStudent from './components/Employee/AddStudent';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path = "/PasswordEmployee" element={<PasswordEmployee/>} />
           <Route path = "/ProfileEmployee" element={<ProfileEmployee/>} />
           <Route path = "/StudentsWithDeficiency" element={<StudentsWithDeficiency />} />
+          <Route path='/AddStudent' element={<AddStudent />} />
         </Routes>
       </Router>
 

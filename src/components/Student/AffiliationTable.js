@@ -26,7 +26,7 @@ const AffiliationTable = () => {
     }, []);
 
     return (
-        <div className="center-div">
+        <div className="affiliation_table">
             <table>
                 <thead>
                     <tr>

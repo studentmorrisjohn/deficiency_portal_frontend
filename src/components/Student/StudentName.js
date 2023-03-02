@@ -23,7 +23,7 @@ const StudentName = () => {
     }, []);
 
     return (
-        <span className="home-text11">{studentName.last_name}, {studentName.first_name} {studentName.middle_name} ({studentName.username})</span>
+        <span className="red_name">{studentName.last_name}, {studentName.first_name} {studentName.middle_name} ({studentName.username})</span>
     )
 }
 

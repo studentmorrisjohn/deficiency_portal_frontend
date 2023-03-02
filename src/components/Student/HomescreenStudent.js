@@ -12,18 +12,17 @@ const HomescreenStudent = () => {
     const deficiencyModal = useDeficiencyModalStore((state) => state.deficiencyModal);
 
     return (
-        <>  
+        <>
             <div> {deficiencyModal && <DeficiencyModal />} </div>
             <div className="screenLayout">
                 <StudentNav />
 
-                <div className="container3">
-                    <span className="home-text10">Home</span>
-                </div>
-
-                <div className="container4">
-                    <StudentName />
-                    <DeficiencyListTable />
+                <div className="title_contentDiv">
+                    <span className="page-title">Home</span>
+                    <div className="outerDiv">
+                        <StudentName />
+                        <DeficiencyListTable />
+                    </div>
                 </div>
             </div>
         </>

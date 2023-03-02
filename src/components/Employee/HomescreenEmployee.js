@@ -17,7 +17,7 @@ const HomescreenEmployee = () => {
     return (
         <>
             <div> {openModal && <AddDeficiencyModal closeModal={setOpenModal} />} </div>
-            <div className="container2">
+            <div className="screenLayout">
                 <EmployeeNav />
                 <span className="home-text16"> Home </span>
                 <div className="container12">

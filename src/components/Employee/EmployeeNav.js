@@ -63,15 +63,15 @@ const EmployeeNav = () => {
     }
 
     return (
-        <div className="realheader">
-            <div className="headercontainer">
-                <img src={pupLOGO} className="pupLogo2" />
-                <span className="home-text9">Student Deficiency Portal</span>
+        <div className="header">
+            <div className="logo_textContainer">
+                <img src={pupLOGO} className="headerLogo" />
+                <span className="headerText">Student Deficiency Portal</span>
             </div>
-            <div className="headercontainer1">
-                <img src={house} className="image2" onClick={() => { navigate("/HomescreenEmployee"); }} />
+            <div className="iconContainer">
+                <img src={house} className="homeLogo" onClick={() => { navigate("/HomescreenEmployee"); }} />
                 <div className="dropdown">
-                    <img src={usercircle} className="image3" onClick={() => setOpenDropdown(!openDropdown)} />
+                    <img src={usercircle} className="userLogo" onClick={() => setOpenDropdown(!openDropdown)} />
                     {openDropdown && (
                         <div className="dropdown-menu">
                             <ul>

@@ -32,7 +32,7 @@ const ProfileStudent = () => {
     
     return (
         <>
-            <div className="container2">
+            <div className="screenLayout">
                 <StudentNav />
 
                 <div className="container3">

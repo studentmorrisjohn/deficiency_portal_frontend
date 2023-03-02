@@ -7,7 +7,7 @@ import DeficiencyNamesRow from "./DeficiencyNamesRow";
 const DeficiencyNamesTable = () => {
     const deficiencyNames = useDeficiencyNamesStore((state) => state.deficiencyNames);
     return (
-        <div className="container15">
+        <div className="deficiency_table">
             <table>
                 <thead>
                     <tr>

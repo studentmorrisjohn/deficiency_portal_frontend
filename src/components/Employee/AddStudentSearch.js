@@ -53,12 +53,12 @@ function AddStudentSearch() {
         getAllStudents(formData.student_id, formData.student_name);
     }
 
-    return ( <div className="container19">
-    <span className="home-text20">Enter Keyword:</span>
-    <input placeholder="Student Number" name="student_id" onChange={onChange}></input>
-    <span className="home-text20">Enter Keyword:</span>
-    <input placeholder="Name" name="student_name" onChange={onChange}></input>
-    <button className="home-button6" onClick={searchStudents}>Search</button>
+    return ( <div className="addStudentSearch">
+    <span className="addStudentSearch_subtext">Enter Keyword:</span>
+    <input placeholder="Student Number" className="standard_textinput" name="student_id" onChange={onChange}></input>
+    <span className="addStudentSearch_subtext">Enter Keyword:</span>
+    <input placeholder="Name" className="standard_textinput" name="student_name" onChange={onChange}></input>
+    <button className="blue_button" onClick={searchStudents}>Search</button>
 </div> );
 }
 

@@ -19,17 +19,19 @@ const HomescreenEmployee = () => {
             <div> {openModal && <AddDeficiencyModal closeModal={setOpenModal} />} </div>
             <div className="screenLayout">
                 <EmployeeNav />
-                <span className="home-text16"> Home </span>
-                <div className="container12">
-                    <span className="home-text17">EMPLOYEE NAME (DEPARTMENT)</span>
-                    <div className="container13">
-                        <div className="container14">
-                            <span className="home-text18">Enter Keyword:</span>
-                            <DeficiencyNamesSearch />
-                            
-                            <button className="home-button5" onClick={() => { setOpenModal(true); }}>Add New Deficiency</button>
+                <div className="smaller_title_contentDiv">
+                    <span className="page-title"> Home </span>
+                    <div className="homescreen_Div">
+                        <span className="red_name">EMPLOYEE NAME (DEPARTMENT)</span>
+                        <div className="innerDivider">
+                            <div className="divStudentDeficiencySearch">
+                                <span className="addStudentSearch_subtext">Enter Keyword:</span>
+                                <DeficiencyNamesSearch />
+
+                                <button className="red_button" onClick={() => { setOpenModal(true); }}>Add New Deficiency</button>
+                            </div>
+                            <DeficiencyNamesTable />
                         </div>
-                        <DeficiencyNamesTable />
                     </div>
                 </div>
             </div>

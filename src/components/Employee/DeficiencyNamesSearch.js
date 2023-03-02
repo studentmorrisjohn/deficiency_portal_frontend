@@ -42,8 +42,8 @@ function DeficiencyNamesSearch() {
 
 
     return (<>
-        <input placeholder="Deficiency" className="text-input3" name="deficiencyNameSearchInput" onChange={onChange}></input>
-        <button className="home-button4" onClick={searchName}>Search</button>
+        <input placeholder="Deficiency" className="standard_textinput" name="deficiencyNameSearchInput" onChange={onChange}></input>
+        <button className="blue_button" onClick={searchName}>Search</button>
      </> );
 }
 

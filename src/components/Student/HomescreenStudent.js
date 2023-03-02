@@ -13,7 +13,7 @@ const HomescreenStudent = () => {
 
     return (
         <>  
-            <div> {deficiencyModal && <TestModal />} </div>
+            <div> {deficiencyModal && <DeficiencyModal />} </div>
             <div className="screenLayout">
                 <StudentNav />
 

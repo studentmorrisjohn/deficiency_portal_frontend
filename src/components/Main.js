@@ -22,7 +22,7 @@ const Main = () => {
 
                 <div className="pupside">
                     <img src={pupLOGO} className="pupLogo" />
-                    <span className="main_heading">Welcome, PUPian!</span>
+                    <span className="main_heading">Subo Tit3, PUPian!</span>
                     <span className="subtext_main">Click or Tap in which group you belong</span>
                     <button className="btn_stdnt" onClick={() => {setGoToStudentLogin(true);}}>
                         Student

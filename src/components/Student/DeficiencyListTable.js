@@ -29,7 +29,7 @@ const DeficiencyListTable = () => {
 
     return (
         
-        <div className="container5">
+        <div className="table_div">
             <table>
                 <thead>
                     <tr>

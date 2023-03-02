@@ -198,8 +198,7 @@ button:hover {
 }
 
 
-
-/******************** HomescreenStudent ********************/
+/******************** Universal Screen Layout ********************/
 .screenLayout {
     width: 100%;
     display: flex;
@@ -210,39 +209,26 @@ button:hover {
     justify-content: flex-start;
 }
 
-
-
-
-
-
-
-
-
-
-
-.container3 {
-    flex: 0 0 auto;
-    width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.home-text10 {
-    font-size: 40px;
-    font-style: normal;
-    margin-top: 56px;
-    font-family: Poppins;
-    font-weight: 500;
-    line-height: 60px;
-    margin-left: 124px;
-}
-
-.container4 {
-    flex: 0 0 auto;
+.title_contentDiv {
+    flex: 1;
     width: 85%;
-    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.title_contentDiv_Auto {
+    width: 85%;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.outerDiv {
+    flex: .95;
+    width: 100%;
+    height: auto;
     display: flex;
     align-items: flex-start;
     border-color: #C7C7C7;
@@ -253,18 +239,32 @@ button:hover {
     justify-content: flex-start;
 }
 
-.home-text11 {
+
+
+/******************** HomescreenStudent, StudentName, DeficiencyListTable ********************/
+
+
+.page-title {
+    font-size: 40px;
+    font-style: normal;
+    padding-top: 5vh;
+    font-family: Poppins;
+    font-weight: 500;
+    line-height: 60px;
+}
+
+
+
+.red_name {
     color: #dc3545;
     font-size: 26px;
     font-style: normal;
-    margin-top: 19px;
+    margin: 2rem;
     font-weight: 700;
     line-height: 39px;
-    margin-left: 27px;
-    margin-bottom: 19px;
 }
 
-.container5 {
+.table_div {
     width: 90%;
     height: 80%;
     display: flex;
@@ -277,6 +277,150 @@ button:hover {
     justify-content: flex-start;
 }
 
+
+/******************** Profile Student ********************/
+.inner_div_divider {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-self: center;
+    align-items: flex-start;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 1.5px;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.profile_table {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2rem;
+}
+
+.profile_col {
+    flex: 0 0 auto;
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.profile_row {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: .2rem;
+}
+
+.profile_category {
+    flex: 0 0 auto;
+    height: auto;
+    display: flex;
+    font-size: 20px;
+    font-family: Poppins;
+    line-height: 30px;
+    width: 30%;
+}
+
+.profile_fetched {
+    flex: 0 0 auto;
+    height: auto;
+    display: flex;
+    font-size: 20px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 30px;
+    width: 70%;
+}
+
+.inner_title {
+    font-size: 24px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 36px;
+    margin: 2rem;
+}
+
+.affiliation_table {
+    align-self: center;
+    margin-inline: 2rem;
+}
+
+.italic_text {
+    font-size: 20px;
+    font-style: italic;
+    font-family: Poppins;
+    font-weight: 300;
+    line-height: 30px;
+    padding-top: 20vh;
+    margin: 2rem;
+}
+
+.maroonButton {
+    color: white;
+    font-size: 20px;
+    align-self: center;
+    font-style: normal;
+    margin-top: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+    line-height: 30px;
+    border-radius: 4.3px;
+    background-color: #800000;
+    border:hidden;
+    margin: 2rem;
+    padding: 10px;
+}
+
+
+
+/******************** Password Student ********************/
+
+.password_div {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 1.5px;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.password_div2 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 1.5px;
+    justify-content: center;
+}
+
+.changepass_input {
+    width: 30%;
+    height: 5vh;
+    font-size: 14px;
+    font-family: poppins;
+    padding: 1rem;
+}
+
+
+
+
+
+
+
+/******************** Ayusin mo to seiya bitch ass ********************/
 table {
     border-collapse: collapse;
     width: 100%;
@@ -304,102 +448,6 @@ td {
     line-height: 30px;
 }
 
-.container6 {
-    width: 90%;
-    height: 80%;
-    display: flex;
-    align-self: center;
-    align-items: flex-start;
-    border-color: rgba(120, 120, 120, 0.4);
-    border-style: solid;
-    border-width: 1.5px;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.container7 {
-    flex: 0 0 auto;
-    width: 90%;
-    height: auto;
-    display: flex;
-    align-self: center;
-    margin-top: 22px;
-    align-items: center;
-    border-width: 1.5px;
-    justify-content: flex-start;
-}
-
-.container8 {
-    flex: 0 0 auto;
-    width: 20%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.home-text12 {
-    font-size: 20px;
-    font-family: Poppins;
-    line-height: 30px;
-}
-
-.container9 {
-    flex: 0 0 auto;
-    width: 30%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-}
-
-.home-text13 {
-    font-size: 20px;
-    font-style: normal;
-    font-family: Poppins;
-    font-weight: 600;
-    line-height: 30px;
-}
-
-.home-text14 {
-    font-size: 24px;
-    font-style: normal;
-    margin-top: 37px;
-    font-family: Poppins;
-    font-weight: 600;
-    line-height: 36px;
-    margin-left: 62px;
-}
-
-.center-div {
-    align-self: center;
-}
-
-.home-text15 {
-    font-size: 20px;
-    font-style: italic;
-    margin-top: 99px;
-    font-family: Poppins;
-    font-weight: 300;
-    line-height: 30px;
-    margin-left: 62px;
-}
-
-.home-button3 {
-    color: white;
-    font-size: 20px;
-    align-self: center;
-    font-style: normal;
-    margin-top: 20px;
-    font-family: Poppins;
-    font-weight: 500;
-    line-height: 30px;
-    border-radius: 4.3px;
-    background-color: #800000;
-    margin-bottom: 20px;
-}
-
 .dropdown-menu {
     position: absolute;
     right: 0;
@@ -416,39 +464,7 @@ td {
     position: relative;
 }
 
-.container10 {
-    width: 85%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    border-color: #C7C7C7;
-    border-style: solid;
-    border-width: 1.5px;
-    border-radius: 10px;
-    flex-direction: column;
-    justify-content: flex-start;
-}
 
-.container11 {
-    gap: 24px;
-    flex: 0 0 auto;
-    width: 85%;
-    height: 100px;
-    display: flex;
-    align-self: center;
-    align-items: center;
-    border-color: #C7C7C7;
-    border-width: 1.5px;
-    padding-left: 0px;
-    border-radius: #C7C7C7;
-    justify-content: center;
-    border-style: solid;
-}
-
-.textinput2 {
-    width: 30%;
-    height: 50px;
-}
 
 .modalBackground {
     width: 100%;

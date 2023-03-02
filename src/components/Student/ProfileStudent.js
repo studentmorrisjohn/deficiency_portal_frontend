@@ -29,50 +29,89 @@ const ProfileStudent = () => {
         getStudentProfile();
 
     }, []);
-    
+
     return (
         <>
             <div className="screenLayout">
                 <StudentNav />
 
-                <div className="container3">
-                    <span className="home-text10">Student Profile</span>
-                </div>
+                <div className="title_contentDiv">
+                    <span className="page-title">Student Profile</span>
 
-                <div className="container4">
-                    <StudentName />
-                    <div className="container6">
-                        <div className="container7">
 
-                            <div className="container8">
-                                <span className="home-text12">Student Number</span>
-                                <span className="home-text12">Name</span>
-                                <span className="home-text12">Gender</span>
-                                <span className="home-text12">Birthdate</span>
-                            </div>
-                            <div className="container9">
-                                <span className="home-text13">{studentProfile.username}</span>
-                                <span className="home-text13">{studentProfile.name}</span>
-                                <span className="home-text13">{studentProfile.gender}</span>
-                                <span className="home-text13">{studentProfile.birth_date}</span>
+                    <div className="outerDiv">
+                        <StudentName />
+                        <div className="inner_div_divider">
+                            <div className="profile_table">
+
+                                <div className="profile_col">
+                                    <div className="profile_row">
+                                        <div className="profile_category">
+                                            <span className="">Student No.</span>
+                                        </div>
+                                        <div className="profile_fetched">
+                                            <span className="">{studentProfile.username}</span>
+                                        </div>
+                                    </div>
+                                    <div className="profile_row">
+                                        <div className="profile_category">
+                                            <span className="">Name</span>
+                                        </div>
+                                        <div className="profile_fetched">
+                                            <span className="">{studentProfile.name}</span>
+                                        </div>
+                                    </div>
+                                    <div className="profile_row">
+                                        <div className="profile_category">
+                                            <span className="">Gender</span>
+                                        </div>
+                                        <div className="profile_fetched">
+                                            <span className="">{studentProfile.gender}</span>
+                                        </div>
+                                    </div>
+                                    <div className="profile_row">
+                                        <div className="profile_category">
+                                            <span className="">Birthdate</span>
+                                        </div>
+                                        <div className="profile_fetched">
+                                            <span className="">{studentProfile.birth_date}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="profile_col">
+                                    <div className="profile_row">
+                                        <div className="profile_category">
+                                            <span className="">Program</span>
+                                        </div>
+                                        <div className="profile_fetched">
+                                            <span className="">{studentProfile.department}</span>
+                                        </div>
+                                    </div>
+                                    <div className="profile_row">
+                                        <div className="profile_category">
+                                            <span className="home-text12">Mobile No.</span>
+                                        </div>
+                                        <div className="profile_fetched">
+                                            <span className="">{studentProfile.mobile_number}</span>
+                                        </div>
+                                    </div>
+                                    <div className="profile_row">
+                                        <div className="profile_category">
+                                            <span className="">Webmail</span>
+                                        </div>
+                                        <div className="profile_fetched">
+                                            <span className="">{studentProfile.email}</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div className="container8">
-                                <span className="home-text12">Program</span>
-                                <span className="home-text12">Mobile No.</span>
-                                <span className="home-text12">Webmail</span>
-                            </div>
-                            <div className="container9">
-                                <span className="home-text13">{studentProfile.department}</span>
-                                <span className="home-text13">{studentProfile.mobile_number}</span>
-                                <span className="home-text13">{studentProfile.email}</span>
-                            </div>
+                            <span className="inner_title">Affiliations</span>
+                            <AffiliationTable />
+                            <span className="italic_text">I hereby certify that all the information provided are true and correct to the best of my knowledge.</span>
+                            <button className="maroonButton">Save</button>
                         </div>
-
-                        <span className="home-text14">Affiliations</span>
-                        <AffiliationTable />
-                        <span className="home-text15">I hereby certify that all the information provided are true and correct to the best of my knowledge.</span>
-                        <button className="home-button3">Save</button>
                     </div>
                 </div>
             </div>

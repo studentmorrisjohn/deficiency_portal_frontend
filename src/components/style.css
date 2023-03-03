@@ -239,6 +239,19 @@ button:hover {
     justify-content: flex-start;
 }
 
+.outerDivAuto {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 1.5px;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 .outerDivEmployee {
     flex: .95;
     width: 100%;
@@ -431,7 +444,7 @@ button:hover {
 
 
 
-/******************** AddStudent, HomescreenEmployee ********************/
+/******************** AddStudent, HomescreenEmployee, StudentsWithDeficiency ********************/
 .innerDivHeader {
     width: 100%;
     padding:1rem;
@@ -575,6 +588,17 @@ button:hover {
     flex: 1;
     width: 80%;
 }
+
+.italic_text_employee {
+    font-size: 20px;
+    font-style: italic;
+    font-family: Poppins;
+    font-weight: 300;
+    line-height: 30px;
+    margin: 2rem;
+}
+
+
 /******************** Ayusin mo to seiya bitch ass ********************/
 table {
     border-collapse: collapse;
@@ -727,111 +751,6 @@ td {
     background-color: #C7C7C7;
 }
 
-.home-text16 {
-    font-size: 40px;
-    align-self: flex-start;
-    font-style: normal;
-    margin-top: 64px;
-    font-family: Poppins;
-    font-weight: 500;
-    line-height: 60px;
-    margin-left: 240px;
-}
-
-.container12 {
-    flex: .85;
-    width: 70%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    border-color: rgba(120, 120, 120, 0.4);
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 1.5px;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.home-text17 {
-    color: #DC3545;
-    padding: 16px;
-    font-size: 26px;
-    align-self: flex-start;
-    font-style: normal;
-    font-family: Poppins;
-    font-weight: 700;
-    line-height: 39px;
-}
-
-.container13 {
-    flex: 1;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    border-color: rgba(120, 120, 120, 0.4);
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 1.5px;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.container14 {
-    flex: 0 0 auto;
-    width: 50%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.home-text18 {
-    font-size: 20px;
-    font-style: normal;
-    font-family: Poppins;
-    font-weight: 500;
-    line-height: 30px;
-}
-
-.textinput3 {
-    width: 35%;
-    height: 50%;
-    font-family: Poppins;
-}
-
-.home-button4 {
-    height: 50%;
-    font-size: 20px;
-    text-align: center;
-    font-family: Poppins;
-    line-height: 28px;
-    color: rgb(240, 240, 240);
-    background-color: #3c93e3;
-    border: none;
-    border-radius: 6px;
-}
-
-.home-button5 {
-    height: 50%;
-    font-size: 20px;
-    text-align: center;
-    font-family: Poppins;
-    line-height: 28px;
-    color: rgb(240, 240, 240);
-    background-color: #DC3545;
-    border: none;
-    border-radius: 6px;
-}
-
-.container15 {
-    flex: .9;
-    width: 80%;
-    height: 100px;
-    display: flex;
-    align-items: flex-start;
-    border-radius: 1.5px;
-}
-
 .modalContainer7 {
     width: 28%;
     height: auto;
@@ -953,6 +872,113 @@ td {
     font-family: poppins;
     font-size: 20px;
 }
+
+/******************** Malapit nang idelete ********************/
+.home-text16 {
+    font-size: 40px;
+    align-self: flex-start;
+    font-style: normal;
+    margin-top: 64px;
+    font-family: Poppins;
+    font-weight: 500;
+    line-height: 60px;
+    margin-left: 240px;
+}
+
+.container12 {
+    flex: .85;
+    width: 70%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    border-color: rgba(120, 120, 120, 0.4);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 1.5px;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.home-text17 {
+    color: #DC3545;
+    padding: 16px;
+    font-size: 26px;
+    align-self: flex-start;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 700;
+    line-height: 39px;
+}
+
+.container13 {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-color: rgba(120, 120, 120, 0.4);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 1.5px;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.container14 {
+    flex: 0 0 auto;
+    width: 50%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-text18 {
+    font-size: 20px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.textinput3 {
+    width: 35%;
+    height: 50%;
+    font-family: Poppins;
+}
+
+.home-button4 {
+    height: 50%;
+    font-size: 20px;
+    text-align: center;
+    font-family: Poppins;
+    line-height: 28px;
+    color: rgb(240, 240, 240);
+    background-color: #3c93e3;
+    border: none;
+    border-radius: 6px;
+}
+
+.home-button5 {
+    height: 50%;
+    font-size: 20px;
+    text-align: center;
+    font-family: Poppins;
+    line-height: 28px;
+    color: rgb(240, 240, 240);
+    background-color: #DC3545;
+    border: none;
+    border-radius: 6px;
+}
+
+.container15 {
+    flex: .9;
+    width: 80%;
+    height: 100px;
+    display: flex;
+    align-items: flex-start;
+    border-radius: 1.5px;
+}
+
 
 .container16 {
     flex: .9;

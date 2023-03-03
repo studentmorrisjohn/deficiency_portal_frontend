@@ -18,28 +18,31 @@ const StudentsWithDeficiency = () => {
             <div> {deficiencyModal && <DeficiencyModal />} </div>
             <div className="screenLayout">
                 <EmployeeNav />
-                <div className="container16">
-                    <div className="container17">
-                        <span className="home-text19">{activeDeficiencyName.name} ({activeDeficiencyName.category})</span>
-                    </div>
-                    <div className="container18">
-                        <StudentsWithDeficiencySearch />
-                        <div className="container20">
-                            <StudentWithDeficiencyListTable />
+                <div className="title_contentDiv">
+                    <div className="outerDivEmployee">
+                        <div className="innerDivHeader">
+                            <span className="red_name">{activeDeficiencyName.name} ({activeDeficiencyName.category})</span>
                         </div>
-                        <div className="container21">
-                            <span className="home-text21">Showing 1 to 10 of 150 entries</span>
-                            <div className="container22">
-                                <button className="home-button8"> Prev </button>
-                                <button className="home-button8">1</button>
-                                <button className="home-button8">2</button>
-                                <button className="home-button8">3</button>
-                                <button className="home-button8">4</button>
-                                <button className="home-button8">5</button>
-                                <button className="home-button8"> Next </button>
+                        <div className="innerDivider">
+                            <StudentsWithDeficiencySearch />
+                            <div className="addStudentTable">
+                                <StudentWithDeficiencyListTable />
+                            </div>
+                            <div className="footer_container">
+                                <span className="footer_text">Showing 1 to 10 of 150 entries</span>
+                                <div className="pagination_buttons_div">
+                                    <button className="pagination_buttons"> Prev </button>
+                                    <button className="pagination_buttons">1</button>
+                                    <button className="pagination_buttons">2</button>
+                                    <button className="pagination_buttons">3</button>
+                                    <button className="pagination_buttons">4</button>
+                                    <button className="pagination_buttons">5</button>
+                                    <button className="pagination_buttons"> Next </button>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </>

@@ -60,7 +60,7 @@ const StudentNav = () => {
                 <span className="headerText">Student Deficiency Portal</span>
             </div>
             <div className="iconContainer">
-            <img src={house} className="image2" onClick={() => {navigate('/HomescreenStudent');}}/>
+            <img src={house} className="homeLogo" onClick={() => {navigate('/HomescreenStudent');}}/>
                 <div className="dropdown">
                     <img src={usercircle} className="userLogo" onClick={() => setOpenDropdown(!openDropdown)} />
                     {openDropdown && (

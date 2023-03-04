@@ -34,60 +34,138 @@ const DeficiencyModal = () => {
         <>
             <div className="modalBackground">
                 <div className="modalContainer">
-                    <div className="modalContainer1">
-                        <span className="modalText">Deficiency ID: {deficiencyDetails.id}</span>
+                    <div className="modalHeader">
+                        <span className="deficiencycompleted_text">Deficiency ID: {deficiencyDetails.id}</span>
                     </div>
-                    <div className="modalContainer2">
-                        <div className="modalContainer3">
-                            <span className="modalText1">Name: {deficiencyDetails.student_summary.name}</span>
-                            <span className="modalText1">Deficiency: {deficiencyDetails.name}</span>
-                            <span className="modalText1">Webmail: j@iskolarngbayan.pup.edu.ph</span>
-                        </div>
-                        <div className="modalContainer3">
-                            <span className="modalText1"> Category: {deficiencyDetails.category}</span>
-                            <span className="modalText1">Status: {deficiencyDetails.status}</span>
-                            <span className="modalText1">Contact No.:09XXXXXXXXX</span>
-                        </div>
-                    </div>
-                    
-                    <div className="modalContainer2">
-                        <div className="modalContainer4">
-                            <span className="modalText1">Affiliation</span> 
-                        </div>
-                        <div className="modalContainer5">
-                            {deficiencyDetails.student_summary.affiliations ? deficiencyDetails.student_summary.affiliations.map((affiliation=> <span className="modalText1">{affiliation.role}</span>)) : " "}
-                        </div>
-                        <div className="modalContainer5">
-                            {deficiencyDetails.student_summary.affiliations ? deficiencyDetails.student_summary.affiliations.map((affiliation=> <span className="modalText1">{affiliation.organization.name}</span>)): " "}
-                        </div>       
-                    </div>
-                    <div className="modalContainer2">
-                        <div className="modalContainer3">
-                            <span className="modalText1">Encoded by: {deficiencyDetails.added_by}</span>
-                            <span className="modalText1">Processed by: {deficiencyDetails.processed_by}</span>
-                        </div>
 
-                        <div className="modalContainer3">
-                            <span className="modalText1">Date: {deficiencyDetails.date_added}</span>
-                            <span className="modalText1">Date: {deficiencyDetails.date_fulfilled}</span>
+                    <div className="modalDiv">
+                        <div className="modalCol">
+                            <div className="modalRow">
+                                <div className="modalCategory">
+                                    <span>Name:</span>
+                                </div>
+                                <div className="modalFetched">
+                                    <span>{deficiencyDetails.student_summary.name}</span>
+                                </div>
+                            </div>
+                            <div className="modalRow">
+                                <div className="modalCategory">
+                                    <span>Deficiency:</span>
+                                </div>
+                                <div className="modalFetched">
+                                    <span>{deficiencyDetails.name}</span>
+                                </div>
+                            </div>
+                            <div className="modalRow">
+                                <div className="modalCategory">
+                                    <span>Webmail:</span>
+                                </div>
+                                <div className="modalFetched">
+                                    <span>j@iskolarngbayan.pup.edu.ph</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="modalCol">
+                            <div className="modalRow">
+                                <div className="modalCategory">
+                                    <span>Category:</span>
+                                </div>
+                                <div className="modalFetched">
+                                    <span>{deficiencyDetails.category}</span>
+                                </div>
+                            </div>
+                            <div className="modalRow">
+                                <div className="modalCategory">
+                                    <span>Status:</span>
+                                </div>
+                                <div className="modalFetched">
+                                    <span>{deficiencyDetails.status}</span>
+                                </div>
+                            </div>
+                            <div className="modalRow">
+                                <div className="modalCategory">
+                                    <span>Contact No.:</span>
+                                </div>
+                                <div className="modalFetched">
+                                    <span>09XXXXXXXXX</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="modalContainer2">
-                        <div className="modalContainer3">
-                            <span className="modalText1">Date: 2023-01-19 03:14:07</span>
-                        </div>
-                        <div className="modalContainer3">
-                            <span className="modalText1">Date: 2023-01-19 03:14:07</span>
-                        </div>
-                    </div>
-                    <div className="modalContainer6">
 
-                    {adminMode ? <button className="modalButton"
-                    onClick={closeModal}> Update </button> : ""}
-                    
-                    <button className="modalButton"
-                    onClick={closeModal}> Close </button>
-                    
+                    <div className="modalDiv">
+                        <div className="modalCol3rds">
+                            <div className="modalCategory">
+                                <span>Affiliation</span>
+                            </div>
+                        </div>
+                        <div className="modalCol3rds">
+                            {deficiencyDetails.student_summary.affiliations ? deficiencyDetails.student_summary.affiliations.map((affiliation => <span className="modalText1">{affiliation.role}</span>)) : " "}
+                        </div>
+                        <div className="modalCol3rds">
+                            {deficiencyDetails.student_summary.affiliations ? deficiencyDetails.student_summary.affiliations.map((affiliation => <span className="modalText1">{affiliation.organization.name}</span>)) : " "}
+                        </div>
+                    </div>
+
+                    <div className="modalDiv">
+                        <div className="modalCol">
+                            <div className="modalRow">
+                                <div className="modalCategory">
+                                    <span>Encoded by:</span>
+                                </div>
+                                <div className="modalFetched">
+                                    <span>{deficiencyDetails.added_by}</span>
+                                </div>
+                            </div>
+                            <div className="modalRow">
+                                <div className="modalCategory">
+                                    <span>Processed by:</span>
+                                </div>
+                                <div className="modalFetched">
+                                    <span>{deficiencyDetails.processed_by}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="modalCol">
+                            <div className="modalRow">
+                                <div className="modalCategory">
+                                    <span>Date:</span>
+                                </div>
+                                <div className="modalFetched">
+                                    <span>{deficiencyDetails.date_added}</span>
+                                </div>
+                            </div>
+                            <div className="modalRow">
+                                <div className="modalCategory">
+                                    <span>Date:</span>
+                                </div>
+                                <div className="modalFetched">
+                                    <span>{deficiencyDetails.date_fulfilled}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="modalDiv">
+                        <div className="modalCol">
+                            <div className="modalFetched">
+                                <span>Amount To Be Settled:</span>
+                            </div>
+                        </div>
+                        <div className="modalCol">
+                            <div className="modalCategory">
+                                <span>PHP 1200</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="modalDivFlexEnd">
+                        {adminMode ? <button className="modalButton"
+                            onClick={closeModal}> Update </button> : ""}
+
+                        <button className="modalButton"
+                            onClick={closeModal}> Close </button>
+
                     </div>
                 </div>
             </div>

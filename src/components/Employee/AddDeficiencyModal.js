@@ -25,17 +25,17 @@ const AddDeficiencyModal = ({ closeModal }) => {
     return (
         <>
             <div className="modalBackground">
-                <div className="modalContainer7">
-                    <div className="modalContainer8">
-                        <span className="modalText2">Add Deficiency</span>
+                <div className="modalContainerSmall">
+                    <div className="modalDiv">
+                        <span className="addDeficiencyModalHeader">Add Deficiency</span>
                     </div>
-                    <div className="modalContainer9">
-                        <div className="modalContainer10">
-                            <span className="modalText3">Deficiency</span>
-                            <span className="modalText3">Category</span>
+                    <div className="modalDiv">
+                        <div className="modalColGap">
+                            <span className="subtext_main">Deficiency</span>
+                            <span className="subtext_main">Category</span>
                         </div>
-                        <div className="modalContainer11">
-                            <input className="modalInput" placeholder="Form 138" onChange={onChange}></input>
+                        <div className="modalColGap">
+                            <input className="standard_textinput" placeholder="Form 138" onChange={onChange}></input>
                             <select className="modalSelect" onChange={(e) => {
                                 const selectstate = e.target.value;
                                 setdeficiencystate(selectstate)
@@ -45,10 +45,10 @@ const AddDeficiencyModal = ({ closeModal }) => {
                             </select>
                         </div>
                     </div>
-                    <div className="modalContainer12">
-                        <button className="modalButton1"
+                    <div className="modalDivCenter">
+                        <button className="green_button"
                             onClick={() => { closeModal(false) }}> Cancel </button>
-                            <button className="modalButton2" onClick={gotoPage} > Add </button>
+                            <button className="red_button" onClick={gotoPage} > Add </button>
                     </div>
                 </div>
             </div>

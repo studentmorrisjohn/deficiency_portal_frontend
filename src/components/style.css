@@ -12,7 +12,7 @@
     flex-direction: column;
     background-size: cover;
     justify-content: flex-start;
-    background-image: url("./images/PUPBG.jpg");
+    background-image: url("./images/LOGIN.png");
 }
 
 .pupside {
@@ -787,7 +787,81 @@ button:hover {
     overflow: auto;
     gap: 1rem;
 }
+/**************************************** Success & Failed Modals ****************************************/
 
+.modalBackgroundTop {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalContainerXSmall_green {
+    width: 30%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #28A745;
+    overflow-y: auto;
+    margin-top: 15vh;
+}
+.modalContainerXSmall_red {
+    width: 30%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #DC3545;
+    overflow-y: auto;
+    margin-top: 15vh;
+}
+
+.modalWhiteTextBold {
+    font-size: 24px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 36px;
+    color: #ffffff;
+    padding-top: 3vh;
+}
+
+.modalWhiteSubtext {
+    color: #ffffff;
+    font-family: Poppins;
+    padding-bottom: 3vh;
+}
+
+.modalDivTop {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.xcircle {
+    width: auto;
+}
 /**************************************** Tables & Dropdown ****************************************/
 
 table {
@@ -817,16 +891,31 @@ td {
     line-height: 30px;
 }
 
-.dropdown-menu {
+.menu {
     position: absolute;
-    right: 0;
     border-radius: .25rem;
-    border: black;
-    padding: .65px;
-    background-color: #FFF;
+    border: #C7C7C7;
+    padding: 1rem;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
-    margin-top: 40px;
+    margin-top: 6vh;
+    list-style-type: none;
     cursor: pointer;
+    width: 300%;
+    right: 0;
+    background-color: #FFF;
+}
+.menu > li {
+  margin: 0;
+
+  background-color: white;
+}
+
+.menu > li:hover {
+  background-color: lightgray;
+}
+
+.dropdown_icon {
+    width: 2rem;
 }
 
 .dropdown {

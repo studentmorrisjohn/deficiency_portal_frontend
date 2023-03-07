@@ -3,6 +3,8 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 
+const Xcircle = new URL("../images/XCircleBlack.png", import.meta.url)
+
 const AddDeficiencyModal = ({ closeModal }) => {
 
     const [deficiencystate, setdeficiencystate] = useState("document");
@@ -26,8 +28,9 @@ const AddDeficiencyModal = ({ closeModal }) => {
         <>
             <div className="modalBackground">
                 <div className="modalContainerSmall">
-                    <div className="modalDiv">
+                    <div className="modalDivTop">
                         <span className="addDeficiencyModalHeader">Add Deficiency</span>
+                        <img className="xcircle" src={Xcircle}/>
                     </div>
                     <div className="modalDiv">
                         <div className="modalColGap">
@@ -46,9 +49,9 @@ const AddDeficiencyModal = ({ closeModal }) => {
                         </div>
                     </div>
                     <div className="modalDivCenter">
-                        <button className="green_button"
+                        <button className="red_button"
                             onClick={() => { closeModal(false) }}> Cancel </button>
-                            <button className="red_button" onClick={gotoPage} > Add </button>
+                            <button className="green_button" onClick={gotoPage} > Add </button>
                     </div>
                 </div>
             </div>

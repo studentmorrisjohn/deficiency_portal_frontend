@@ -14,6 +14,7 @@ import PasswordEmployee from './components/Employee/PasswordEmployee'
 import StudentsWithDeficiency from './components/Employee/StudentsWithDeficiency';
 import AddStudent from './components/Employee/AddStudent';
 import SuccessModal from './components/Modals/SuccessModal';
+import AddFinanceModal from './components/Modals/AddFinanceModal';
 
 function App() {
   return (
@@ -34,6 +35,8 @@ function App() {
           <Route path = "/StudentsWithDeficiency" element={<StudentsWithDeficiency />} />
           <Route path= "/AddStudent" element={<AddStudent />} />
           <Route path= "/SuccessModal" element={<SuccessModal/>} />
+          <Route path= "/AddFinanceModal" element={<AddFinanceModal/>} />
+
         </Routes>
       </Router>
 

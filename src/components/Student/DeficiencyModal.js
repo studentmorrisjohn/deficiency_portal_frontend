@@ -6,6 +6,7 @@ const DeficiencyModal = () => {
     const closeModal = useDeficiencyModalStore((state) => state.closeDeficiencyModal);
     const activeDeficiencyId = useDeficiencyModalStore((state) => state.activeDeficiencyId);
     const adminMode = useDeficiencyModalStore((state) => state.adminMode);
+    const Xcircle = new URL("../images/XCircleBlack.png", import.meta.url)
 
     const [deficiencyDetails, setDeficiencyDetails] = useState({
         id: 0,
@@ -34,8 +35,9 @@ const DeficiencyModal = () => {
         <>
             <div className="modalBackground">
                 <div className="modalContainer">
-                    <div className="modalHeader">
+                    <div className="modalDivTop">
                         <span className="deficiencycompleted_text">Deficiency ID: {deficiencyDetails.id}</span>
+                        <img className="xcircle" src={Xcircle}/>
                     </div>
 
                     <div className="modalDiv">

@@ -7,6 +7,9 @@ import {checkAuthenticated, fetchLogout} from '../../functions/auth';
 const pupLOGO = new URL("../images/PUPLOGO.png", import.meta.url)
 const house = new URL("../images/House.png", import.meta.url)
 const usercircle = new URL("../images/UserCircle.png", import.meta.url)
+const userdropdown = new URL("../images/UserDropdown.png", import.meta.url)
+const lockdropdown = new URL("../images/LockOpenDropdown.png", import.meta.url)
+const signoutdropdown = new URL("../images/SignOutDropdown.png", import.meta.url)
 
 const EmployeeNav = () => {
     const [openDropdown, setOpenDropdown] = useState(false);
@@ -73,19 +76,15 @@ const EmployeeNav = () => {
                 <div className="dropdown">
                     <img src={usercircle} className="userLogo" onClick={() => setOpenDropdown(!openDropdown)} />
                     {openDropdown && (
-                        <div className="dropdown-menu">
-                            <ul>
-
+                            <ul className="menu">
                                 <li onClick={() => {
                                     navigate("/ProfileEmployee");
-                                }}> Profile</li>
+                                }}> <img src={userdropdown} className="dropdown_icon"/> Profile</li>
                                 <li onClick={() => {
                                     navigate("/PasswordEmployee");
-                                }}>Change Password</li>
-                                <li>Sign Out</li>
-
+                                }}> <img src={lockdropdown} className="dropdown_icon" /> Change Password</li>
+                                <li> <img src={signoutdropdown} className="dropdown_icon"/> Sign Out</li>
                             </ul>
-                        </div>
                     )}
                 </div>
             </div>

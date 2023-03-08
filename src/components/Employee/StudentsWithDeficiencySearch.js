@@ -34,13 +34,13 @@ function StudentsWithDeficiencySearch() {
         fetchStudentsWithDeficiency(activeDeficiencyName.name, formData.student_id, formData.student_name);
     }
 
-    return ( <div className="container19">
-    <span className="home-text20">Enter Keyword:</span>
-    <input placeholder="Student Number" name="student_id" onChange={onChange}></input>
-    <span className="home-text20">Enter Keyword:</span>
-    <input placeholder="Name" name="student_name" onChange={onChange}></input>
-    <button className="home-button6" onClick={searchStudents}>Search</button>
-    <button className="home-button7" onClick={() => {navigate("/AddStudent")}}>Add New Student</button>
+    return ( <div className="addStudentSearch">
+    <span className="addStudentSearch_subtext">Enter Keyword:</span>
+    <input placeholder="Student Number" name="student_id" className="standard_textinput" onChange={onChange}></input>
+    <span className="addStudentSearch_subtext">Enter Keyword:</span>
+    <input placeholder="Name" name="student_name" className="standard_textinput" onChange={onChange}></input>
+    <button className="blue_button" onClick={searchStudents}>Search</button>
+    <button className="red_button" onClick={() => {navigate("/AddStudent")}}>Add New Student</button>
 </div> );
 }
 

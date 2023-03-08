@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
 
 
-/******************** Main ********************/
+/**************************************** Main ****************************************/
 
 .pupBG {
     width: 100%;
@@ -12,7 +12,7 @@
     flex-direction: column;
     background-size: cover;
     justify-content: flex-start;
-    background-image: url("./images/PUPBG.jpg");
+    background-image: url("./images/LOGIN.png");
 }
 
 .pupside {
@@ -96,7 +96,7 @@ button:hover {
 }
 
 
-/******************** StudentLogin & EmployeeLogin ********************/
+/**************************************** StudentLogin & EmployeeLogin ****************************************/
 
 .username_input {
     color: black;
@@ -137,7 +137,7 @@ button:hover {
 }
 
 
-/******************** Header ********************/
+/**************************************** Header ****************************************/
 
 .header {
     flex: 0 0 auto;
@@ -198,7 +198,7 @@ button:hover {
 }
 
 
-/******************** Universal Screen Layout ********************/
+/*************************************** Universal Screen Layout ****************************************/
 .screenLayout {
     width: 100%;
     display: flex;
@@ -239,6 +239,19 @@ button:hover {
     justify-content: flex-start;
 }
 
+.outerDivAuto {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 1.5px;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 .outerDivEmployee {
     flex: .95;
     width: 100%;
@@ -256,7 +269,7 @@ button:hover {
 
 
 
-/******************** HomescreenStudent, StudentName, DeficiencyListTable ********************/
+/**************************************** HomescreenStudent, StudentName, DeficiencyListTable ****************************************/
 
 
 .page-title {
@@ -293,7 +306,7 @@ button:hover {
 }
 
 
-/******************** Profile Student ********************/
+/**************************************** Profile Student ****************************************/
 .inner_div_divider {
     width: 100%;
     height: auto;
@@ -322,6 +335,7 @@ button:hover {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    overflow: auto;
 }
 
 .profile_row {
@@ -397,7 +411,7 @@ button:hover {
 
 
 
-/******************** Password Student ********************/
+/**************************************** Password Student ****************************************/
 
 .password_div {
     width: 100%;
@@ -431,7 +445,7 @@ button:hover {
 
 
 
-/******************** AddStudent, HomescreenEmployee ********************/
+/**************************************** AddStudent, HomescreenEmployee, StudentsWithDeficiency ****************************************/
 .innerDivHeader {
     width: 100%;
     padding:1rem;
@@ -575,7 +589,317 @@ button:hover {
     flex: 1;
     width: 80%;
 }
-/******************** Ayusin mo to seiya bitch ass ********************/
+
+.italic_text_employee {
+    font-size: 20px;
+    font-style: italic;
+    font-family: Poppins;
+    font-weight: 300;
+    line-height: 30px;
+    margin: 2rem;
+}
+
+/**************************************** Modals ****************************************/
+.modalBackground {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalContainer {
+    width: 70%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #ffffff;
+    overflow-y: auto;
+}
+
+.modalHeader {
+    width: 100%;
+    display: flex;
+    height: auto;
+}
+
+.deficiencycompleted_text {
+    color: #28A745;
+    font-size: 36px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.modalCol {
+    flex: 0 0 auto;
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: .5rem;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.modalRow {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: .2rem;
+}
+
+.modalCategory {
+    flex: 0 0 auto;
+    height: auto;
+    display: flex;
+    font-size: 20px;
+    font-family: Poppins;
+    line-height: 30px;
+    width: 30%;
+}
+
+.modalFetched {
+    flex: 0 0 auto;
+    height: auto;
+    display: flex;
+    font-size: 20px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 30px;
+    width: 70%;
+}
+
+.modalDiv {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1rem;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.modalCol3rds {
+    flex: 0 0 auto;
+    width: 33%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: .5rem;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.modalButton {
+    background-color: #C7C7C7;
+    border-style: hidden;
+}
+
+.modalDivFlexEnd {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.modalContainerSmall {
+    width: 40%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #ffffff;
+    overflow-y: auto;
+}
+
+.modalDivCenter {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 1px;
+    gap: 2rem;
+}
+
+.modalSelect {
+    width: 15vw;
+    height: 5vh;
+}
+
+.green_button {
+    color: white;
+    font-size: 20px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 500;
+    border-width: 0px;
+    background-color: #28A745;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.addDeficiencyModalHeader {
+    font-size: 24px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 36px;
+}
+.modalColGap {
+    flex: 0 0 auto;
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: .5rem;
+    flex-direction: column;
+    overflow: auto;
+    gap: 1rem;
+}
+
+.modalColumn {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1rem;
+    flex-direction: column;
+    overflow: auto;
+    gap: 1rem;
+    font-style: poppins;
+    font-size: 16px;
+}
+/**************************************** Success & Failed Modals ****************************************/
+
+.modalBackgroundTop {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalContainerXSmall_green {
+    width: 30%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #28A745;
+    overflow-y: auto;
+    margin-top: 15vh;
+}
+.modalContainerXSmall_red {
+    width: 30%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #DC3545;
+    overflow-y: auto;
+    margin-top: 15vh;
+}
+.modalContainerXSmall {
+    width: 30%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+.modalWhiteTextBold {
+    font-size: 24px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 36px;
+    color: #ffffff;
+    padding-top: 3vh;
+}
+
+.modalWhiteSubtext {
+    color: #ffffff;
+    font-family: Poppins;
+    padding-bottom: 3vh;
+}
+
+.modalDivTop {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.xcircle {
+    width: auto;
+}
+
+.modal_textinput {
+    width: 20vw;
+    height: 5vh;
+    font-size: 14px;
+    font-family: poppins;
+    padding: 1rem;
+}
+/**************************************** Tables & Dropdown ****************************************/
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -603,16 +927,31 @@ td {
     line-height: 30px;
 }
 
-.dropdown-menu {
+.menu {
     position: absolute;
-    right: 0;
     border-radius: .25rem;
-    border: black;
-    padding: .65px;
-    background-color: #FFF;
+    border: #C7C7C7;
+    padding: 1rem;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
-    margin-top: 40px;
+    margin-top: 6vh;
+    list-style-type: none;
     cursor: pointer;
+    width: 300%;
+    right: 0;
+    background-color: #FFF;
+}
+.menu > li {
+  margin: 0;
+
+  background-color: white;
+}
+
+.menu > li:hover {
+  background-color: lightgray;
+}
+
+.dropdown_icon {
+    width: 2rem;
 }
 
 .dropdown {
@@ -621,31 +960,9 @@ td {
 
 
 
-.modalBackground {
-    width: 100%;
-    display: flex;
-    overflow: auto;
-    min-height: 100vh;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.5);
-}
+/**************************************** Delete This shit ****************************************/
 
-.modalContainer {
-    width: 70%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    border-color: #C7C7C7;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 8px;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: #ffffff;
-}
+
 
 .modalContainer1 {
     flex: 0 0 auto;
@@ -722,9 +1039,122 @@ td {
     justify-content: flex-end;
 }
 
-.modalButton {
+
+.modalContainer7 {
+    width: 28%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    border-color: #C7C7C7;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #FFF;
+}
+
+.modalContainer8 {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.modalText2 {
+    padding: 8px;
+    font-size: 24px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 36px;
+}
+
+.modalContainer9 {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-width: 1px;
+    justify-content: center;
+}
+
+.modalContainer10 {
+    flex: 0 0 auto;
+    width: auto;
+    height: 100%;
+    display: flex;
+    padding: 8px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.modalContainer11 {
+    flex: 1;
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 8px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modalText3 {
+    font-size: 20px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 500;
+    line-height: 30px;
+    margin: 16px;
+}
+
+.modalInput {
+    width: 80%;
+    height: 32px;
+    padding: 8px;
+    font-size: 18px;
+    font-family: Poppins;
+    line-height: 27px;
+    margin: 8px;
+}
+
+
+.modalContainer12 {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalButton1 {
     margin: 16px;
     background-color: #C7C7C7;
+    padding: 8px;
+    background-color: #28A745;
+    color: #FFF;
+    border: none;
+    border-radius: 2px;
+    font-family: poppins;
+    font-size: 20px;
+}
+
+.modalButton2 {
+    margin: 16px;
+    background-color: #C7C7C7;
+    padding: 8px;
+    padding-left: 26px;
+    padding-right: 26px;
+    background-color: #DC3545;
+    color: #FFF;
+    border: none;
+    border-radius: 2px;
+    font-family: poppins;
+    font-size: 20px;
 }
 
 .home-text16 {
@@ -832,127 +1262,6 @@ td {
     border-radius: 1.5px;
 }
 
-.modalContainer7 {
-    width: 28%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    border-color: #C7C7C7;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 8px;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: #FFF;
-}
-
-.modalContainer8 {
-    flex: 0 0 auto;
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.modalText2 {
-    padding: 8px;
-    font-size: 24px;
-    font-style: normal;
-    font-family: Poppins;
-    font-weight: 600;
-    line-height: 36px;
-}
-
-.modalContainer9 {
-    flex: 1;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    border-width: 1px;
-    justify-content: center;
-}
-
-.modalContainer10 {
-    flex: 0 0 auto;
-    width: auto;
-    height: 100%;
-    display: flex;
-    padding: 8px;
-    align-items: flex-start;
-    flex-direction: column;
-}
-
-.modalContainer11 {
-    flex: 1;
-    width: 100%;
-    height: auto;
-    display: flex;
-    padding: 8px;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.modalText3 {
-    font-size: 20px;
-    font-style: normal;
-    font-family: Poppins;
-    font-weight: 500;
-    line-height: 30px;
-    margin: 16px;
-}
-
-.modalInput {
-    width: 80%;
-    height: 32px;
-    padding: 8px;
-    font-size: 18px;
-    font-family: Poppins;
-    line-height: 27px;
-    margin: 8px;
-}
-
-.modalSelect {
-    width: 50%;
-    height: 38px;
-    margin: 8px;
-}
-
-.modalContainer12 {
-    flex: 0 0 auto;
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modalButton1 {
-    margin: 16px;
-    background-color: #C7C7C7;
-    padding: 8px;
-    background-color: #28A745;
-    color: #FFF;
-    border: none;
-    border-radius: 2px;
-    font-family: poppins;
-    font-size: 20px;
-}
-
-.modalButton2 {
-    margin: 16px;
-    background-color: #C7C7C7;
-    padding: 8px;
-    padding-left: 26px;
-    padding-right: 26px;
-    background-color: #DC3545;
-    color: #FFF;
-    border: none;
-    border-radius: 2px;
-    font-family: poppins;
-    font-size: 20px;
-}
 
 .container16 {
     flex: .9;

@@ -16,6 +16,9 @@ const StudentNav = () => {
     const isAuthenticated = useAuthenticatedStore((state) => state.isAuthenticated);
     const authenticate = useAuthenticatedStore((state) => state.authenticate);
     const unAuthenticate = useAuthenticatedStore((state) => state.unAuthenticate);
+    const userdropdown = new URL("../images/UserDropdown.png", import.meta.url)
+    const lockdropdown = new URL("../images/LockOpenDropdown.png", import.meta.url)
+    const signoutdropdown = new URL("../images/SignOutDropdown.png", import.meta.url)
 
     async function checkAuthenticationStatus() {
         const response = await checkAuthenticated();
@@ -60,23 +63,21 @@ const StudentNav = () => {
                 <span className="headerText">Student Deficiency Portal</span>
             </div>
             <div className="iconContainer">
-            <img src={house} className="image2" onClick={() => {navigate('/HomescreenStudent');}}/>
+                <img src={house} className="homeLogo" onClick={() => { navigate('/HomescreenStudent'); }} />
                 <div className="dropdown">
                     <img src={usercircle} className="userLogo" onClick={() => setOpenDropdown(!openDropdown)} />
                     {openDropdown && (
-                        <div className="dropdown-menu">
-                            <ul>
+                        <ul className="menu">
 
-                                <li onClick={() => {
-                                    navigate('/ProfileStudent');
-                                }}> Profile</li>
-                                <li onClick={() => {
-                                    navigate('/PasswordStudent');
-                                }}>Change Password</li>
-                                <li onClick={logout}>Sign Out</li>
+                            <li onClick={() => {
+                                navigate('/ProfileStudent');
+                            }}> <img src={userdropdown} className="dropdown_icon"/> Profile</li>
+                            <li onClick={() => {
+                                navigate('/PasswordStudent');
+                            }}> <img src={lockdropdown} className="dropdown_icon"/> Change Password</li>
+                            <li onClick={logout}> <img src={signoutdropdown} className="dropdown_icon"/> Sign Out</li>
 
-                            </ul>
-                        </div>
+                        </ul>
                     )}
                 </div>
             </div>

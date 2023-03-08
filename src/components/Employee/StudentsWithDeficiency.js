@@ -1,21 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../style.css'
-import { useState } from "react";
-import { Navigate } from "react-router-dom";
 import EmployeeNav from './EmployeeNav.js'
 import StudentWithDeficiencyListTable from "./StudentWithDeficiencyListTable";
 import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
-import DeficiencyModal from "../Student/DeficiencyModal";
 import useDeficiencyModalStore from "../../hooks/useDeficiencyModalStore"
 import StudentsWithDeficiencySearch from "./StudentsWithDeficiencySearch";
+import DeficiencyModalEmployee from "./DeficiencyModalEmployee";
 
 const StudentsWithDeficiency = () => {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
     const deficiencyModal = useDeficiencyModalStore((state) => state.deficiencyModal);
 
+
     return (
         <>
-            <div> {deficiencyModal && <DeficiencyModal />} </div>
+            <div> {deficiencyModal && <DeficiencyModalEmployee />} </div>
             <div className="screenLayout">
                 <EmployeeNav />
                 <div className="container16">

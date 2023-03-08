@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react"
-import { fetchDeficiencyDetails } from "../../functions/student";
-import useDeficiencyModalStore from "../../hooks/useDeficiencyModalStore"
+import { fetchDeficiencyDetailsEmployee, fetchUpdateDeficiency } from "../../functions/employee";
 
-const DeficiencyModal = () => {
+import useDeficiencyModalStore from "../../hooks/useDeficiencyModalStore"
+import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
+import useStudentWithDeficiencyListStore from "../../hooks/useStudentWithDeficiencyListStore";
+
+const DeficiencyModalEmployee = () => {
     const closeModal = useDeficiencyModalStore((state) => state.closeDeficiencyModal);
     const activeDeficiencyId = useDeficiencyModalStore((state) => state.activeDeficiencyId);
+    const adminMode = useDeficiencyModalStore((state) => state.adminMode);
+    const fetchStudentsWithDeficiency = useStudentWithDeficiencyListStore((state) => state.fetchStudentsWithDeficiency);
+    const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
 
     const [deficiencyDetails, setDeficiencyDetails] = useState({
         id: 0,
@@ -19,11 +25,19 @@ const DeficiencyModal = () => {
         date_fulfilled: ""
     });
 
+    async function getDeficiencyDetails() {
+        const response = await fetchDeficiencyDetailsEmployee(activeDeficiencyId);
+        setDeficiencyDetails(response);
+    }
+
+    async function updateDeficiency() {
+        const response = await fetchUpdateDeficiency(activeDeficiencyId, deficiencyDetails.status === "Pending" ? true : false);
+        getDeficiencyDetails();
+        fetchStudentsWithDeficiency(activeDeficiencyName.name, "", "")
+    }
+
     useEffect(() => {
-        async function getDeficiencyDetails() {
-            const response = await fetchDeficiencyDetails(activeDeficiencyId);
-            setDeficiencyDetails(response);
-        }
+        
         getDeficiencyDetails();
 
     }, []);
@@ -81,6 +95,9 @@ const DeficiencyModal = () => {
                     </div>
                     <div className="modalContainer6">
 
+                    {adminMode ? <button className="modalButton"
+                    onClick={updateDeficiency}> Update </button> : ""}
+                    
                     <button className="modalButton"
                     onClick={closeModal}> Close </button>
                     
@@ -91,4 +108,4 @@ const DeficiencyModal = () => {
     )
 }
 
-export default DeficiencyModal;
+export default DeficiencyModalEmployee;

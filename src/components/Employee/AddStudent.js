@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../style.css'
 import EmployeeNav from './EmployeeNav.js'
 import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 import AddStudentTable from "./AddStudentTable";
 import AddStudentSearch from "./AddStudentSearch";
+import useAddStudentListStore from "../../hooks/useAddStudentListStore";
 
 const AddStudent = () => {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);

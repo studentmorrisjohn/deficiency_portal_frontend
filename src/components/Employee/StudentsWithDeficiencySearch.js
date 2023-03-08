@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
-import { fetchStudentsWithDeficiencyList } from "../../functions/employee";
 import useStudentWithDeficiencyListStore from "../../hooks/useStudentWithDeficiencyListStore";
 import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
-import StudentWithDeficiencyListRow from "./StudentWithDeficiencyListRow";
 import { useNavigate } from "react-router-dom";
 
 function StudentsWithDeficiencySearch() {
-    const studentsWithDeficiencyList = useStudentWithDeficiencyListStore((state) => state.studentsWithDeficiencyList);
-    const setStudentsWithDeficiencyList = useStudentWithDeficiencyListStore((state) => state.setStudentsWithDeficiencyList);
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
+    const fetchStudentsWithDeficiency = useStudentWithDeficiencyListStore((state) => state.fetchStudentsWithDeficiency);
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -18,39 +15,23 @@ function StudentsWithDeficiencySearch() {
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    async function getStudentsWithDeficiency(student_id, student_name) {
-        const response = await fetchStudentsWithDeficiencyList(activeDeficiencyName.name, student_id, student_name);
-        if (response.warning) {
-            setStudentsWithDeficiencyList(
-            <tr>
-                <td>
-                    There are no students with this deficiency yet.
-                </td>
-            </tr>
-            );
-        } else {
-            const studentList = response.map((studentWithDeficiency) => 
-                <StudentWithDeficiencyListRow studentWithDeficiency={studentWithDeficiency} />
-            );
-            setStudentsWithDeficiencyList(studentList);
-        }
-    }
 
     useEffect(() => {
-        getStudentsWithDeficiency("", "");
+        fetchStudentsWithDeficiency(activeDeficiencyName.name, "", "");
+        
     }, []);
 
 
     useEffect(() => {
         if (formData.student_id === "" && formData.student_name === "") {
-            getStudentsWithDeficiency("", "");
+            fetchStudentsWithDeficiency(activeDeficiencyName.name, "", "");
         }
         
     }, [formData]);
 
 
     function searchStudents() {
-        getStudentsWithDeficiency(formData.student_id, formData.student_name);
+        fetchStudentsWithDeficiency(activeDeficiencyName.name, formData.student_id, formData.student_name);
     }
 
     return ( <div className="container19">

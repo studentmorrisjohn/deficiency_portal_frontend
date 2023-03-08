@@ -12,7 +12,7 @@ const DeficiencyListRow = ({deficiency}) => {
             setactiveDeficiencyId(deficiency.id);
         }}>
             <td>
-                {deficiency.id}
+                {deficiency.deficiency_id}
             </td>
             <td>
                 {deficiency.category}

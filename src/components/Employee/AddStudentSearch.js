@@ -7,9 +7,8 @@ import useAddStudentListStore from "../../hooks/useAddStudentListStore";
 import AddStudentRow from "./AddStudentRow";
 
 function AddStudentSearch() {
-    const setStudentsWithDeficiencyList = useStudentWithDeficiencyListStore((state) => state.setStudentsWithDeficiencyList);
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
-    const setAddStudentList = useAddStudentListStore((state) => state.setAddStudentList);
+    const fetchAllStudents = useAddStudentListStore((state) => state.fetchAllStudents);
 
     const [formData, setFormData] = useState({
         student_id: "",
@@ -18,39 +17,21 @@ function AddStudentSearch() {
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    async function getAllStudents(student_id, student_name) {
-        const response = await fetchAllStudentsList(activeDeficiencyName.name, student_id, student_name);
-        if (response.warning) {
-            setAddStudentList(
-            <tr>
-                <td>
-                    Something Went Wrong.
-                </td>
-            </tr>
-            );
-        } else {
-            const studentList = response.map((student) => 
-                <AddStudentRow student={student} />
-            );
-            setAddStudentList(studentList);
-        }
-    }
-
     useEffect(() => {
-        getAllStudents("", "");
+        fetchAllStudents(activeDeficiencyName.name, "", "");
     }, []);
 
 
     useEffect(() => {
         if (formData.student_id === "" && formData.student_name === "") {
-            getAllStudents("", "");
+            fetchAllStudents(activeDeficiencyName.name, "", "");
         }
         
     }, [formData]);
 
 
     function searchStudents() {
-        getAllStudents(formData.student_id, formData.student_name);
+        fetchAllStudents(activeDeficiencyName.name, formData.student_id, formData.student_name);
     }
 
     return ( <div className="addStudentSearch">

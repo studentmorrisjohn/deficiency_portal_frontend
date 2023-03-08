@@ -16,19 +16,19 @@ const EmployeeNav = () => {
     const authenticate = useAuthenticatedStore((state) => state.authenticate);
     const unAuthenticate = useAuthenticatedStore((state) => state.unAuthenticate);
 
-    // async function checkAuthenticationStatus() {
-    //     const response = await checkAuthenticated();
+    async function checkAuthenticationStatus() {
+        const response = await checkAuthenticated();
 
-    //     if (response.isAuthenticated === "error") {
-    //         navigate('/');
-    //     } else {
-    //         authenticate();
+        if (response.isAuthenticated === "error") {
+            navigate('/');
+        } else {
+            authenticate();
 
-    //         if (response.role === "STUDENT") {
-    //             navigate('/HomescreenStudent');
-    //         }
-    //     }
-    // } 
+            if (response.role === "STUDENT") {
+                navigate('/HomescreenStudent');
+            }
+        }
+    } 
 
     async function logout() {
         const response = await fetchLogout();
@@ -39,22 +39,22 @@ const EmployeeNav = () => {
         }
     }
 
-    // useEffect(() => {
-    //     if (!isAuthenticated) {
-    //         checkAuthenticationStatus();
-    //     }
+    useEffect(() => {
+        if (!isAuthenticated) {
+            checkAuthenticationStatus();
+        }
         
-    // }, []);
+    }, []);
 
-    // useEffect(() => {
-    //     console.log(openDropdown);
+    useEffect(() => {
+        console.log(openDropdown);
         
-    // }, [openDropdown]);
+    }, [openDropdown]);
 
 
-    // useEffect(() => {
-    //     checkAuthenticationStatus();
-    // }, [isAuthenticated]);
+    useEffect(() => {
+        checkAuthenticationStatus();
+    }, [isAuthenticated]);
 
     function showDropdown() {
         setOpenDropdown(!openDropdown);

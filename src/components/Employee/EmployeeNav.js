@@ -42,28 +42,17 @@ const EmployeeNav = () => {
         }
     }
 
-    useEffect(() => {
-        if (!isAuthenticated) {
-            checkAuthenticationStatus();
-        }
+    // useEffect(() => {
+    //     if (!isAuthenticated) {
+    //         checkAuthenticationStatus();
+    //     }
         
-    }, []);
-
-    useEffect(() => {
-        console.log(openDropdown);
-        
-    }, [openDropdown]);
+    // }, []);
 
 
-    useEffect(() => {
-        checkAuthenticationStatus();
-    }, [isAuthenticated]);
-
-    function showDropdown() {
-        setOpenDropdown(!openDropdown);
-        console.log(openDropdown);
-        console.log("tangina mo gago ka ");
-    }
+    // useEffect(() => {
+    //     checkAuthenticationStatus();
+    // }, [isAuthenticated]);
 
     return (
         <div className="header">
@@ -83,7 +72,7 @@ const EmployeeNav = () => {
                                 <li onClick={() => {
                                     navigate("/PasswordEmployee");
                                 }}> <img src={lockdropdown} className="dropdown_icon" /> Change Password</li>
-                                <li> <img src={signoutdropdown} className="dropdown_icon"/> Sign Out</li>
+                                <li onClick={logout}> <img src={signoutdropdown} className="dropdown_icon"/> Sign Out</li>
                             </ul>
                     )}
                 </div>

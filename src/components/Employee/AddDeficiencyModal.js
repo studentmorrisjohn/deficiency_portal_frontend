@@ -30,7 +30,7 @@ const AddDeficiencyModal = ({ closeModal }) => {
                 <div className="modalContainerSmall">
                     <div className="modalDivTop">
                         <span className="addDeficiencyModalHeader">Add Deficiency</span>
-                        <img className="xcircle" src={Xcircle}/>
+                        <img className="xcircle" onClick={() => { closeModal(false) }} src={Xcircle}/>
                     </div>
                     <div className="modalDiv">
                         <div className="modalColGap">

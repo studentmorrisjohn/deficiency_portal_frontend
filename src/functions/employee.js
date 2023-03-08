@@ -108,3 +108,35 @@ export async function fetchAddStudentToDeficiency(deficiencyName, student_id, ca
 
     return jsonData;
 }
+
+export async function fetchUpdateProfile(mobile_number, email) {
+    const url = `${process.env.REACT_APP_API_URL}/api/employee/profile`;
+
+    const body = JSON.stringify({mobile_number, email})
+
+    const response = await fetch(url, {
+        method: 'PUT',
+        body: body,
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': Cookies.get('csrftoken')
+        },
+        credentials: 'include'
+    });
+
+
+    const jsonData = await response.json();
+
+    return jsonData;
+}
+
+export async function fetchEmployeeProfile() {
+    const url = `${process.env.REACT_APP_API_URL}/api/employee/profile`;
+
+    const response = await fetch(url);
+    const jsonData = await response.json();
+
+    return jsonData;
+}
+

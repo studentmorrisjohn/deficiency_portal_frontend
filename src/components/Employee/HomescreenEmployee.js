@@ -6,10 +6,7 @@ import AddDeficiencyModal from "./AddDeficiencyModal";
 import EmployeeNav from './EmployeeNav';
 import DeficiencyNamesTable from './DeficiencyNamesTable';
 import DeficiencyNamesSearch from './DeficiencyNamesSearch';
-
-const pupLOGO = new URL("../images/PUPLOGO.png", import.meta.url)
-const house = new URL("../images/House.png", import.meta.url)
-const usercircle = new URL("../images/UserCircle.png", import.meta.url)
+import UserName from '../General/UserName';
 
 const HomescreenEmployee = () => {
     const [openModal, setOpenModal] = useState(false);
@@ -22,7 +19,7 @@ const HomescreenEmployee = () => {
                 <div className="smaller_title_contentDiv">
                     <span className="page-title"> Home </span>
                     <div className="homescreen_Div">
-                        <span className="red_name">EMPLOYEE NAME (DEPARTMENT)</span>
+                        <UserName />
                         <div className="innerDivider">
                             <div className="divStudentDeficiencySearch">
                                 <span className="addStudentSearch_subtext">Enter Keyword:</span>

@@ -3,9 +3,14 @@ import '../style.css';
 
 import StudentNav from "./StudentNav"
 import StudentName from "./StudentName";
+import SuccessModal from "../Modals/SuccessModal";
+
 import { fetchChangePassword } from '../../functions/auth';
+import useSuccessModalStore from "../../hooks/useSuccessModalStore";
 
 const PasswordStudent = () => {
+    const successModalIsOpen = useSuccessModalStore((state) => state.isOpen);
+    const openSuccessModal = useSuccessModalStore((state) => state.openSuccessModal);
 
     const [formData, setFormData] = useState({
         old_pass: "",
@@ -23,12 +28,13 @@ const PasswordStudent = () => {
         console.log(response);
 
         if (response.success) {
-            console.log("password changed");
+            openSuccessModal("Your password was changed");
         }
     }
 
     return (
         <>
+            {successModalIsOpen && <SuccessModal />}
             <div className="screenLayout">
                 <StudentNav />
                 <div className="title_contentDiv_Auto">

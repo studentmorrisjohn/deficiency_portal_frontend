@@ -1,8 +1,11 @@
 import React from "react";
+import useSuccessModalStore from "../../hooks/useSuccessModalStore";
 
 const Xcircle = new URL("../images/XCircle.png", import.meta.url)
 
 const SuccessModal = () => {
+    const message = useSuccessModalStore((state) => state.message)
+    const closeSuccessModal = useSuccessModalStore((state) => state.closeSuccessModal);
 
     return(
         <>
@@ -10,10 +13,10 @@ const SuccessModal = () => {
                 <div className="modalContainerXSmall_green">
                     <div className="modalDivTop">
                         <span className="modalWhiteTextBold">Success</span>
-                        <img className="xcircle" src={Xcircle}/>
+                        <img onClick={closeSuccessModal} className="xcircle" src={Xcircle}/>
                     </div>
                     <div className="modalDiv">
-                        <span className="modalWhiteSubtext">[Deficiency] was added.</span>
+                        <span className="modalWhiteSubtext">{message}</span>
                     </div>
                     
                 </div>

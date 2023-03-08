@@ -5,10 +5,10 @@ import useDeficiencyModalStore from "../../hooks/useDeficiencyModalStore"
 const DeficiencyModal = () => {
     const closeModal = useDeficiencyModalStore((state) => state.closeDeficiencyModal);
     const activeDeficiencyId = useDeficiencyModalStore((state) => state.activeDeficiencyId);
-    const adminMode = useDeficiencyModalStore((state) => state.adminMode);
     const Xcircle = new URL("../images/XCircleBlack.png", import.meta.url)
 
     const [deficiencyDetails, setDeficiencyDetails] = useState({
+        deficiency_id: "D0000000",
         id: 0,
         category: "",
         name: "",
@@ -36,7 +36,7 @@ const DeficiencyModal = () => {
             <div className="modalBackground">
                 <div className="modalContainer">
                     <div className="modalContainer1">
-                        <span className="modalText">Deficiency ID: {deficiencyDetails.id}</span>
+                        <span className="modalText">Deficiency ID: {deficiencyDetails.deficiency_id}</span>
                     </div>
 
                     <div className="modalDiv">
@@ -88,7 +88,7 @@ const DeficiencyModal = () => {
                                     <span>Contact No.:</span>
                                 </div>
                                 <div className="modalFetched">
-                                    <span>09XXXXXXXXX</span>
+                                    <span>{deficiencyDetails.student_summary.mobile_number}</span>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +147,7 @@ const DeficiencyModal = () => {
                         </div>
                     </div>
 
-                    <div className="modalDiv">
+                    {deficiencyDetails.category === "Finance" ? (<div className="modalDiv">
                         <div className="modalCol">
                             <div className="modalFetched">
                                 <span>Amount To Be Settled:</span>
@@ -155,17 +155,15 @@ const DeficiencyModal = () => {
                         </div>
                         <div className="modalCol">
                             <div className="modalCategory">
-                                <span>PHP 1200</span>
+                                <span>{deficiencyDetails.balance}</span>
                             </div>
                         </div>
-                    </div>
+                    </div>) : "" }
                     <div className="modalContainer6">
 
-                    {adminMode ? <button className="modalButton"
-                    onClick={closeModal}> Update </button> : ""}
-                    
-                    <button className="modalButton"
-                    onClick={closeModal}> Close </button>
+
+                        <button className="modalButton"
+                        onClick={closeModal}> Close </button>
                     
                     </div>
                 </div>

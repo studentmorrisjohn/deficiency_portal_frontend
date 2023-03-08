@@ -1,108 +1,66 @@
 import React from "react";
 import '../style.css'
-import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import EmployeeNav from './EmployeeNav.js'
-
-const pupLOGO = new URL("../images/PUPLOGO.png", import.meta.url)
-const house = new URL("../images/House.png", import.meta.url)
-const usercircle = new URL("../images/UserCircle.png", import.meta.url)
+import {fetchEmployeeProfile, fetchUpdateProfile} from '../../functions/employee';
+import Profile from "../General/Profile";
+import SuccessModal from "../Modals/SuccessModal";
+import useProfileDataStore from "../../hooks/useProfileDataStore";
+import useSuccessModalStore from "../../hooks/useSuccessModalStore";
 
 const ProfileEmployee = () => {
 
-    const [openDropdown, setOpenDropdown] = useState(false);
-    const [goToProfileEmployee, setGoToProfileEmployee] = useState(false);
-    const [goToPasswordEmployee, setGoToPasswordEmployee] = useState(false);
-    const [goToHomescreenEmployee, setGoToHomescreenEmployee] = useState(false);
+    const profileData = useProfileDataStore((state) => state.profileData);
+    const successModalIsOpen = useSuccessModalStore((state) => state.isOpen);
+    const openSuccessModal = useSuccessModalStore((state) => state.openSuccessModal);
 
-    if (goToProfileEmployee) {
-        return <Navigate to="/ProfileEmployee" />
+    const [employeeProfile, setEmployeeProfile] = useState(
+        {
+            username: "",
+            name: "",
+            gender: "",
+            birth_date: "",
+            department: "",
+            mobile_number: "",
+            email: ""
+        }
+    );
+
+    async function getEmployeeProfile() {
+        const response = await fetchEmployeeProfile();
+
+        setEmployeeProfile(response);
     }
 
-    if (goToPasswordEmployee) {
-        return <Navigate to="/PasswordEmployee" />
+    async function updateProfile() {
+        const response = await fetchUpdateProfile(profileData.mobile_number, profileData.email);
+
+        if (response.success) {
+            openSuccessModal("Your Profile was updated");
+            getEmployeeProfile();
+        }
     }
 
-    if (goToHomescreenEmployee) {
-        return <Navigate to="/HomescreenEmployee" />
-    }
+    useEffect(() => {
+        getEmployeeProfile();
+    }, []);
+    
     return (
         <>
+            {successModalIsOpen && <SuccessModal />}
             <div className="screenLayout">
                 <EmployeeNav />
+
                 <div className="title_contentDiv">
-                    <span className="page-title">Employee Profile</span>
+                    <span className="page-title">Student Profile</span>
 
-                    <div className="outerDivAuto">
-                        <div className="inner_div_divider">
-                            <div className="profile_table">
 
-                                <div className="profile_col">
-                                    <div className="profile_row">
-                                        <div className="profile_category">
-                                            <span className="">Student No.</span>
-                                        </div>
-                                        <div className="profile_fetched">
-                                            <span className=""></span>
-                                        </div>
-                                    </div>
-                                    <div className="profile_row">
-                                        <div className="profile_category">
-                                            <span className="">Name</span>
-                                        </div>
-                                        <div className="profile_fetched">
-                                            <span className=""></span>
-                                        </div>
-                                    </div>
-                                    <div className="profile_row">
-                                        <div className="profile_category">
-                                            <span className="">Gender</span>
-                                        </div>
-                                        <div className="profile_fetched">
-                                            <span className=""></span>
-                                        </div>
-                                    </div>
-                                    <div className="profile_row">
-                                        <div className="profile_category">
-                                            <span className="">Birthdate</span>
-                                        </div>
-                                        <div className="profile_fetched">
-                                            <span className=""></span>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div className="outerDiv">
 
-                                <div className="profile_col">
-                                    <div className="profile_row">
-                                        <div className="profile_category">
-                                            <span className="">Program</span>
-                                        </div>
-                                        <div className="profile_fetched">
-                                            <span className=""></span>
-                                        </div>
-                                    </div>
-                                    <div className="profile_row">
-                                        <div className="profile_category">
-                                            <span className="home-text12">Mobile No.</span>
-                                        </div>
-                                        <div className="profile_fetched">
-                                            <span className=""></span>
-                                        </div>
-                                    </div>
-                                    <div className="profile_row">
-                                        <div className="profile_category">
-                                            <span className="">Webmail</span>
-                                        </div>
-                                        <div className="profile_fetched">
-                                            <span className=""></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <Profile profile_data={employeeProfile} />
+                            <span className="italic_text">I hereby certify that all the information provided are true and correct to the best of my knowledge.</span>
+                            <button onClick={updateProfile} className="maroonButton">Save</button>
 
-                            <span className="italic_text_employee">I hereby certify that all the information provided are true and correct to the best of my knowledge.</span>
-                            <button className="maroonButton">Save</button>
-                        </div>
                     </div>
                 </div>
             </div>

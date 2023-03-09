@@ -2,11 +2,13 @@ import { fetchAddStudentToDeficiency } from "../../functions/employee";
 import useAddStudentListStore from "../../hooks/useAddStudentListStore";
 import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 import useSelectedStudentStore from "../../hooks/useSelectedStudentStore";
+import useFinanceDeficiencyModal from "../../hooks/useFinanceDeficiencyModalStore";
 
 function AddStudentRow({student}) {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
     const fetchAllStudents = useAddStudentListStore((state) => state.fetchAllStudents);
     const setSelectedStudentId = useSelectedStudentStore((state) => state.setSelectedStudentId);
+    const openFinanceDeficiencyModal = useFinanceDeficiencyModal((state) => state.openFinanceDeficiencyModal);
 
     async function addStudent() {
         if (activeDeficiencyName.category === "Document") {
@@ -14,6 +16,7 @@ function AddStudentRow({student}) {
             fetchAllStudents(activeDeficiencyName.name, "", "");
         } else {
             setSelectedStudentId(student.student_id);
+            openFinanceDeficiencyModal();
         }
     }
 

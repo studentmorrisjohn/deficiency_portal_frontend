@@ -1,13 +1,35 @@
 import { Button } from "bootstrap";
-import React from "react";
+import React, { useState } from "react";
+import { fetchAddStudentToDeficiency } from "../../functions/employee";
+import useFinanceDeficiencyModalStore from "../../hooks/useFinanceDeficiencyModalStore";
+import useAddStudentListStore from "../../hooks/useAddStudentListStore";
+import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
+import useSelectedStudentStore from "../../hooks/useSelectedStudentStore";
 
 const Xcircle = new URL("../images/XCircleBlack.png", import.meta.url)
 
 const AddFinanceModal = () => {
+    const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
+    const selectedStudentId = useSelectedStudentStore((state) => state.selectedStudentId);
+    const fetchAllStudents = useAddStudentListStore((state) => state.fetchAllStudents);
+    const [balance, setBalance] = useState(0);
+
+    function onChange(e) {
+        setBalance(e.target.value);
+    }
+
+    async function addStudent() {
+        if (balance != 0) {
+            const response = await fetchAddStudentToDeficiency(activeDeficiencyName.name, selectedStudentId, activeDeficiencyName.category, balance);
+            fetchAllStudents();
+        }
+    }
+
+    const closeFinanceDeficiencyModal = useFinanceDeficiencyModalStore((state) => state.closeFinanceDeficiencyModal);
     return (
         <>
             <div className="modalBackground">
-                <div className="modalContainerXSmall">
+                <div onClick={closeFinanceDeficiencyModal} className="modalContainerXSmall">
                     <div className="modalDivTop">
                         <span className="addDeficiencyModalHeader">Enter Amount </span>
                         <img className="xcircle" src={Xcircle}/>
@@ -17,7 +39,7 @@ const AddFinanceModal = () => {
                         <input className="modal_textinput" placeholder="Amount"/>
                     </div>
                     <div className="modalDivCenter">
-                        <button className="red_button">Cancel</button>
+                        <button onClick={closeFinanceDeficiencyModal} className="red_button">Cancel</button>
                         <button className="green_button">   Add   </button>
                     </div>
                 </div>

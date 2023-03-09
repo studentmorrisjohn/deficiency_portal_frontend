@@ -5,12 +5,16 @@ import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 import AddStudentTable from "./AddStudentTable";
 import AddStudentSearch from "./AddStudentSearch";
 import useAddStudentListStore from "../../hooks/useAddStudentListStore";
+import useFinanceDeficiencyModalStore from "../../hooks/useFinanceDeficiencyModalStore";
+import AddFinanceModal from "../Modals/AddFinanceModal";
 
 const AddStudent = () => {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
+    const financeDeficiencyModalIsOpen = useFinanceDeficiencyModalStore((state) => state.isOpen);
 
     return (
         <>
+            {financeDeficiencyModalIsOpen && <AddFinanceModal />}
             <div className="screenLayout">
                 <EmployeeNav />
                 <div className="title_contentDiv">

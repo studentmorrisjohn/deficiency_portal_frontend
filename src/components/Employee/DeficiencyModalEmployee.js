@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { fetchDeficiencyDetailsEmployee, fetchUpdateDeficiency } from "../../functions/employee";
+import useAlertModalStore from "../../hooks/useAlertModalStore";
 
 import useDeficiencyModalStore from "../../hooks/useDeficiencyModalStore"
 import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
@@ -7,6 +8,7 @@ import useStudentWithDeficiencyListStore from "../../hooks/useStudentWithDeficie
 
 const DeficiencyModalEmployee = () => {
     const closeModal = useDeficiencyModalStore((state) => state.closeDeficiencyModal);
+    const openAlert = useAlertModalStore((state) => state.openAlert);
     const activeDeficiencyId = useDeficiencyModalStore((state) => state.activeDeficiencyId);
     const adminMode = useDeficiencyModalStore((state) => state.adminMode);
     const fetchStudentsWithDeficiency = useStudentWithDeficiencyListStore((state) => state.fetchStudentsWithDeficiency);
@@ -32,9 +34,25 @@ const DeficiencyModalEmployee = () => {
 
     async function updateDeficiency() {
         const response = await fetchUpdateDeficiency(activeDeficiencyId, deficiencyDetails.status === "Pending" ? true : false);
-        getDeficiencyDetails();
-        fetchStudentsWithDeficiency(activeDeficiencyName.name, "", "");
+
         closeModal();
+
+        if (response) {
+            getDeficiencyDetails();
+            fetchStudentsWithDeficiency(activeDeficiencyName.name, "", "");
+
+            if (response.status === "Completed") {
+                const message = `${response.student_summary.name} completed their ${response.name} deficiency`;
+                openAlert("Success", "Update Succes", message);
+            } else {
+                const message = `${response.student_summary.name} has a pending ${response.name} deficiency`;
+                openAlert("Error", "Update Succes", message);
+            }
+            
+        } else {
+            openAlert("Error", "Error", "Something went wrong");
+        }
+        
     }
 
     useEffect(() => {
@@ -177,6 +195,8 @@ const DeficiencyModalEmployee = () => {
 
                         <button className="modalButton"
                         onClick={closeModal}> Close </button>
+                        {adminMode && <button className="modalButton"
+                        onClick={updateDeficiency}> Update </button>}
                     
                     </div>
                 </div>

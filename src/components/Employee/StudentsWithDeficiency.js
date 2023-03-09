@@ -6,14 +6,18 @@ import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 import useDeficiencyModalStore from "../../hooks/useDeficiencyModalStore"
 import StudentsWithDeficiencySearch from "./StudentsWithDeficiencySearch";
 import DeficiencyModalEmployee from "./DeficiencyModalEmployee";
+import AlertModal from "../Modals/AlertModal";
+import useAlertModalStore from "../../hooks/useAlertModalStore";
 
 const StudentsWithDeficiency = () => {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
     const deficiencyModal = useDeficiencyModalStore((state) => state.deficiencyModal);
+    const alertIsOpen = useAlertModalStore((state) => state.isOpen);
 
 
     return (
         <>
+            {alertIsOpen && <AlertModal /> }
             <div> {deficiencyModal && <DeficiencyModalEmployee />} </div>
             <div className="screenLayout">
                 <EmployeeNav />

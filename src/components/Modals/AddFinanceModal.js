@@ -13,6 +13,7 @@ const AddFinanceModal = () => {
     const selectedStudentId = useSelectedStudentStore((state) => state.selectedStudentId);
     const fetchAllStudents = useAddStudentListStore((state) => state.fetchAllStudents);
     const [balance, setBalance] = useState(0);
+    const closeFinanceDeficiencyModal = useFinanceDeficiencyModalStore((state) => state.closeFinanceDeficiencyModal);
 
     function onChange(e) {
         setBalance(e.target.value);
@@ -21,26 +22,27 @@ const AddFinanceModal = () => {
     async function addStudent() {
         if (balance != 0) {
             const response = await fetchAddStudentToDeficiency(activeDeficiencyName.name, selectedStudentId, activeDeficiencyName.category, balance);
-            fetchAllStudents();
+            fetchAllStudents(activeDeficiencyName.name, "", "");
+            closeFinanceDeficiencyModal();
         }
     }
 
-    const closeFinanceDeficiencyModal = useFinanceDeficiencyModalStore((state) => state.closeFinanceDeficiencyModal);
+    
     return (
         <>
             <div className="modalBackground">
-                <div onClick={closeFinanceDeficiencyModal} className="modalContainerXSmall">
+                <div className="modalContainerXSmall">
                     <div className="modalDivTop">
                         <span className="addDeficiencyModalHeader">Enter Amount </span>
-                        <img className="xcircle" src={Xcircle}/>
+                        <img onClick={closeFinanceDeficiencyModal}  className="xcircle" src={Xcircle}/>
                     </div>
                     <div className="modalColumn">
                         <span>Enter the amount in Pesos:</span>
-                        <input className="modal_textinput" placeholder="Amount"/>
+                        <input onChange={onChange} className="modal_textinput" placeholder="Amount"/>
                     </div>
                     <div className="modalDivCenter">
                         <button onClick={closeFinanceDeficiencyModal} className="red_button">Cancel</button>
-                        <button className="green_button">   Add   </button>
+                        <button onClick={addStudent} className="green_button">   Add   </button>
                     </div>
                 </div>
             </div>

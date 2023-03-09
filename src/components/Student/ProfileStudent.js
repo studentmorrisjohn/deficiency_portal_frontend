@@ -10,7 +10,6 @@ import SuccessModal from "../Modals/SuccessModal";
 import FailedModal from "../Modals/FailedModal";
 import useProfileDataStore from "../../hooks/useProfileDataStore";
 import useSuccessModalStore from "../../hooks/useSuccessModalStore";
-import FailedModal from "../Modals/FailedModal";
 
 const ProfileStudent = () => {
     const profileData = useProfileDataStore((state) => state.profileData);

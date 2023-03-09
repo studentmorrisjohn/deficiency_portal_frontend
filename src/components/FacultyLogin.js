@@ -3,11 +3,15 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import {login, checkAuthenticated} from '../functions/auth'
 import useAuthenticatedStore from '../hooks/useAuthenticatedStore'
+import useAlertModalStore from "../hooks/useAlertModalStore"
+import AlertModal from "./Modals/AlertModal"
 
 const pupLOGO = new URL("./images/PUPLOGO.png", import.meta.url)
 const key = new URL("./images/Key.png", import.meta.url)
 
 const FacultyLogin = () => {
+    const alertIsOpen = useAlertModalStore((state) => state.isOpen);
+    const openAlert = useAlertModalStore((state) => state.openAlert);
     const isAuthenticated = useAuthenticatedStore((state) => state.isAuthenticated);
     const authenticate = useAuthenticatedStore((state) => state.authenticate);
     const navigate = useNavigate();
@@ -53,6 +57,7 @@ const FacultyLogin = () => {
                 authenticate();
             }
             else {
+                openAlert("Error", "Error", "Username/Password is incorrect");
                 console.log("something went wrong");
             }
         });
@@ -60,6 +65,7 @@ const FacultyLogin = () => {
 
     return (
         <>
+            {alertIsOpen && <AlertModal /> }
              <div className="pupBG">
                 <form className = "pupside" onSubmit={e => onSubmit(e)}>
                         <img src={pupLOGO} className="pupLogo" />

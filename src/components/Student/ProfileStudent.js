@@ -6,15 +6,17 @@ import StudentName from "./StudentName";
 import { fetchProfileData, fetchUpdateProfile } from "../../functions/student";
 import AffiliationTable from "./AffiliationTable";
 import Profile from "../General/Profile";
-import SuccessModal from "../Modals/SuccessModal";
-import FailedModal from "../Modals/FailedModal";
+
 import useProfileDataStore from "../../hooks/useProfileDataStore";
-import useSuccessModalStore from "../../hooks/useSuccessModalStore";
+import AlertModal from "../Modals/AlertModal";
+import useAlertModalStore from "../../hooks/useAlertModalStore";
+
+
 
 const ProfileStudent = () => {
     const profileData = useProfileDataStore((state) => state.profileData);
-    const successModalIsOpen = useSuccessModalStore((state) => state.isOpen);
-    const openSuccessModal = useSuccessModalStore((state) => state.openSuccessModal);
+    const alertIsOpen = useAlertModalStore((state) => state.isOpen);
+    const openAlert = useAlertModalStore((state) => state.openAlert);
 
     const [studentProfile, setStudentProfile] = useState(
         {
@@ -35,14 +37,15 @@ const ProfileStudent = () => {
     }
 
     async function updateProfile() {
-        openSuccessModal("Your Profile was updated");
-        openSuccessModal("Your Profile was updated");
-        // const response = await fetchUpdateProfile(profileData.mobile_number, profileData.email);
+        
+        const response = await fetchUpdateProfile(profileData.mobile_number, profileData.email);
 
-        // if (response.success) {
-        //     openSuccessModal("Your Profile was updated");
-        //     getStudentProfile();
-        // }
+        if (response.success) {
+            openAlert("Success", "Success", "Your Profile was updated");
+            getStudentProfile();
+        } else {
+            openAlert("Error", "Error", "Something went wrong while updating your profile");
+        }
     }
 
     useEffect(() => {
@@ -51,7 +54,7 @@ const ProfileStudent = () => {
 
     return (
         <>
-            {successModalIsOpen && <FailedModal />}
+            {alertIsOpen && <AlertModal />}
             <div className="screenLayout">
                 <StudentNav />
 

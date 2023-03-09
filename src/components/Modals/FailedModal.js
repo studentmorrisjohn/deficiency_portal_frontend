@@ -12,7 +12,7 @@ const FailedModal = () => {
         <div className="modalBackgroundTop">
                 <div className="modalContainerXSmall_red">
                     <div className="modalDivTop">
-                        <span className="modalWhiteTextBold">Success</span>
+                        <span className="modalWhiteTextBold">Error</span>
                         <img onClick={closeSuccessModal} className="xcircle" src={Xcircle}/>
                     </div>
                     <div className="modalDiv">

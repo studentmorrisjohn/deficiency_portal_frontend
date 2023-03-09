@@ -4,15 +4,15 @@ import { useState, useEffect } from "react";
 import EmployeeNav from './EmployeeNav.js'
 import {fetchEmployeeProfile, fetchUpdateProfile} from '../../functions/employee';
 import Profile from "../General/Profile";
-import SuccessModal from "../Modals/SuccessModal";
 import useProfileDataStore from "../../hooks/useProfileDataStore";
-import useSuccessModalStore from "../../hooks/useSuccessModalStore";
+import AlertModal from "../Modals/AlertModal";
+import useAlertModalStore from "../../hooks/useAlertModalStore";
 
 const ProfileEmployee = () => {
 
     const profileData = useProfileDataStore((state) => state.profileData);
-    const successModalIsOpen = useSuccessModalStore((state) => state.isOpen);
-    const openSuccessModal = useSuccessModalStore((state) => state.openSuccessModal);
+    const alertIsOpen = useAlertModalStore((state) => state.isOpen);
+    const openAlert = useAlertModalStore((state) => state.openAlert);
 
     const [employeeProfile, setEmployeeProfile] = useState(
         {
@@ -36,8 +36,10 @@ const ProfileEmployee = () => {
         const response = await fetchUpdateProfile(profileData.mobile_number, profileData.email);
 
         if (response.success) {
-            openSuccessModal("Your Profile was updated");
+            openAlert("Success", "Success", "Your Profile was updated");
             getEmployeeProfile();
+        } else {
+            openAlert("Error", "Error", "Something went wrong while updating your profile");
         }
     }
 
@@ -47,7 +49,7 @@ const ProfileEmployee = () => {
     
     return (
         <>
-            {successModalIsOpen && <SuccessModal />}
+            {alertIsOpen && <AlertModal />}
             <div className="screenLayout">
                 <EmployeeNav />
 

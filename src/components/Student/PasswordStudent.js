@@ -3,14 +3,14 @@ import '../style.css';
 
 import StudentNav from "./StudentNav"
 import StudentName from "./StudentName";
-import SuccessModal from "../Modals/SuccessModal";
+import AlertModal from '../Modals/AlertModal';
 
 import { fetchChangePassword } from '../../functions/auth';
-import useSuccessModalStore from "../../hooks/useSuccessModalStore";
+import useAlertModalStore from '../../hooks/useAlertModalStore';
 
 const PasswordStudent = () => {
-    const successModalIsOpen = useSuccessModalStore((state) => state.isOpen);
-    const openSuccessModal = useSuccessModalStore((state) => state.openSuccessModal);
+    const alertIsOpen = useAlertModalStore((state) => state.isOpen);
+    const openAlert = useAlertModalStore((state) => state.openAlert);
 
     const [formData, setFormData] = useState({
         old_pass: "",
@@ -28,13 +28,15 @@ const PasswordStudent = () => {
         console.log(response);
 
         if (response.success) {
-            openSuccessModal("Your password was changed");
+            openAlert("Success", "Success", "Your password was changed");
+        } else {
+            openAlert("Error", "Error", response.error);
         }
     }
 
     return (
         <>
-            {successModalIsOpen && <SuccessModal />}
+            {alertIsOpen && <AlertModal />}
             <div className="screenLayout">
                 <StudentNav />
                 <div className="title_contentDiv_Auto">

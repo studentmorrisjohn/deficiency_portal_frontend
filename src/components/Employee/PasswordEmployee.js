@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import '../style.css';
 
-import SuccessModal from "../Modals/SuccessModal";
 import EmployeeNav from "./EmployeeNav";
+import AlertModal from '../Modals/AlertModal';
+
 
 import { fetchChangePassword } from '../../functions/auth';
-import useSuccessModalStore from "../../hooks/useSuccessModalStore";
+import useAlertModalStore from '../../hooks/useAlertModalStore';
 
 const PasswordEmployee = () => {
-    const successModalIsOpen = useSuccessModalStore((state) => state.isOpen);
-    const openSuccessModal = useSuccessModalStore((state) => state.openSuccessModal);
+    const alertIsOpen = useAlertModalStore((state) => state.isOpen);
+    const openAlert = useAlertModalStore((state) => state.openAlert);
 
     const [formData, setFormData] = useState({
         old_pass: "",
@@ -27,13 +28,16 @@ const PasswordEmployee = () => {
         console.log(response);
 
         if (response.success) {
-            openSuccessModal("Your password was changed");
+            openAlert("Success", "Success", "Your password was changed");
+        } 
+        else {
+            openAlert("Error", "Error", response.error);
         }
     }
 
     return (
         <>
-            {successModalIsOpen && <SuccessModal />}
+            {alertIsOpen && <AlertModal />}
             <div className="screenLayout">
                 <EmployeeNav />
                 <div className="title_contentDiv_Auto">

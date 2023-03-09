@@ -13,6 +13,7 @@ const StudentsWithDeficiency = () => {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
     const deficiencyModal = useDeficiencyModalStore((state) => state.deficiencyModal);
     const alertIsOpen = useAlertModalStore((state) => state.isOpen);
+    const arrowLeft = new URL("../images/ArrowCircleLeft.png", import.meta.url)
 
 
     return (
@@ -24,6 +25,7 @@ const StudentsWithDeficiency = () => {
                 <div className="title_contentDiv">
                     <div className="outerDivEmployee">
                         <div className="innerDivHeader">
+                            <img src={arrowLeft} className="arrowLeft"/>
                             <span className="red_name">{activeDeficiencyName.name} ({activeDeficiencyName.category})</span>
                         </div>
                         <div className="innerDivider">

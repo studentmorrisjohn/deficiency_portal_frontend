@@ -74,7 +74,7 @@ const FacultyLogin = () => {
                         <button className="btn_stdnt" type="submit">
                             Sign in
                         </button>
-                        <span className="subtext_main">By using this service, you understood and agree to the
+                        <span className="subtext_main_bottom">By using this service, you understood and agree to the
                             PUP Online Services <span className="subtext_blue">Terms of Use</span> and <span className="subtext_blue">Privacy Statement</span></span>
                 </form>
             </div>

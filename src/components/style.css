@@ -839,7 +839,6 @@ button:hover {
     flex-direction: column;
     justify-content: flex-start;
     background-color: #28A745;
-    overflow-y: auto;
     margin-top: 15vh;
 }
 .modalContainerXSmall_red {
@@ -854,7 +853,6 @@ button:hover {
     flex-direction: column;
     justify-content: flex-start;
     background-color: #DC3545;
-    overflow-y: auto;
     margin-top: 15vh;
 }
 .modalContainerXSmall {

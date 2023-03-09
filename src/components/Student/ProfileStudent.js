@@ -7,9 +7,9 @@ import { fetchProfileData, fetchUpdateProfile } from "../../functions/student";
 import AffiliationTable from "./AffiliationTable";
 import Profile from "../General/Profile";
 import SuccessModal from "../Modals/SuccessModal";
+import FailedModal from "../Modals/FailedModal";
 import useProfileDataStore from "../../hooks/useProfileDataStore";
 import useSuccessModalStore from "../../hooks/useSuccessModalStore";
-import FailedModal from "../Modals/FailedModal";
 
 const ProfileStudent = () => {
     const profileData = useProfileDataStore((state) => state.profileData);
@@ -36,12 +36,13 @@ const ProfileStudent = () => {
 
     async function updateProfile() {
         openSuccessModal("Your Profile was updated");
-        const response = await fetchUpdateProfile(profileData.mobile_number, profileData.email);
+        openSuccessModal("Your Profile was updated");
+        // const response = await fetchUpdateProfile(profileData.mobile_number, profileData.email);
 
-        if (response.success) {
-            openSuccessModal("Your Profile was updated");
-            getStudentProfile();
-        }
+        // if (response.success) {
+        //     openSuccessModal("Your Profile was updated");
+        //     getStudentProfile();
+        // }
     }
 
     useEffect(() => {

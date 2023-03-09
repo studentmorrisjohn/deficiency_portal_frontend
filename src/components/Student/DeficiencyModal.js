@@ -35,8 +35,8 @@ const DeficiencyModal = () => {
         <>
             <div className="modalBackground">
                 <div className="modalContainer">
-                    <div className="modalContainer1">
-                        <span className="modalText">Deficiency ID: {deficiencyDetails.deficiency_id}</span>
+                    <div className="modalHeader">
+                        <span className="deficiencycompleted_text">Deficiency ID: {deficiencyDetails.deficiency_id}</span>
                     </div>
 
                     <div className="modalDiv">
@@ -149,17 +149,17 @@ const DeficiencyModal = () => {
 
                     {deficiencyDetails.category === "Finance" ? (<div className="modalDiv">
                         <div className="modalCol">
-                            <div className="modalFetched">
+                            <div className="modal_category">
                                 <span>Amount To Be Settled:</span>
                             </div>
                         </div>
                         <div className="modalCol">
-                            <div className="modalCategory">
+                            <div className="modalFetched">
                                 <span>{deficiencyDetails.balance}</span>
                             </div>
                         </div>
                     </div>) : "" }
-                    <div className="modalContainer6">
+                    <div className="modalDivFlexEnd">
 
 
                         <button className="modalButton"

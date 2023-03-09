@@ -205,12 +205,12 @@ const DeficiencyModalEmployee = () => {
                     </div>) : 
                     (<div className="modalDiv">
                     <div className="modalCol">
-                        <div className="modalFetched">
+                        <div className="modal_category">
                             <span>Documents to be submitted:</span>
                         </div>
                     </div>
                     <div className="modalCol">
-                        <div className="modalCategory">
+                        <div className="modalFetched">
                             <span style={pendingOrComplete(deficiencyDetails.status)}>{deficiencyDetails.name}</span>
                         </div>
                     </div>
@@ -218,10 +218,12 @@ const DeficiencyModalEmployee = () => {
                     <div className="modalDivFlexEnd">
 
 
+                        
+                        {adminMode ? <button className="green_button"
+                        onClick={updateDeficiency}> Update </button>: 
                         <button className="modalButton"
                         onClick={closeModal}> Close </button>
-                        {adminMode && <button className="modalButton"
-                        onClick={updateDeficiency}> Update </button>}
+                        }
                     
                     </div>
                 </div>

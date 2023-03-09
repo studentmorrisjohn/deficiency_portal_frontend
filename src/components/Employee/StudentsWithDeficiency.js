@@ -9,11 +9,14 @@ import DeficiencyModalEmployee from "./DeficiencyModalEmployee";
 import AlertModal from "../Modals/AlertModal";
 import useAlertModalStore from "../../hooks/useAlertModalStore";
 import { useNavigate } from "react-router-dom";
+import useConfirmDeleteModalStore from "../../hooks/useConfirmDeleteModalStore";
+import ConfirmDeleteModal from "../Modals/ConfirmDeleteModal";
 
 const StudentsWithDeficiency = () => {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
     const deficiencyModal = useDeficiencyModalStore((state) => state.deficiencyModal);
     const alertIsOpen = useAlertModalStore((state) => state.isOpen);
+    const confirmDeleteIsOpen = useConfirmDeleteModalStore((state) => state.isOpen);
     const arrowLeft = new URL("../images/ArrowCircleLeft.png", import.meta.url);
     const navigate = useNavigate();
 
@@ -21,6 +24,7 @@ const StudentsWithDeficiency = () => {
     return (
         <>
             {alertIsOpen && <AlertModal /> }
+            {confirmDeleteIsOpen && <ConfirmDeleteModal />}
             <div> {deficiencyModal && <DeficiencyModalEmployee />} </div>
             <div className="screenLayout">
                 <EmployeeNav />

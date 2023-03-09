@@ -72,8 +72,8 @@ const StudentLogin = () => {
                         <img src={pupLOGO} className="pupLogo" />
                         <span className="main_heading">PUP Student Deficiency Portal</span>
                         <span className="subtext_main">Sign in to start your session</span>
-                        <input name="username" type='text' placeholder="Student Number" className="username_input" onChange={e => onChange(e)} />
-                        <input name="password" type='password' placeholder="Password" className="password_input" onChange={e => onChange(e)} />
+                        <input name="username" type='text' placeholder="Student Number" placeholderTextColor="#c7c7c7" className="username_input" onChange={e => onChange(e)} />
+                        <input name="password" type='password' placeholder="Password" placeholderTextColor="#c7c7c7" className="password_input" onChange={e => onChange(e)} />
                         <div className="forgotpass_container">
                             <img src={key} className="forgotpass_image" />
                             <span className="forgotpass_text"> Forgot Password </span>

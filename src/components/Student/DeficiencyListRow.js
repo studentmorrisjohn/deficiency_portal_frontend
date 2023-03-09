@@ -1,4 +1,5 @@
 import React from "react"
+import { pendingOrComplete } from "../../constants/colors";
 import useDeficiencyModalStore from "../../hooks/useDeficiencyModalStore"
 
 const DeficiencyListRow = ({deficiency}) => {
@@ -23,7 +24,7 @@ const DeficiencyListRow = ({deficiency}) => {
             <td>
                 {(deficiency.balance === "NA") ? "-----" : deficiency.balance }
             </td>
-            <td>
+            <td style={pendingOrComplete(deficiency.status)}>
                 {deficiency.status}
             </td>
         </tr>

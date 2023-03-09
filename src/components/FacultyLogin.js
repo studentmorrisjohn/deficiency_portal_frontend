@@ -52,6 +52,7 @@ const FacultyLogin = () => {
     };
 
     const attemptLogin = (username, password) => {
+        openAlert("Error", "Error", "Username/Password is incorrect");
         login(username, password).then((res) => {
             if (res.status === 202) {
                 authenticate();
@@ -71,8 +72,8 @@ const FacultyLogin = () => {
                         <img src={pupLOGO} className="pupLogo" />
                         <span className="main_heading">PUP Student Deficiency Portal</span>
                         <span className="subtext_main">Sign in to start your session</span>
-                        <input name="username" type='text' placeholder="Username" className="username_input" onChange={e => onChange(e)} />
-                        <input name="password" type='password' placeholder="Password" className="password_input" onChange={e => onChange(e)} />
+                        <input name="username" type='text' placeholder="Username" placeholderTextColor="#c7c7c7" className="username_input" onChange={e => onChange(e)} />
+                        <input name="password" type='password' placeholder="Password" placeholderTextColor="#c7c7c7" className="password_input" onChange={e => onChange(e)} />
                         <div className="forgotpass_container">
                             <img src={key} className="forgotpass_image" />
                             <span className="forgotpass_text"> Forgot Password </span>

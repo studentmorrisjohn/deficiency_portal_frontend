@@ -14,11 +14,11 @@ const AlertModal = () => {
         <>
         <div className="modalBackgroundTop">
                 <div className={type==="Success" ? "modalContainerXSmall_green" : "modalContainerXSmall_red"}>
-                    <div className="modalDivTop">
+                    <div className="modalDivHidden_top">
                         <span className="modalWhiteTextBold">{header}</span>
                         <img onClick={closeAlert} className="xcircle" src={Xcircle}/>
                     </div>
-                    <div className="modalDiv">
+                    <div className="modalDivHidden">
                         <span className="modalWhiteSubtext">{message}</span>
                     </div>
                     

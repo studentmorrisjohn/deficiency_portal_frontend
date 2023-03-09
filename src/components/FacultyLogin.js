@@ -52,7 +52,6 @@ const FacultyLogin = () => {
     };
 
     const attemptLogin = (username, password) => {
-        openAlert("Error", "Error", "Username/Password is incorrect");
         login(username, password).then((res) => {
             if (res.status === 202) {
                 authenticate();

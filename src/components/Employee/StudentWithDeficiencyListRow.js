@@ -35,7 +35,7 @@ function StudentWithDeficiencyListRow({studentWithDeficiency}) {
         {activeDeficiencyName.category === "Finance" ? <td>
             {studentWithDeficiency.balance}
         </td> : ""}
-        <td>
+        <td style={pendingOrComplete(studentWithDeficiency.status)}>
             {studentWithDeficiency.status}
         </td>
         <td className="iconGap"> 

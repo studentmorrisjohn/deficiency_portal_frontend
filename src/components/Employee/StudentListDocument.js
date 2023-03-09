@@ -9,6 +9,7 @@ import StudentsWithDeficiencySearch from "./StudentsWithDeficiencySearch";
 
 const StudentListDocument = () => {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
+    const arrowLeft = new URL("../images/ArrowCircleLeft.png", import.meta.url)
 
     return (
         <>
@@ -17,6 +18,7 @@ const StudentListDocument = () => {
                 <div className="title_contentDiv">
                     <div className="outerDivEmployee">
                         <div className="innerDivHeader">
+                            <img src={arrowLeft} className="arrowLeft"/>
                              <span className="red_name">{activeDeficiencyName.name} ({activeDeficiencyName.category})</span>
                         </div>
 

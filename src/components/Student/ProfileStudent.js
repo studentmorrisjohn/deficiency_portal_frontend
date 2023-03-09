@@ -10,6 +10,7 @@ import SuccessModal from "../Modals/SuccessModal";
 import FailedModal from "../Modals/FailedModal";
 import useProfileDataStore from "../../hooks/useProfileDataStore";
 import useSuccessModalStore from "../../hooks/useSuccessModalStore";
+import FailedModal from "../Modals/FailedModal";
 
 const ProfileStudent = () => {
     const profileData = useProfileDataStore((state) => state.profileData);
@@ -36,7 +37,11 @@ const ProfileStudent = () => {
 
     async function updateProfile() {
         openSuccessModal("Your Profile was updated");
+<<<<<<< HEAD
         // const response = await fetchUpdateProfile(profileData.mobile_number, profileData.email);
+=======
+        const response = await fetchUpdateProfile(profileData.mobile_number, profileData.email);
+>>>>>>> 565cf6eadbd0abd81459b12f52680bbf04c222e5
 
         // if (response.success) {
         //     openSuccessModal("Your Profile was updated");

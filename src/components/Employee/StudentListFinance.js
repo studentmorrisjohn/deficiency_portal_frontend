@@ -8,6 +8,8 @@ import StudentsWithDeficiencySearch from "./StudentsWithDeficiencySearch";
 const pupLOGO = new URL("../images/PUPLOGO.png", import.meta.url)
 const house = new URL("../images/House.png", import.meta.url)
 const usercircle = new URL("../images/UserCircle.png", import.meta.url)
+const arrowLeft = new URL("../images/ArrowCircleLeft.png", import.meta.url)
+
 const StudentListFinance = () => {
 
     const [openDropdown, setOpenDropdown] = useState(false);
@@ -34,6 +36,7 @@ const StudentListFinance = () => {
                 <div className="title_contentDiv">
                     <div className="outerDivEmployee">
                         <div className="innerDivHeader">
+                            <img src={arrowLeft} className="arrowLeft"/>
                             <span className="red_name">Tuition Fee (Finance)</span>
                         </div>
                         <div className="innerDivider">

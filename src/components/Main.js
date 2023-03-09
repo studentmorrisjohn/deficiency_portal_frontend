@@ -30,7 +30,7 @@ const Main = () => {
                     <button className="btn_emply" onClick={() => {setGoToFacultyLogin(true);}}>
                          Employee
                     </button>
-                    <span className="subtext_main">By using this service, you understood and agree to the
+                    <span className="subtext_main_bottom">By using this service, you understood and agree to the
                     PUP Online Services <span className="subtext_blue">Terms of Use</span> and <span className="subtext_blue">Privacy Statement</span></span>
                 </div>
             </div>

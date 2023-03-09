@@ -1,6 +1,7 @@
 import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 import useDeficiencyModalStore from "../../hooks/useDeficiencyModalStore"
-import {fetchDeleteDeficiency} from "../../functions/employee"
+import {fetchDeleteDeficiency} from "../../functions/employee";
+import { pendingOrComplete } from "../../constants/colors";
 import useStudentWithDeficiencyListStore from "../../hooks/useStudentWithDeficiencyListStore";
 import useConfirmDeleteModalStore from "../../hooks/useConfirmDeleteModalStore";
 

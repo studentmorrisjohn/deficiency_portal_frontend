@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { pendingOrComplete } from "../../constants/colors";
 import { fetchDeficiencyDetailsEmployee, fetchUpdateDeficiency } from "../../functions/employee";
 import useAlertModalStore from "../../hooks/useAlertModalStore";
 
@@ -66,8 +67,8 @@ const DeficiencyModalEmployee = () => {
         <>
             <div className="modalBackground">
                 <div className="modalContainer">
-                    <div className="modalContainer1">
-                        <span className="modalText">Deficiency ID: {deficiencyDetails.deficiency_id}</span>
+                    <div className="modalHeader">
+                        <span style={pendingOrComplete(deficiencyDetails.status)} className="deficiencycompleted_text">Deficiency ID: {deficiencyDetails.deficiency_id}</span>
                     </div>
 
                     <div className="modalDiv">
@@ -93,7 +94,7 @@ const DeficiencyModalEmployee = () => {
                                     <span>Webmail:</span>
                                 </div>
                                 <div className="modalFetched">
-                                    <span>j@iskolarngbayan.pup.edu.ph</span>
+                                    <span>{deficiencyDetails.student_summary.email}</span>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +112,7 @@ const DeficiencyModalEmployee = () => {
                                     <span>Status:</span>
                                 </div>
                                 <div className="modalFetched">
-                                    <span>{deficiencyDetails.status}</span>
+                                    <span style={pendingOrComplete(deficiencyDetails.status)}>{deficiencyDetails.status}</span>
                                 </div>
                             </div>
                             <div className="modalRow">
@@ -131,12 +132,23 @@ const DeficiencyModalEmployee = () => {
                                 <span>Affiliation</span>
                             </div>
                         </div>
-                        <div className="modalCol3rds">
+                        
+                        {deficiencyDetails.student_summary.affiliations ? 
+                            deficiencyDetails.student_summary.affiliations.map((affiliation => {
+                                <table>
+                                    <tr>
+                                        <td>{affiliation.role}</td>
+                                        <td>{affiliation.organization.name}</td>
+                                    </tr>
+                                </table> 
+                        })) : " "}
+                        
+                        {/* <div className="modalCol3rds">
                             {deficiencyDetails.student_summary.affiliations ? deficiencyDetails.student_summary.affiliations.map((affiliation => <span className="modalText1">{affiliation.role}</span>)) : " "}
                         </div>
                         <div className="modalCol3rds">
                             {deficiencyDetails.student_summary.affiliations ? deficiencyDetails.student_summary.affiliations.map((affiliation => <span className="modalText1">{affiliation.organization.name}</span>)) : " "}
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="modalDiv">
@@ -178,7 +190,8 @@ const DeficiencyModalEmployee = () => {
                         </div>
                     </div>
 
-                    {deficiencyDetails.category === "Finance" ? (<div className="modalDiv">
+                    {deficiencyDetails.category === "Finance" ? 
+                    (<div className="modalDiv">
                         <div className="modalCol">
                             <div className="modalFetched">
                                 <span>Amount To Be Settled:</span>
@@ -186,11 +199,23 @@ const DeficiencyModalEmployee = () => {
                         </div>
                         <div className="modalCol">
                             <div className="modalCategory">
-                                <span>{deficiencyDetails.balance}</span>
+                                <span style={pendingOrComplete(deficiencyDetails.status)}>{deficiencyDetails.balance}</span>
                             </div>
                         </div>
-                    </div>) : "" }
-                    <div className="modalContainer6">
+                    </div>) : 
+                    (<div className="modalDiv">
+                    <div className="modalCol">
+                        <div className="modalFetched">
+                            <span>Documents to be submitted:</span>
+                        </div>
+                    </div>
+                    <div className="modalCol">
+                        <div className="modalCategory">
+                            <span style={pendingOrComplete(deficiencyDetails.status)}>{deficiencyDetails.name}</span>
+                        </div>
+                    </div>
+                </div>)}
+                    <div className="modalDivFlexEnd">
 
 
                         <button className="modalButton"

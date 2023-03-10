@@ -9,19 +9,9 @@ const useAddStudentListStore = create((set) => ({
     const response = await fetchAllStudentsList(deficiencyName, student_id, student_name);
 
     if (response.warning) {
-      set( {
-        addStudentList: <tr>
-                          <td>
-                              Something Went Wrong.
-                          </td>
-                      </tr>
-      });
+      set( {addStudentList: []});
   } else {
-      const studentList = response.map((student) => 
-          <AddStudentRow student={student} />
-      );
-      set( {
-        addStudentList: studentList});
+      set( {addStudentList: response});
 
   }
   }

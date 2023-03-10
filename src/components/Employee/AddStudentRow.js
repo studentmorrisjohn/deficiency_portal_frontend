@@ -4,6 +4,8 @@ import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 import useSelectedStudentStore from "../../hooks/useSelectedStudentStore";
 import useFinanceDeficiencyModal from "../../hooks/useFinanceDeficiencyModalStore";
 
+const viewIcon = new URL("../images/AddIcon.png", import.meta.url);
+
 function AddStudentRow({student}) {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
     const fetchAllStudents = useAddStudentListStore((state) => state.fetchAllStudents);
@@ -35,7 +37,7 @@ function AddStudentRow({student}) {
                 )) : ""}
         </td>
         <td>
-            <button onClick={addStudent}>V</button>
+            <button className="iconbutton" onClick={addStudent}><img src={viewIcon}/></button>
         </td>
         
     </tr> );

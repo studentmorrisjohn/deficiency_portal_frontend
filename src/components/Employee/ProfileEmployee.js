@@ -54,12 +54,12 @@ const ProfileEmployee = () => {
                 <EmployeeNav />
 
                 <div className="title_contentDiv">
-                    <span className="page-title">Student Profile</span>
+                    <span className="page-title">Employee Profile</span>
 
 
                     <div className="outerDivAuto">
 
-                            <Profile profile_data={employeeProfile} />
+                            <Profile profile_data={employeeProfile} user_type="employee" />
                             <span className="italic_text">I hereby certify that all the information provided are true and correct to the best of my knowledge.</span>
                             <button onClick={updateProfile} className="maroonButton">Save</button>
 

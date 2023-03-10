@@ -512,6 +512,7 @@ button:hover {
     width: auto;
     height: auto;
     gap: 4px;
+    list-style-type: none;
 }
 
 .footer_text {
@@ -523,10 +524,26 @@ button:hover {
 .pagination_buttons {
     color: #800000;
     border-style: hidden;
+    text-decoration: none;
+    padding: 8px 15px;
+    background-color: #f0f0f0;
 }
+
+.pagination_buttons_active {
+    color: white;
+    background-color: #800000;
+    border-style: hidden;
+    text-decoration: none;
+    padding: 8px 15px;
+}
+
 .pagination_buttons:hover {
     color: white;
     background-color: #800000;
+    box-shadow: 10px 10px 7px -1px rgba(0, 0, 0, 0.1);
+    filter: saturate(150%);
+    transform: scale(1.05);
+    transition: ease 100ms;
 }
 
 .addStudentSearch_subtext {

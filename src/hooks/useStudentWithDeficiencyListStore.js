@@ -9,17 +9,10 @@ const useStudentWithDeficiencyListStore = create((set) => ({
     const response = await fetchStudentsWithDeficiencyList(deficiencyName, student_id, student_name);
     if (response.warning) {
       set(
-      {studentsWithDeficiencyList: <tr>
-          <td>
-              There are no students with this deficiency yet.
-          </td>
-      </tr>}
+      {studentsWithDeficiencyList: []}
       );
   } else {
-      const studentList = response.map((studentWithDeficiency) => 
-          <StudentWithDeficiencyListRow studentWithDeficiency={studentWithDeficiency} />
-      );
-      set({studentsWithDeficiencyList: studentList});
+      set({studentsWithDeficiencyList: response});
   }
   }
 }));

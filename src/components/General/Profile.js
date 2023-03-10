@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from "react";
 import useProfileDataStore from "../../hooks/useProfileDataStore";
 
-function Profile({profile_data}) {
+function Profile({profile_data, user_type}) {
     const [formData, setFormData] = useState({
         mobile_number: profile_data.mobile_number,
         email: profile_data.email
@@ -35,7 +35,7 @@ function Profile({profile_data}) {
         <div className="profile_col">
             <div className="profile_row">
                 <div className="profile_category">
-                    <span className="">Student No.</span>
+                    <span className="">{user_type === "student"? "Student No." : "Employee Id"}</span>
                 </div>
                 <div className="profile_fetched">
                     <span className="">{profile_data.username}</span>
@@ -70,7 +70,7 @@ function Profile({profile_data}) {
         <div className="profile_col">
             <div className="profile_row">
                 <div className="profile_category">
-                    <span className="">Program</span>
+                    <span className="">{user_type === "student"? "Program" : "Department"}</span>
                 </div>
                 <div className="profile_fetched">
                     <span className="">{profile_data.department}</span>

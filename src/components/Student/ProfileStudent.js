@@ -65,7 +65,7 @@ const ProfileStudent = () => {
                     <div className="outerDiv">
                         <StudentName />
                         <div className="inner_div_divider">
-                            <Profile profile_data={studentProfile} />
+                            <Profile profile_data={studentProfile} user_type="student" />
                             <span className="inner_title">Affiliations</span>
                             <AffiliationTable />
                             <span className="italic_text">I hereby certify that all the information provided are true and correct to the best of my knowledge.</span>

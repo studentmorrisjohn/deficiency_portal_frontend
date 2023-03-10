@@ -14,9 +14,7 @@ function DeficiencyNamesSearch() {
         if (response.warning) {
             setDeficiencyNames("You don't have any deficiencies");
         } else {
-            const deficiencyList = response.map((deficiencyName) => 
-                <DeficiencyNamesRow deficiencyName={deficiencyName} key={deficiencyName.name} />
-            );
+            const deficiencyList = response;
             setDeficiencyNames(deficiencyList);
         }
     }

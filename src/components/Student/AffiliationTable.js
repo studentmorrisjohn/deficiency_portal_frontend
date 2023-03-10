@@ -30,13 +30,13 @@ const AffiliationTable = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>
+                        <th className="th_bl">
                             Organization Name
                         </th>
-                        <th>
+                        <th className="th_bl">
                             Position
                         </th>
-                        <th>
+                        <th className="th_bl">
                             Action
                         </th>
                     </tr>

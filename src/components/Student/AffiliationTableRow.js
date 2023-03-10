@@ -3,6 +3,8 @@ import { fetchDeleteAffiliation } from "../../functions/student";
 
 function AffiliationTableRow( {affiliation, getAffiliationList} ) {
 
+    const deleteIcon = new URL("../images/DeleteIcon.png", import.meta.url)
+
     async function deleteAffliation() {
         const response = await fetchDeleteAffiliation(affiliation.id);
         
@@ -19,7 +21,7 @@ function AffiliationTableRow( {affiliation, getAffiliationList} ) {
             </td>
             <td>
                 <button onClick={deleteAffliation}>
-                    &#10006;
+                    <img src={deleteIcon} />
                 </button>
                 
             </td>

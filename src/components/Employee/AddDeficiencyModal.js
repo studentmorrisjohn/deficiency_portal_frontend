@@ -34,15 +34,16 @@ const AddDeficiencyModal = ({ closeModal }) => {
                     </div>
                     <div className="modalDiv">
                         <div className="modalColGap">
-                            <span className="subtext_main">Deficiency</span>
-                            <span className="subtext_main">Category</span>
+                            <span className="modal_text">Deficiency</span>
+                            <span className="modal_text">Category</span>
                         </div>
                         <div className="modalColGap">
-                            <input className="standard_textinput" placeholder="Form 138" onChange={onChange}></input>
+                            <input className="standard_textinput" placeholder="" onChange={onChange}></input>
                             <select className="modalSelect" onChange={(e) => {
                                 const selectstate = e.target.value;
                                 setdeficiencystate(selectstate)
                             }}>
+                                <option></option>
                                 <option value="document">Document</option>
                                 <option value="finance">Finance</option>
                             </select>

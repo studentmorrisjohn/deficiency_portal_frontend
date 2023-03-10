@@ -60,6 +60,7 @@
     font-weight: 400;
     line-height: 30px;
     margin: 3rem;
+    text-align: center;
 }
 
 .subtext_blue {
@@ -201,13 +202,14 @@ button:hover {
 .homeLogo {
     width: auto;
     object-fit: cover;
+    cursor: pointer;
 } 
 
 .userLogo {
     width: auto;
     object-fit: cover;
+    cursor: pointer;
 }
-
 
 /*************************************** Universal Screen Layout ****************************************/
 .screenLayout {
@@ -366,6 +368,7 @@ button:hover {
     font-family: Poppins;
     line-height: 30px;
     width: 30%;
+    font-weight: 600;
 }
 
 .profile_fetched {
@@ -375,7 +378,6 @@ button:hover {
     font-size: 20px;
     font-style: normal;
     font-family: Poppins;
-    font-weight: 600;
     line-height: 30px;
     width: 70%;
 }
@@ -391,7 +393,8 @@ button:hover {
 
 .affiliation_table {
     align-self: center;
-    margin-inline: 2rem;
+    padding: 0 2rem 0 2rem;
+    width: 100%;
 }
 
 .italic_text {
@@ -400,7 +403,7 @@ button:hover {
     font-family: Poppins;
     font-weight: 300;
     line-height: 30px;
-    padding-top: 20vh;
+    padding-top: 10vh;
     margin: 2rem;
 }
 
@@ -948,6 +951,16 @@ button:hover {
     padding: 1rem 1rem 1rem 2rem;
     border-style: hidden;
 }
+
+.modal_text {
+    font-size: 20px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 400;
+    line-height: 30px;
+    margin: .2rem;
+    font-weight: 600;
+}
 /**************************************** Tables & Dropdown ****************************************/
 
 table {
@@ -964,7 +977,6 @@ td {
 
 th {
     background-color: #800000;
-    font-size: 32px;
     font-size: 26px;
     line-height: 36px;
     color: white;
@@ -972,9 +984,15 @@ th {
 
 td {
     background-color: white;
-    font-size: 32px;
     font-size: 20px;
     line-height: 30px;
+}
+
+.th_bl {
+    background-color: #1E1E1E;
+    font-size: 26px;
+    line-height: 36px;
+    color: white;
 }
 
 .menu {
@@ -997,7 +1015,7 @@ td {
 }
 
 .menu > li:hover {
-  background-color: lightgray;
+  background-color: #F2F2F2;
 }
 
 .dropdown_icon {
@@ -1026,4 +1044,8 @@ td {
     background-color: transparent;
     padding: 0;
     border-radius: 2rem;
+}
+
+span {
+    cursor: default;
 }

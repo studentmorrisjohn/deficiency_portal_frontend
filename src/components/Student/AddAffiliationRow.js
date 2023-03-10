@@ -27,6 +27,8 @@ function AddAffiliationRow({refreshList}) {
         setFormData({ ...formData, ["organization"]: selectedOptions.value});
     }
 
+    const addIcon = new URL("../images/AddIcon.png", import.meta.url);
+
 
     return ( 
     <tr>
@@ -38,7 +40,7 @@ function AddAffiliationRow({refreshList}) {
                 <input type='text' placeholder="Position" className="textbox" onChange={e => onChange(e)} name="role" />
             </td>
             <td>
-                <button onClick={addAffiliation}>&#43;</button>
+                <button onClick={addAffiliation} className="iconbutton" ><img src={addIcon}/></button>
             </td>
         
     </tr> 

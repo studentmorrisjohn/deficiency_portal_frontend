@@ -57,7 +57,7 @@ const ProfileEmployee = () => {
                     <span className="page-title">Student Profile</span>
 
 
-                    <div className="outerDiv">
+                    <div className="outerDivAuto">
 
                             <Profile profile_data={employeeProfile} />
                             <span className="italic_text">I hereby certify that all the information provided are true and correct to the best of my knowledge.</span>

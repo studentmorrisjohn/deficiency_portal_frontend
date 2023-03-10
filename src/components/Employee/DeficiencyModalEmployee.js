@@ -59,8 +59,13 @@ const DeficiencyModalEmployee = () => {
     useEffect(() => {
         
         getDeficiencyDetails();
+        
 
     }, []);
+
+    useEffect(() => {
+        console.log(deficiencyDetails.student_summary.affiliations);
+    }, [deficiencyDetails]);
 
 
     return (
@@ -132,16 +137,31 @@ const DeficiencyModalEmployee = () => {
                                 <span>Affiliation</span>
                             </div>
                         </div>
+
+                        <div className="modalCol">
+                        <table>
+
+                            {deficiencyDetails.student_summary.affiliations ? deficiencyDetails.student_summary.affiliations.map(
+                                (affiliation => 
+                                    
+                                    
+                                        
+                                        
+                                            <tr>
+                                                <td>{affiliation.role}</td>
+                                                <td>{affiliation.organization.name}</td>
+                                            </tr>
+                                        
+                                    
+                                
+                                )): " "}
+                        </table>
+
+                        </div>
+
                         
-                        {deficiencyDetails.student_summary.affiliations ? 
-                            deficiencyDetails.student_summary.affiliations.map((affiliation => {
-                                <table>
-                                    <tr>
-                                        <td>{affiliation.role}</td>
-                                        <td>{affiliation.organization.name}</td>
-                                    </tr>
-                                </table> 
-                        })) : " "}
+                        
+                        
                         
                         {/* <div className="modalCol3rds">
                             {deficiencyDetails.student_summary.affiliations ? deficiencyDetails.student_summary.affiliations.map((affiliation => <span className="modalText1">{affiliation.role}</span>)) : " "}

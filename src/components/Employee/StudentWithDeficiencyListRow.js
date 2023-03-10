@@ -4,6 +4,7 @@ import {fetchDeleteDeficiency} from "../../functions/employee";
 import { pendingOrComplete } from "../../constants/colors";
 import useStudentWithDeficiencyListStore from "../../hooks/useStudentWithDeficiencyListStore";
 import useConfirmDeleteModalStore from "../../hooks/useConfirmDeleteModalStore";
+import React, { useState, useEffect } from "react"
 
 function StudentWithDeficiencyListRow({studentWithDeficiency}) {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
@@ -23,7 +24,13 @@ function StudentWithDeficiencyListRow({studentWithDeficiency}) {
         // fetchStudentsWithDeficiency(activeDeficiencyName.name, "", "");
     }
 
-    return ( <tr>
+    useEffect(() => {
+        console.log(studentWithDeficiency);
+    }, [studentWithDeficiency]);
+
+    return ( 
+    <tr>
+        
         <td>
             {studentWithDeficiency.student.student_id}
         </td>
@@ -31,7 +38,10 @@ function StudentWithDeficiencyListRow({studentWithDeficiency}) {
             {studentWithDeficiency.student.name}
         </td>
         <td>
-            {/* {studentWithDeficiency.student.affiliations ? studentWithDeficiency.student.affiliations.organization : ""} */}
+            {studentWithDeficiency.student.affiliations ? studentWithDeficiency.student.affiliations.map((affiliation =>
+                <span>{affiliation.organization.name}, </span>
+                
+                )) : ""}
         </td>
         {activeDeficiencyName.category === "Finance" ? <td>
             {studentWithDeficiency.balance}

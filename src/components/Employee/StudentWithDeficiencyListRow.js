@@ -37,12 +37,13 @@ function StudentWithDeficiencyListRow({studentWithDeficiency}) {
         <td>
             {studentWithDeficiency.student.name}
         </td>
-        <td>
+        <td style={{maxWidth:"20rem", overflow:"hidden", whiteSpace:"nowrap", textOverflow:"ellipsis"}}>
             {studentWithDeficiency.student.affiliations ? studentWithDeficiency.student.affiliations.map((affiliation =>
                 <span>{affiliation.organization.name}, </span>
-                
+
                 )) : ""}
         </td>
+
         {activeDeficiencyName.category === "Finance" ? <td>
             {studentWithDeficiency.balance}
         </td> : ""}

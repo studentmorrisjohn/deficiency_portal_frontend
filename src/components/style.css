@@ -1085,6 +1085,7 @@ tr:nth-child(even){
 .arrowLeft {
     width: 3vw;
     margin-left: 2rem;
+    cursor: pointer;
 }
 
 .iconGap {

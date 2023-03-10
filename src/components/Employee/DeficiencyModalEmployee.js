@@ -17,7 +17,6 @@ const DeficiencyModalEmployee = () => {
     const adminMode = useDeficiencyModalStore((state) => state.adminMode);
     const fetchStudentsWithDeficiency = useStudentWithDeficiencyListStore((state) => state.fetchStudentsWithDeficiency);
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
-    const closeAlert = useAlertModalStore((state) => state.closeAlert);
     
 
     const [deficiencyDetails, setDeficiencyDetails] = useState({

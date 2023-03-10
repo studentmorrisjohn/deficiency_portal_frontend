@@ -27,8 +27,12 @@ function AddStudentRow({student}) {
         <td>
             {student.name}
         </td>
-        <td>
-            {/* {student.affiliations ? studentWithDeficiency.student.affiliations.organization : ""} */}
+        
+        <td style={{maxWidth:"20rem", overflow:"hidden", whiteSpace:"nowrap", textOverflow:"ellipsis"}}>
+            {student.affiliations ? student.affiliations.map((affiliation =>
+                <span>{affiliation.organization.name}, </span>
+
+                )) : ""}
         </td>
         <td>
             <button onClick={addStudent}>V</button>

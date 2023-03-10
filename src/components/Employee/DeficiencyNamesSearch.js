@@ -40,8 +40,14 @@ function DeficiencyNamesSearch() {
 
 
     return (<>
+
+        <span  className="addStudentSearch_subtext">Enter Keyword:</span>
         <input placeholder="Deficiency" className="standard_textinput" name="deficiencyNameSearchInput" onChange={onChange}></input>
         <button className="blue_button" onClick={searchName}>Search</button>
+
+        
+
+        
      </> );
 }
 

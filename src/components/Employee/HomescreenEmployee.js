@@ -22,7 +22,7 @@ const HomescreenEmployee = () => {
                         <UserName />
                         <div className="innerDivider">
                             <div className="divStudentDeficiencySearch">
-                                <span className="addStudentSearch_subtext">Enter Keyword:</span>
+                                
                                 <DeficiencyNamesSearch />
 
                                 <button className="red_button" onClick={() => { setOpenModal(true); }}>Add New Deficiency</button>

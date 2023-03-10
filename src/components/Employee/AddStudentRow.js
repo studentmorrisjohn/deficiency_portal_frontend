@@ -23,20 +23,20 @@ function AddStudentRow({student}) {
     }
 
     return ( <tr>
-        <td>
+        <td style={{maxWidth:"15rem", overflow:"hidden", whiteSpace:"nowrap", textOverflow:"ellipsis"}}>
             {student.student_id}
         </td>
-        <td>
+        <td style={{maxWidth:"22rem", overflow:"hidden", whiteSpace:"nowrap", textOverflow:"ellipsis"}}>
             {student.name}
         </td>
         
-        <td style={{maxWidth:"20rem", overflow:"hidden", whiteSpace:"nowrap", textOverflow:"ellipsis"}}>
+        <td style={{maxWidth:"30rem", overflow:"hidden", whiteSpace:"nowrap", textOverflow:"ellipsis"}}>
             {student.affiliations ? student.affiliations.map((affiliation =>
                 <span>{affiliation.organization.name}, </span>
 
                 )) : ""}
         </td>
-        <td>
+        <td style={{padding:"0 2rem"}}>
             <button className="iconbutton" onClick={addStudent}><img src={viewIcon}/></button>
         </td>
         

@@ -62,7 +62,7 @@ const ProfileStudent = () => {
                     <span className="page-title">Student Profile</span>
 
 
-                    <div className="outerDiv">
+                    <div className="outerDivAuto">
                         <StudentName />
                         <div className="inner_div_divider">
                             <Profile profile_data={studentProfile} user_type="student" />

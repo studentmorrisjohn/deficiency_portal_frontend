@@ -11,7 +11,7 @@ function DeficiencyNamesRow({deficiencyName}) {
     }
 
     return ( 
-    <tr onClick={gotoPage}>
+    <tr className="hoverable" onClick={gotoPage}>
         <td>
             {deficiencyName.name}
         </td>

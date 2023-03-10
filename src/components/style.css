@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
 
-
+*{
+    font-family: Poppins;
+}
 /**************************************** Main ****************************************/
-
 .pupBG {
     width: 100%;
     display: flex;
@@ -557,7 +558,7 @@ button:hover {
     width: 15vw;
     height: 5vh;
     font-size: 14px;
-    font-family: poppins;
+    font-family: Poppins;
     padding: 1rem;
 }
 
@@ -755,7 +756,7 @@ button:hover {
     background-color: #C7C7C7;
     border-style: hidden;
     padding: .5rem 1rem .5rem 1rem;
-    font-family: 'Poppins';
+    font-family: Poppins;
 }
 
 .modalDivFlexEnd {
@@ -845,8 +846,33 @@ button:hover {
     flex-direction: column;
     overflow: auto;
     gap: 1rem;
-    font-style: poppins;
+    font-family: Poppins;
     font-size: 16px;
+}
+
+.modalAfilliationCol {
+    height: auto;
+    display: flex;
+    font-size: 20px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 30px;
+    padding: 0 4rem 0 .7rem;
+    align-self: center;
+    width: 15%;
+}
+
+.tableCol{
+    flex: 0 0 auto;
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: .5rem;
+    flex-direction: column;
+    overflow: auto;
+    width: 85%;
 }
 /**************************************** Success & Failed Modals ****************************************/
 
@@ -935,19 +961,20 @@ button:hover {
 
 .xcircle {
     width: auto;
+    cursor: pointer;
 }
 
 .modal_textinput {
     width: 20vw;
     height: 5vh;
     font-size: 14px;
-    font-family: poppins;
+    font-family: Poppins;
     padding: 1rem;
 }
 
 .confirm_delete_text {
     font-size: 18px;
-    font-family: poppins;
+    font-family: Poppins;
     padding: .5rem;
 }
 
@@ -1004,9 +1031,9 @@ th {
 }
 
 td {
-    background-color: white;
     font-size: 20px;
     line-height: 30px;
+    font-family: Poppins;
 }
 
 .th_bl {
@@ -1025,7 +1052,7 @@ td {
     margin-top: 6vh;
     list-style-type: none;
     cursor: pointer;
-    width: 300%;
+    width: 350%;
     right: 0;
     background-color: #FFF;
 }
@@ -1047,8 +1074,13 @@ td {
     position: relative;
 }
 
+.hoverable:hover {
+    background-color: #C7C7C7;
+}
 
-
+tr:nth-child(even){
+    background-color: rgba(242, 242, 242, .7);
+}
 /**************************************** Icons ****************************************/
 .arrowLeft {
     width: 3vw;

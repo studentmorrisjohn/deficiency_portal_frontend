@@ -8,7 +8,7 @@ const DeficiencyListRow = ({deficiency}) => {
 
 
     return (
-        <tr onClick={() => {
+        <tr className="hoverable" onClick={() => {
             openModal();
             setactiveDeficiencyId(deficiency.id);
         }}>

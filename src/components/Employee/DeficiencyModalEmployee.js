@@ -136,13 +136,13 @@ const DeficiencyModalEmployee = () => {
                     </div>
 
                     <div className="modalDiv">
-                        <div className="modalCol3rds">
+                        <div className="modalAfilliationCol">
                             <div className="modalCategory">
                                 <span>Affiliation</span>
                             </div>
                         </div>
 
-                        <div className="modalCol">
+                        <div className="tableCol">
                         <table>
 
                             {deficiencyDetails.student_summary.affiliations ? deficiencyDetails.student_summary.affiliations.map(

@@ -3,8 +3,19 @@ import Cookies from 'js-cookie';
 export async function fetchDeficiencyNames(inputValue) {
     const url = `${process.env.REACT_APP_API_URL}/api/employee/deficiency-name-list?name=${inputValue}`;
 
-    const response = await fetch(url);
-    const jsonData = await response.json();
+    // const response = await fetch(url);
+    // const jsonData = await response.json();
+
+    const jsonData = [
+        {
+            "name": "Grad Fee",
+            "category": "Finance"
+        },
+        {
+            "name": "Form 137",
+            "category": "Document"
+        }
+    ]
 
     return jsonData;
 }

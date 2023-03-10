@@ -754,6 +754,8 @@ button:hover {
 .modalButton {
     background-color: #C7C7C7;
     border-style: hidden;
+    padding: .5rem 1rem .5rem 1rem;
+    font-family: 'Poppins';
 }
 
 .modalDivFlexEnd {
@@ -990,6 +992,7 @@ td {
     border: 1px solid #ffffff;
     text-align: left;
     padding: 8px;
+    cursor: pointer;
 }
 
 th {
@@ -997,6 +1000,7 @@ th {
     font-size: 26px;
     line-height: 36px;
     color: white;
+    cursor: default;
 }
 
 td {

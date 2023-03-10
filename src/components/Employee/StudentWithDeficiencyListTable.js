@@ -42,7 +42,7 @@ function StudentListTable() {
                             Balance
                         </th> : ""}
 
-                        <th>
+                        <th style={{padding:"0 4rem"}}>
                             Status
                         </th>
                         <th>

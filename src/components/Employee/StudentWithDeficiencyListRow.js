@@ -31,10 +31,10 @@ function StudentWithDeficiencyListRow({studentWithDeficiency}) {
     return ( 
     <tr>
         
-        <td>
+        <td style={{maxWidth:"18rem", overflow:"hidden", whiteSpace:"nowrap", textOverflow:"ellipsis"}}>
             {studentWithDeficiency.student.student_id}
         </td>
-        <td>
+        <td style={{maxWidth:"20rem", overflow:"hidden", whiteSpace:"nowrap", textOverflow:"ellipsis"}}>
             {studentWithDeficiency.student.name}
         </td>
         <td style={{maxWidth:"20rem", overflow:"hidden", whiteSpace:"nowrap", textOverflow:"ellipsis"}}>
@@ -47,8 +47,9 @@ function StudentWithDeficiencyListRow({studentWithDeficiency}) {
         {activeDeficiencyName.category === "Finance" ? <td>
             {studentWithDeficiency.balance}
         </td> : ""}
-        <td style={pendingOrComplete(studentWithDeficiency.status)}>
-            {studentWithDeficiency.status}
+        <td style={{padding:"0 4rem"}}>
+            <span style={pendingOrComplete(studentWithDeficiency.status) }>{studentWithDeficiency.status}</span>
+            
         </td>
         <td className="iconGap"> 
             <button className="iconbutton" onClick={() => {

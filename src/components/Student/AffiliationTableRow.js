@@ -20,7 +20,7 @@ function AffiliationTableRow( {affiliation, getAffiliationList} ) {
                 {affiliation.role}
             </td>
             <td>
-                <button onClick={deleteAffliation}>
+                <button className="iconbutton" onClick={deleteAffliation}>
                     <img src={deleteIcon} />
                 </button>
                 

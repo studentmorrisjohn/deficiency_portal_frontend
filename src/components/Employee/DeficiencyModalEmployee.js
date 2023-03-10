@@ -217,7 +217,7 @@ const DeficiencyModalEmployee = () => {
                     {deficiencyDetails.category === "Finance" ? 
                     (<div className="modalDiv">
                         <div className="modalCol">
-                            <div className="modalCategory">
+                            <div className="modal_category">
                                 <span>Amount To Be Settled:</span>
                             </div>
                         </div>

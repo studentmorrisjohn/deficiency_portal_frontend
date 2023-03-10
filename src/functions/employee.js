@@ -31,11 +31,54 @@ export async function fetchDeficiencyNamesOption(inputValue) {
 
 
 export async function fetchStudentsWithDeficiencyList(deficiencyName, student_id, student_name) {
-    var url = `${process.env.REACT_APP_API_URL}/api/employee/student-list/${deficiencyName}?student-id=${student_id}&student-name=${student_name}`;
+    // var url = `${process.env.REACT_APP_API_URL}/api/employee/student-list/${deficiencyName}?student-id=${student_id}&student-name=${student_name}`;
 
-    const response = await fetch(url);
+    // const response = await fetch(url);
 
-    const jsonData = await response.json();
+    // const jsonData = await response.json();
+
+    const jsonData = [
+        {
+            "id": 7,
+            "student": {
+                "student_id": "2019-04179-MN-0",
+                "name": "Montemayor, Morris John Antipolo",
+                "affiliations": [
+                    {
+                        "id": 2,
+                        "organization": {
+                            "name": "American Concrete Institute Philippines - Polytechnic University of the Philippines Student Chapter- (ACIP-PUPSC)"
+                        },
+                        "role": "Member"
+                    },
+                    {
+                        "id": 3,
+                        "organization": {
+                            "name": "Agham Youth - Polytechnic University of the Philippines (AY-PUP)"
+                        },
+                        "role": "Member"
+                    }
+                ],
+                "mobile_number": "(63917) 692-3774",
+                "email": "mjamontemayor@iskolarngbayan.pup.edu.ph"
+            },
+            "status": "Pending",
+            "balance": 500.0
+        },
+        {
+            "id": 3,
+            "student": {
+                "student_id": "2019-04897-MN-0",
+                "name": "Gurango, Seiya Miguel Sanchez",
+                "affiliations": [],
+                "mobile_number": "(69316) 255-1522",
+                "email": "smsgurango@iskolarngbayan.pup.edu.ph"
+            },
+            "status": "Completed",
+            "balance": 200.0
+        }
+    ]
+
     return jsonData;
 }
 
@@ -49,10 +92,45 @@ export async function fetchAllStudentsList(deficiencyName, student_id, student_n
 }
 
 export async function fetchDeficiencyDetailsEmployee(deficiency_id) {
-    const url = `${process.env.REACT_APP_API_URL}/api/employee/deficiency-details/${deficiency_id}`;
+    // const url = `${process.env.REACT_APP_API_URL}/api/employee/deficiency-details/${deficiency_id}`;
 
-    const response = await fetch(url);
-    const jsonData = await response.json();
+    // const response = await fetch(url);
+    // const jsonData = await response.json();
+
+    const jsonData = {
+        "id": 7,
+        "category": "Finance",
+        "name": "Grad Fee",
+        "status": "Pending",
+        "balance": 500.0,
+        "student_summary": {
+            "student_id": "2019-04179-MN-0",
+            "name": "Montemayor, Morris John Antipolo",
+            "affiliations": [
+                {
+                    "id": 2,
+                    "organization": {
+                        "name": "American Concrete Institute Philippines - Polytechnic University of the Philippines Student Chapter- (ACIP-PUPSC)"
+                    },
+                    "role": "Member"
+                },
+                {
+                    "id": 3,
+                    "organization": {
+                        "name": "Agham Youth - Polytechnic University of the Philippines (AY-PUP)"
+                    },
+                    "role": "Member"
+                }
+            ],
+            "mobile_number": "(63917) 692-3774",
+            "email": "mjamontemayor@iskolarngbayan.pup.edu.ph"
+        },
+        "added_by": "Ernesto Dela Cruz",
+        "processed_by": "------",
+        "date_added": "2023-03-10",
+        "date_fulfilled": null,
+        "deficiency_id": "F0000007"
+    }
 
     return jsonData;
 }

@@ -7,6 +7,8 @@ import useDeficiencyModalStore from "../../hooks/useDeficiencyModalStore"
 import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 import useStudentWithDeficiencyListStore from "../../hooks/useStudentWithDeficiencyListStore";
 
+const Xcircle = new URL("../images/XCircle.png", import.meta.url)
+
 const DeficiencyModalEmployee = () => {
     const closeModal = useDeficiencyModalStore((state) => state.closeDeficiencyModal);
     const openAlert = useAlertModalStore((state) => state.openAlert);
@@ -14,6 +16,7 @@ const DeficiencyModalEmployee = () => {
     const adminMode = useDeficiencyModalStore((state) => state.adminMode);
     const fetchStudentsWithDeficiency = useStudentWithDeficiencyListStore((state) => state.fetchStudentsWithDeficiency);
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
+    
 
     const [deficiencyDetails, setDeficiencyDetails] = useState({
         id: 0,
@@ -72,8 +75,9 @@ const DeficiencyModalEmployee = () => {
         <>
             <div className="modalBackground">
                 <div className="modalContainer">
-                    <div className="modalHeader">
+                    <div className="divModalTop">
                         <span style={pendingOrComplete(deficiencyDetails.status)} className="deficiencycompleted_text">Deficiency ID: {deficiencyDetails.deficiency_id}</span>
+                        <img onClick={closeAlert} className="xcircle" src={Xcircle}/>
                     </div>
 
                     <div className="modalDiv">

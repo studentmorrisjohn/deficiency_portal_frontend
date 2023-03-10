@@ -16,6 +16,7 @@ const DeficiencyModalEmployee = () => {
     const adminMode = useDeficiencyModalStore((state) => state.adminMode);
     const fetchStudentsWithDeficiency = useStudentWithDeficiencyListStore((state) => state.fetchStudentsWithDeficiency);
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
+    const closeAlert = useAlertModalStore((state) => state.closeAlert);
     
 
     const [deficiencyDetails, setDeficiencyDetails] = useState({
@@ -75,7 +76,7 @@ const DeficiencyModalEmployee = () => {
         <>
             <div className="modalBackground">
                 <div className="modalContainer">
-                    <div className="divModalTop">
+                    <div className="modalDivTop">
                         <span style={pendingOrComplete(deficiencyDetails.status)} className="deficiencycompleted_text">Deficiency ID: {deficiencyDetails.deficiency_id}</span>
                         <img onClick={closeAlert} className="xcircle" src={Xcircle}/>
                     </div>

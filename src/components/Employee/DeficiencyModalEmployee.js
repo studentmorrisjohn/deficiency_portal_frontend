@@ -12,6 +12,7 @@ const Xcircle = new URL("../images/XCircle.png", import.meta.url)
 const DeficiencyModalEmployee = () => {
     const closeModal = useDeficiencyModalStore((state) => state.closeDeficiencyModal);
     const openAlert = useAlertModalStore((state) => state.openAlert);
+    const closeAlert = useAlertModalStore((state) => state.closeAlert);
     const activeDeficiencyId = useDeficiencyModalStore((state) => state.activeDeficiencyId);
     const adminMode = useDeficiencyModalStore((state) => state.adminMode);
     const fetchStudentsWithDeficiency = useStudentWithDeficiencyListStore((state) => state.fetchStudentsWithDeficiency);

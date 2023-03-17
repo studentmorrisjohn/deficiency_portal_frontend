@@ -25,8 +25,6 @@ const PasswordEmployee = () => {
     async function changePassword() {
         const response = await fetchChangePassword(formData.old_pass, formData.new_pass, formData.re_new_pass);
 
-        console.log(response);
-
         if (response.success) {
             openAlert("Success", "Success", "Your password was changed");
         } 

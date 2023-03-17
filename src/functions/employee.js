@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie';
+import { saveAs } from 'file-saver';
 
 export async function fetchDeficiencyNames(inputValue) {
     const url = `${process.env.REACT_APP_API_URL}/api/employee/deficiency-name-list?name=${inputValue}`;
@@ -229,3 +230,30 @@ export async function fetchEmployeeProfile() {
     return jsonData;
 }
 
+export async function fetchGenerateReport(deficiency_name) {
+    const url = `${process.env.REACT_APP_API_URL}/api/employee/report/${deficiency_name}`;
+
+    const response = await fetch(url);
+
+    console.log(response.data);
+
+    saveAs(url, `${deficiency_name} Report.xlsx`);
+}
+
+export async function fetchGeneralSummary() {
+    const url = `${process.env.REACT_APP_API_URL}/api/employee/profile`;
+
+    const response = await fetch(url);
+    const jsonData = await response.json();
+
+    return jsonData;
+}
+
+export async function fetchDeficiencySummary(deficiency_name) {
+    const url = `${process.env.REACT_APP_API_URL}/api/employee/profile`;
+
+    const response = await fetch(url);
+    const jsonData = await response.json();
+
+    return jsonData;
+}

@@ -24,10 +24,6 @@ function StudentWithDeficiencyListRow({studentWithDeficiency}) {
         // fetchStudentsWithDeficiency(activeDeficiencyName.name, "", "");
     }
 
-    useEffect(() => {
-        console.log(studentWithDeficiency);
-    }, [studentWithDeficiency]);
-
     return ( 
     <tr>
         

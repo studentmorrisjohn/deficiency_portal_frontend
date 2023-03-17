@@ -38,7 +38,7 @@ const ConfirmDeleteModal = () => {
         const message = `${deficiencyDetails.student_summary.name} is successfully deleted from the ${deficiencyDetails.name} deficiency list`;
         fetchStudentsWithDeficiency(activeDeficiencyName.name, "", "");
         closeConfirmDeleteModal();
-        openAlert("Success", "Succes", message);
+        openAlert("Success", "Success", message);
     }
 
     useEffect(() => {

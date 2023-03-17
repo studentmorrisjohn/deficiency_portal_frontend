@@ -50,7 +50,7 @@ const DeficiencyModalEmployee = () => {
                 openAlert("Success", "Update Succes", message);
             } else {
                 const message = `${response.student_summary.name} has a pending ${response.name} deficiency`;
-                openAlert("Error", "Update Succes", message);
+                openAlert("Error", "Update Success", message);
             }
             
         } else {
@@ -65,11 +65,6 @@ const DeficiencyModalEmployee = () => {
         
 
     }, []);
-
-    useEffect(() => {
-        console.log(deficiencyDetails.student_summary.affiliations);
-    }, [deficiencyDetails]);
-
 
     return (
         <>
@@ -136,6 +131,26 @@ const DeficiencyModalEmployee = () => {
                     </div>
 
                     <div className="modalDiv">
+                        <div className="modalCol">
+                            <div className="modalRow">
+                                <div className="modalCategory">
+                                    <span>Program:</span>
+                                </div>
+                                <div className="modalFetched">
+                                    <span>{deficiencyDetails.student_summary.department}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {/* <div className="modalCol">
+                            <div className="modalRow">
+                                <div className="modalFetched">
+                                    <span>{deficiencyDetails.student_summary.department}</span>
+                                </div>
+                            </div>
+                        </div> */}
+                    </div>
+
+                    <div className="modalDiv">
                         <div className="modalAfilliationCol">
                             <div className="modalCategory">
                                 <span>Affiliation</span>
@@ -174,6 +189,8 @@ const DeficiencyModalEmployee = () => {
                             {deficiencyDetails.student_summary.affiliations ? deficiencyDetails.student_summary.affiliations.map((affiliation => <span className="modalText1">{affiliation.organization.name}</span>)) : " "}
                         </div> */}
                     </div>
+
+                    
 
                     <div className="modalDiv">
                         <div className="modalCol">

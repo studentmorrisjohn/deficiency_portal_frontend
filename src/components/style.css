@@ -1104,3 +1104,14 @@ tr:nth-child(even){
 span {
     cursor: default;
 }
+
+/**************************************** Dashboard ****************************************/
+.dashboardDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.chart{
+    display: flex;
+    align-self: center;
+}

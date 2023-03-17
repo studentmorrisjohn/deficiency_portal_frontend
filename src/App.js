@@ -16,6 +16,7 @@ import AddStudent from './components/Employee/AddStudent';
 import SuccessModal from './components/Modals/SuccessModal';
 import AddFinanceModal from './components/Modals/AddFinanceModal';
 import FailedModal from './components/Modals/FailedModal';
+import EmployeeDashboard from './components/Employee/Dashboard/EmployeeDashboard';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path= "/SuccessModal" element={<SuccessModal/>} />
           <Route path= "/AddFinanceModal" element={<AddFinanceModal/>} />
           <Route path= "/FailedModal" element={<FailedModal/>} />
+          <Route path= "/EmployeeDashboard" element={<EmployeeDashboard/>}/>
         </Routes>
       </Router>
 

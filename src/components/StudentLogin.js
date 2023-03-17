@@ -69,7 +69,7 @@ const StudentLogin = () => {
             {alertIsOpen && <AlertModal /> }
             <div className="pupBG">
                 <form className="pupside" onSubmit={e => onSubmit(e)}>
-                        <img src={pupLOGO} className="pupLogo" />
+                        <img src={pupLOGO} className="pupLogoLogin" />
                         <span className="main_heading">PUP Student Deficiency Portal</span>
                         <span className="subtext_main">Sign in to start your session</span>
                         <input name="username" type='text' placeholder="Student Number" placeholderTextColor="#c7c7c7" className="username_input" onChange={e => onChange(e)} />

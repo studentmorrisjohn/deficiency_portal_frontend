@@ -9,6 +9,7 @@ const house = new URL("../images/House.png", import.meta.url)
 const usercircle = new URL("../images/UserCircle.png", import.meta.url)
 const userdropdown = new URL("../images/UserDropdown.png", import.meta.url)
 const lockdropdown = new URL("../images/LockOpenDropdown.png", import.meta.url)
+const chartpie = new URL("../images/ChartPieSlice.png", import.meta.url)
 const signoutdropdown = new URL("../images/SignOutDropdown.png", import.meta.url)
 
 const EmployeeNav = () => {
@@ -61,6 +62,7 @@ const EmployeeNav = () => {
                 <span className="headerText">Student Deficiency Portal</span>
             </div>
             <div className="iconContainer">
+                <img src={chartpie} className="homeLogo" onClick={() => { navigate("/EmployeeDashboard"); }} />
                 <img src={house} className="homeLogo" onClick={() => { navigate("/HomescreenEmployee"); }} />
                 <div className="dropdown">
                     <img src={usercircle} className="userLogo" onClick={() => setOpenDropdown(!openDropdown)} />

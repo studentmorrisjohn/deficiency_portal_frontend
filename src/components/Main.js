@@ -18,20 +18,25 @@ const Main = () => {
 
     return (
         <>
-            <div className="pupBG">
+            <div className="pupBGMain">
 
-                <div className="pupside">
-                    <img src={pupLOGO} className="pupLogo" />
-                    <span className="main_heading">Welcome, PUPian!</span>
-                    <span className="subtext_main">Click or Tap in which group you belong</span>
-                    <button className="btn_stdnt" onClick={() => {setGoToStudentLogin(true);}}>
-                        Student
-                    </button>
-                    <button className="btn_emply" onClick={() => {setGoToFacultyLogin(true);}}>
-                         Employee
-                    </button>
-                    <span className="subtext_main_bottom">By using this service, you understood and agree to the
-                    PUP Online Services <span className="subtext_blue">Terms of Use</span> and <span className="subtext_blue">Privacy Statement</span></span>
+                <div className="pupDiv">
+
+                    <div className="pupDivInside">
+                        <img src={pupLOGO} className="pupLogoMain" />
+                        <span className="mainHeader_text">Welcome, PUPian!</span>
+                    </div>
+
+                    <div className="pupDivInside">
+                        <button className="btn_stdntMain" onClick={() => { setGoToStudentLogin(true); }}>
+                            Student
+                        </button>
+                        <button className="btn_emplyMain" onClick={() => { setGoToFacultyLogin(true); }}>
+                            Employee
+                        </button>
+                    </div>
+
+
                 </div>
             </div>
         </>

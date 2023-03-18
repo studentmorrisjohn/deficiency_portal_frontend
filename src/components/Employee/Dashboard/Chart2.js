@@ -1,11 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { PieChart, Pie, Sector } from "recharts";
-
-
-const data = [
-    { name: "Group A", value: 400, fill:'#28A745'},
-    { name: "Group B", value: 300, fill:'#DC3545'}
-];
+import useDashboardDeficiencyNameStore from "../../../hooks/useDashboardDeficiencyNameStore";
 
 const renderActiveShape = (props) => {
     const RADIAN = Math.PI / 180;
@@ -88,6 +83,13 @@ const Chart2 = () => {
         },
         [setActiveIndex]
     );
+
+    const summary = useDashboardDeficiencyNameStore((state) => state.summary);
+
+    const data = [
+        { name: "Completed", value: summary.complete_count, fill:'#28A745'},
+        { name: "Pending", value: summary.pending_count, fill:'#DC3545'}
+    ];
 
     return (
         <PieChart width={600} height={400}>

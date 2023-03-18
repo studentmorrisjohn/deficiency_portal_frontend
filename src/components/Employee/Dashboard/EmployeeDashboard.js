@@ -1,15 +1,31 @@
 import '../../style.css';
 import EmployeeNav from "../EmployeeNav";
-import React from 'react';
+import React, { useEffect } from 'react';
 import Chart from './Chart';
 import { ResponsiveContainer } from 'recharts';
-import DeficiencyNamesSearch from '../DeficiencyNamesSearch';
-import DeficiencyNamesTable from '../DeficiencyNamesTable';
+
 import Chart2 from './Chart2';
+import DashboardDeficiencyNamesSearch from './DashboardDeficiencyNamesSearch';
+import DashboardDeficiencyNamesTable from './DashboardDeficiencyNamesTable';
+import DashboardSummaryInfo from './DashboardSummaryInfo';
+import useDashboardDeficiencyNameStore from '../../../hooks/useDashboardDeficiencyNameStore';
 
 
 const EmployeeDashboard = () => {
+    const fetchGeneralSummary = useDashboardDeficiencyNameStore((state) => state.fetchGeneralSummary);
+    const fetchBarGraphData = useDashboardDeficiencyNameStore((state) => state.fetchBarGraphData);
+    const setActiveDeficiencyName = useDashboardDeficiencyNameStore((state) => state.setActiveDeficiencyName);
 
+    useEffect(() => {
+        fetchGeneralSummary();
+        fetchBarGraphData("");
+
+        return () => {
+            setActiveDeficiencyName({});
+            fetchGeneralSummary();
+            fetchBarGraphData("");
+        }
+    }, []);
 
     return (
         <>
@@ -21,14 +37,7 @@ const EmployeeDashboard = () => {
                     <div className="outerDiv">
 
                         <div className='dashboardDiv'>
-                            <div className="dashboardInfoDiv">
-                                <span className='infoCategory'>Total No. Of Deficiency</span>
-                                <span className='infoFetched'>28</span>
-                                <span className='infoCategory'>No. of Students with PENDING Deficiency</span>
-                                <span className='infoFetched_red'>12,763</span>
-                                <span className='infoCategory'>No. of Students with COMPLETED Deficiency</span>
-                                <span className='infoFetched_green'>10,234</span>
-                            </div>
+                            <DashboardSummaryInfo />
 
                             <div className='chart'>
                                 <ResponsiveContainer  width="100%" height="100%">
@@ -47,10 +56,10 @@ const EmployeeDashboard = () => {
                         <div className="innerDivider">
                             <div className="divStudentDeficiencySearch">
                                 
-                                <DeficiencyNamesSearch />
+                                <DashboardDeficiencyNamesSearch />
 
                             </div>
-                            <DeficiencyNamesTable />
+                            <DashboardDeficiencyNamesTable />
                         </div>
 
                     </div>

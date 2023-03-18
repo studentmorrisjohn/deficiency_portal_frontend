@@ -239,21 +239,3 @@ export async function fetchGenerateReport(deficiency_name) {
 
     saveAs(url, `${deficiency_name} Report.xlsx`);
 }
-
-export async function fetchGeneralSummary() {
-    const url = `${process.env.REACT_APP_API_URL}/api/employee/profile`;
-
-    const response = await fetch(url);
-    const jsonData = await response.json();
-
-    return jsonData;
-}
-
-export async function fetchDeficiencySummary(deficiency_name) {
-    const url = `${process.env.REACT_APP_API_URL}/api/employee/profile`;
-
-    const response = await fetch(url);
-    const jsonData = await response.json();
-
-    return jsonData;
-}

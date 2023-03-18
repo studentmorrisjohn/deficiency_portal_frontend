@@ -6,7 +6,6 @@ const DeficiencyListRow = ({deficiency}) => {
     const openModal = useDeficiencyModalStore((state) => state.openDeficiencyModal);
     const setactiveDeficiencyId = useDeficiencyModalStore((state) => state.setactiveDeficiencyId);
 
-
     return (
         <tr className="hoverable" onClick={() => {
             openModal();

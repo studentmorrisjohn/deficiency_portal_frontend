@@ -43,17 +43,17 @@ const EmployeeNav = () => {
         }
     }
 
-    // useEffect(() => {
-    //     if (!isAuthenticated) {
-    //         checkAuthenticationStatus();
-    //     }
+    useEffect(() => {
+        if (!isAuthenticated) {
+            checkAuthenticationStatus();
+        }
         
-    // }, []);
+    }, []);
 
 
-    // useEffect(() => {
-    //     checkAuthenticationStatus();
-    // }, [isAuthenticated]);
+    useEffect(() => {
+        checkAuthenticationStatus();
+    }, [isAuthenticated]);
 
     return (
         <div className="header">

@@ -13,9 +13,6 @@ import ProfileEmployee from './components/Employee/ProfileEmployee'
 import PasswordEmployee from './components/Employee/PasswordEmployee'
 import StudentsWithDeficiency from './components/Employee/StudentsWithDeficiency';
 import AddStudent from './components/Employee/AddStudent';
-import SuccessModal from './components/Modals/SuccessModal';
-import AddFinanceModal from './components/Modals/AddFinanceModal';
-import FailedModal from './components/Modals/FailedModal';
 import EmployeeDashboard from './components/Employee/Dashboard/EmployeeDashboard';
 
 function App() {
@@ -36,9 +33,6 @@ function App() {
           <Route path = "/ProfileEmployee" element={<ProfileEmployee/>} />
           <Route path = "/StudentsWithDeficiency" element={<StudentsWithDeficiency />} />
           <Route path= "/AddStudent" element={<AddStudent />} />
-          <Route path= "/SuccessModal" element={<SuccessModal/>} />
-          <Route path= "/AddFinanceModal" element={<AddFinanceModal/>} />
-          <Route path= "/FailedModal" element={<FailedModal/>} />
           <Route path= "/EmployeeDashboard" element={<EmployeeDashboard/>}/>
         </Routes>
       </Router>

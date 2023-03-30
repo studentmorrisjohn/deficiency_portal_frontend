@@ -14,6 +14,7 @@ import PasswordEmployee from './components/Employee/PasswordEmployee'
 import StudentsWithDeficiency from './components/Employee/StudentsWithDeficiency';
 import AddStudent from './components/Employee/AddStudent';
 import EmployeeDashboard from './components/Employee/Dashboard/EmployeeDashboard';
+import InsertUsers from './components/Employee/InsertUsers';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path = "/StudentsWithDeficiency" element={<StudentsWithDeficiency />} />
           <Route path= "/AddStudent" element={<AddStudent />} />
           <Route path= "/EmployeeDashboard" element={<EmployeeDashboard/>}/>
+          <Route path= "/InsertUsers" element={<InsertUsers />} />
         </Routes>
       </Router>
 

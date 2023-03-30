@@ -239,3 +239,27 @@ export async function fetchGenerateReport(deficiency_name) {
 
     saveAs(url, `${deficiency_name} Report.xlsx`);
 }
+
+export async function fetchSubmitStudentList(file) {
+    const url = `${process.env.REACT_APP_API_URL}/api/accounts/insert-users`;
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+        const response = await fetch(url, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'X-CSRFToken': Cookies.get('csrftoken')
+        },
+        });
+
+        const data = await response.json();
+        return data;
+
+      } catch (error) {
+            console.error(error);
+            throw error;
+      }
+}

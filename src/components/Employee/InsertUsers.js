@@ -1,6 +1,7 @@
 import EmployeeNav from "./EmployeeNav";
 import React, { useState } from 'react';
 import { fetchSubmitStudentList } from "../../functions/employee";
+import UploadedTable from "./UploadedTable";
 
 function InsertUsers() {
     const [file, setFile] = useState(null);
@@ -42,7 +43,7 @@ function InsertUsers() {
             </div>
         </div>
         <div className="screenLayout">
-            
+            <UploadedTable />
         </div>
         
     </> );

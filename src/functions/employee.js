@@ -263,3 +263,12 @@ export async function fetchSubmitStudentList(file) {
             throw error;
       }
 }
+
+export async function fetchUploadedTaskList(file) {
+    const url = `${process.env.REACT_APP_API_URL}/api/accounts/uploads`;
+
+    const response = await fetch(url);
+    const jsonData = await response.json();
+
+    return jsonData;
+}

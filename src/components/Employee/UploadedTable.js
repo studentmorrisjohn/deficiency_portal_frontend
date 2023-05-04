@@ -2,28 +2,25 @@ import React, {useState, useEffect } from "react"
 
 import { fetchUploadedTaskList } from "../../functions/employee";
 
+import useUploadListStore from "../../hooks/useUploadListStore";
+
 const UploadedTable = () => {
-    const [uploadedList, setuploadedList] = useState([]);
+    const INTERVAL_DELAY = 5000;
 
-    async function getUploadedList() {
-        const response = await fetchUploadedTaskList();
-
-        if (response.affiliations === "none") {
-            setuploadedList("You don't have any affiliations");
-        }
-        // } else {
-        //     const affiliationList = response.map((affiliation) => 
-        //         <AffiliationTableRow 
-        //         affiliation={affiliation} getAffiliationList={getAffiliationList}
-        //         />
-        //     );
-        //     setAffiliationList(affiliationList);
-        // }
-    }
+    const uploadedList = useUploadListStore((state) => state.uploadedList);
+    const fetchAllUploadedTasks = useUploadListStore((state) => state.fetchAllUploadedTasks);
 
     useEffect(() => {
-        getUploadedList();
+        fetchAllUploadedTasks();
     }, []);
+
+    useEffect(() => {
+        const intervalId = setInterval(fetchAllUploadedTasks, INTERVAL_DELAY);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
+
 
     return (
         <div className="affiliation_table">

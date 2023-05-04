@@ -2,9 +2,11 @@ import EmployeeNav from "./EmployeeNav";
 import React, { useState } from 'react';
 import { fetchSubmitStudentList } from "../../functions/employee";
 import UploadedTable from "./UploadedTable";
+import useUploadListStore from "../../hooks/useUploadListStore";
 
 function InsertUsers() {
     const [file, setFile] = useState(null);
+    const fetchAllUploadedTasks = useUploadListStore((state) => state.fetchAllUploadedTasks);
 
     function handleFileChange(event) {
         setFile(event.target.files[0]);
@@ -19,6 +21,8 @@ function InsertUsers() {
         } catch(error) {
             console.error(error);
         }
+
+        fetchAllUploadedTasks();
     }
         
 

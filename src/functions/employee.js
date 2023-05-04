@@ -272,3 +272,9 @@ export async function fetchUploadedTaskList(file) {
 
     return jsonData;
 }
+
+export async function fetchMailList(file_name) {
+    const url = `${process.env.REACT_APP_API_URL}/api/accounts/download-list/${file_name}`;
+
+    saveAs(url);
+}

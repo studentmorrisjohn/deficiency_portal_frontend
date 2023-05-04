@@ -1,7 +1,7 @@
 import '../style.css'
 import React from "react"
 import { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import AddDeficiencyModal from "./AddDeficiencyModal";
 import EmployeeNav from './EmployeeNav';
 import DeficiencyNamesTable from './DeficiencyNamesTable';
@@ -10,6 +10,7 @@ import UserName from '../General/UserName';
 
 const HomescreenEmployee = () => {
     const [openModal, setOpenModal] = useState(false);
+    const navigate = useNavigate();
 
     return (
         <>
@@ -26,6 +27,7 @@ const HomescreenEmployee = () => {
                                 <DeficiencyNamesSearch />
 
                                 <button className="red_button" onClick={() => { setOpenModal(true); }}>Add New Deficiency</button>
+                                <button className="green_button" onClick={() => { navigate("/InsertUsers") }}>Add Students</button>
                             </div>
                             <DeficiencyNamesTable />
                         </div>

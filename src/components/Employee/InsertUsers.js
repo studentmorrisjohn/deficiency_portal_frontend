@@ -6,6 +6,8 @@ import useUploadListStore from "../../hooks/useUploadListStore";
 import AlertModal from '../Modals/AlertModal';
 import useAlertModalStore from "../../hooks/useAlertModalStore";
 
+const uploadLogo = new URL("../images/file.png", import.meta.url)
+
 function InsertUsers() {
     const [file, setFile] = useState(null);
     const fetchAllUploadedTasks = useUploadListStore((state) => state.fetchAllUploadedTasks);
@@ -42,21 +44,24 @@ function InsertUsers() {
                 <span className="page-title"> Insert Student Profiles </span>
                 <div className="outerDiv">
 
-                    <div className='dashboardDiv'>
-                        <form onSubmit={handleSubmit}>
-                            <input type="file" onChange={handleFileChange} />
-                            <button type="submit">Upload</button>
+                    <div className='inputFileDiv' onClick={() => document.querySelector(".input-field").click()}>
+                        <form className="formUpdate" onSubmit={handleSubmit}>
+                            <input type="file" onChange={handleFileChange} className="input-field" hidden/>
+                            <img src={uploadLogo} className="uploadLogo" />
+                            <span>Click here to browse a file</span>
+                            <button className="uploadButton" type="submit">Click here to Upload</button>
                         </form>
+                        
 
                     </div>
 
-
+                    <div className="upload_table">
+                        <UploadedTable />
+                    </div>
                 </div>
             </div>
         </div>
-        <div className="screenLayout">
-            <UploadedTable />
-        </div>
+        
         
     </> );
 }

@@ -1,28 +1,28 @@
-import { Button } from "bootstrap";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { fetchAddStudentToDeficiency } from "../../functions/employee";
 import useFinanceDeficiencyModalStore from "../../hooks/useFinanceDeficiencyModalStore";
 import useAddStudentListStore from "../../hooks/useAddStudentListStore";
 import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 import useSelectedStudentStore from "../../hooks/useSelectedStudentStore";
+import AddStudentContext from "../Employee/Context/AddStudentContext";
 
 const Xcircle = new URL("../images/XCircleBlack.png", import.meta.url)
 
 const AddFinanceModal = () => {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
     const selectedStudentId = useSelectedStudentStore((state) => state.selectedStudentId);
-    const fetchAllStudents = useAddStudentListStore((state) => state.fetchAllStudents);
     const [balance, setBalance] = useState(0);
     const closeFinanceDeficiencyModal = useFinanceDeficiencyModalStore((state) => state.closeFinanceDeficiencyModal);
+    const refreshStudentList = useContext(AddStudentContext);
 
     function onChange(e) {
         setBalance(e.target.value);
     }
 
     async function addStudent() {
-        if (balance != 0) {
+        if (balance !== 0) {
             const response = await fetchAddStudentToDeficiency(activeDeficiencyName.name, selectedStudentId, activeDeficiencyName.category, balance);
-            fetchAllStudents(activeDeficiencyName.name, "", "");
+            refreshStudentList();
             closeFinanceDeficiencyModal();
         }
     }

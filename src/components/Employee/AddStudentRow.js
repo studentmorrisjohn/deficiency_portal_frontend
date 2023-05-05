@@ -3,19 +3,21 @@ import useAddStudentListStore from "../../hooks/useAddStudentListStore";
 import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 import useSelectedStudentStore from "../../hooks/useSelectedStudentStore";
 import useFinanceDeficiencyModal from "../../hooks/useFinanceDeficiencyModalStore";
+import { useContext } from "react";
+import AddStudentContext from "./Context/AddStudentContext";
 
 const viewIcon = new URL("../images/AddIcon.png", import.meta.url);
 
 function AddStudentRow({student}) {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
-    const fetchAllStudents = useAddStudentListStore((state) => state.fetchAllStudents);
     const setSelectedStudentId = useSelectedStudentStore((state) => state.setSelectedStudentId);
     const openFinanceDeficiencyModal = useFinanceDeficiencyModal((state) => state.openFinanceDeficiencyModal);
+    const refreshStudentList = useContext(AddStudentContext);
 
     async function addStudent() {
         if (activeDeficiencyName.category === "Document") {
             const response = await fetchAddStudentToDeficiency(activeDeficiencyName.name, student.student_id, activeDeficiencyName.category, null);
-            fetchAllStudents(activeDeficiencyName.name, "", "");
+            refreshStudentList();
         } else {
             setSelectedStudentId(student.student_id);
             openFinanceDeficiencyModal();

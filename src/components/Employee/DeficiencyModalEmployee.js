@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { pendingOrComplete } from "../../constants/colors";
 import { fetchDeficiencyDetailsEmployee, fetchUpdateDeficiency } from "../../functions/employee";
 import useAlertModalStore from "../../hooks/useAlertModalStore";
 
 import useDeficiencyModalStore from "../../hooks/useDeficiencyModalStore"
-import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
-import useStudentWithDeficiencyListStore from "../../hooks/useStudentWithDeficiencyListStore";
+import StudentsWithDeficiencyContext from "./Context/StudentsWithDeficiencyContext";
 
 const Xcircle = new URL("../images/XCircleBlack.png", import.meta.url)
 
@@ -14,8 +13,7 @@ const DeficiencyModalEmployee = () => {
     const openAlert = useAlertModalStore((state) => state.openAlert);
     const activeDeficiencyId = useDeficiencyModalStore((state) => state.activeDeficiencyId);
     const adminMode = useDeficiencyModalStore((state) => state.adminMode);
-    const fetchStudentsWithDeficiency = useStudentWithDeficiencyListStore((state) => state.fetchStudentsWithDeficiency);
-    const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
+    const refreshStudentList = useContext(StudentsWithDeficiencyContext);
     
 
     const [deficiencyDetails, setDeficiencyDetails] = useState({
@@ -43,7 +41,7 @@ const DeficiencyModalEmployee = () => {
 
         if (response) {
             getDeficiencyDetails();
-            fetchStudentsWithDeficiency(activeDeficiencyName.name, "", "");
+            refreshStudentList();
 
             if (response.status === "Completed") {
                 const message = `${response.student_summary.name} completed their ${response.name} deficiency`;

@@ -13,6 +13,7 @@ import useConfirmDeleteModalStore from "../../hooks/useConfirmDeleteModalStore";
 import ConfirmDeleteModal from "../Modals/ConfirmDeleteModal";
 import { useState } from "react";
 import useStudentWithDeficiencyListStore from "../../hooks/useStudentWithDeficiencyListStore";
+import StudentsWithDeficiencyContext from "./Context/StudentsWithDeficiencyContext";
 
 const StudentsWithDeficiency = () => {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
@@ -32,7 +33,18 @@ const StudentsWithDeficiency = () => {
     });
 
     function refreshStudentList() {
-        fetchStudentsWithDeficiency(activeDeficiencyName.name, query.student_id, query.name, query.page + 1);
+        try {
+            fetchStudentsWithDeficiency(activeDeficiencyName.name, query.student_id, query.name, query.page + 1);
+        }
+        catch (error) {
+            console.error('An error occurred:', error.message);
+            setQuery(prevState => ({
+                student_id: "",
+                name: "",
+                page: 0
+            }));
+        }
+        
     }
 
     function searchStudents(id_query, name_query) {
@@ -50,6 +62,8 @@ const StudentsWithDeficiency = () => {
         }));
     }
 
+    
+
     useEffect(() => {
         refreshStudentList();
     }, []);
@@ -61,7 +75,8 @@ const StudentsWithDeficiency = () => {
 
 
     return (
-        <>
+        <StudentsWithDeficiencyContext.Provider value={refreshStudentList}>
+
             {alertIsOpen && <AlertModal /> }
             {confirmDeleteIsOpen && <ConfirmDeleteModal />}
             <div> {deficiencyModal && <DeficiencyModalEmployee />} </div>
@@ -81,7 +96,7 @@ const StudentsWithDeficiency = () => {
 
                 </div>
             </div>
-        </>
+        </StudentsWithDeficiencyContext.Provider>
     )
 }
 

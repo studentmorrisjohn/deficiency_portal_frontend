@@ -43,7 +43,7 @@ function AddStudentTable({changePage, currentPage}) {
             </table>
         </div>
         <div className="footer_container">
-            <span className="footer_text">{addStudentList.length > 0 ? `Showing ${currentPage * 10 + 1} to ${currentPage * 10 + addStudentList.length} of ${count} entries` : "No entries to show"}</span>
+            <span className="footer_text">{count > 0 ? `Showing ${currentPage * 10 + 1} to ${currentPage * 10 + addStudentList.length} of ${count} entries` : "No entries to show"}</span>
             <ReactPaginate
                 breakLabel="..."
                 nextLabel="Next"

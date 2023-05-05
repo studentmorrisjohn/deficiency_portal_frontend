@@ -84,14 +84,16 @@ export async function fetchStudentsWithDeficiencyList(deficiencyName, student_id
 }
 
 export async function fetchAllStudentsList(deficiencyName, student_id, student_name, page) {
-    console.log(page);
-
     var url = `${process.env.REACT_APP_API_URL}/api/employee/all-students/${deficiencyName}?student-id=${student_id}&student-name=${student_name}&page=${page}`;
+    try {
+        const response = await fetch(url);
 
-    const response = await fetch(url);
-
-    const jsonData = await response.json();
-    return jsonData;
+        const jsonData = await response.json();
+        return jsonData;
+    } catch(error) {
+        throw error;
+    }
+    
 }
 
 export async function fetchDeficiencyDetailsEmployee(deficiency_id) {

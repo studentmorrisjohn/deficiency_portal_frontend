@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { fetchDeficiencyDetailsEmployee, fetchDeleteDeficiency } from "../../functions/employee";
 import useAlertModalStore from "../../hooks/useAlertModalStore";
 import useConfirmDeleteModalStore from "../../hooks/useConfirmDeleteModalStore";
-import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
-import useStudentWithDeficiencyListStore from "../../hooks/useStudentWithDeficiencyListStore";
+import StudentsWithDeficiencyContext from "../Employee/Context/StudentsWithDeficiencyContext";
 
 const Xcircle = new URL("../images/XCircle.png", import.meta.url)
 
 const ConfirmDeleteModal = () => {
     const closeConfirmDeleteModal = useConfirmDeleteModalStore((state) => state.closeDeleteModal);
     const activeDeficiencyId = useConfirmDeleteModalStore((state) => state.activeDeficiencyId);
-    const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
-    const fetchStudentsWithDeficiency = useStudentWithDeficiencyListStore((state) => state.fetchStudentsWithDeficiency);
     const openAlert = useAlertModalStore((state) => state.openAlert);
+    const refreshStudentList = useContext(StudentsWithDeficiencyContext);
 
     const [deficiencyDetails, setDeficiencyDetails] = useState({
         id: 0,
@@ -36,7 +34,7 @@ const ConfirmDeleteModal = () => {
     async function deleteDeficiency() {
         const response = await fetchDeleteDeficiency(activeDeficiencyId);
         const message = `${deficiencyDetails.student_summary.name} is successfully deleted from the ${deficiencyDetails.name} deficiency list`;
-        fetchStudentsWithDeficiency(activeDeficiencyName.name, "", "");
+        refreshStudentList();
         closeConfirmDeleteModal();
         openAlert("Success", "Success", message);
     }

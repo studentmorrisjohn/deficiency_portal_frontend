@@ -10,6 +10,7 @@ import AddFinanceModal from "../Modals/AddFinanceModal";
 import { useNavigate } from "react-router-dom";
 import ReactPaginate from 'react-paginate';
 import { useState } from "react";
+import AddStudentContext from "./Context/AddStudentContext";
 
 const AddStudent = () => {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
@@ -18,6 +19,7 @@ const AddStudent = () => {
 
     const navigate = useNavigate();
     const fetchAllStudents = useAddStudentListStore((state) => state.fetchAllStudents);
+    const count = useAddStudentListStore((state) => state.count);
 
     const [query, setQuery] = useState({
         student_id: "",
@@ -26,7 +28,24 @@ const AddStudent = () => {
     });
 
     function refreshStudentList() {
-        fetchAllStudents(activeDeficiencyName.name, query.student_id, query.name, query.page + 1);
+        try {
+            if (!count) {
+                setQuery(prevState => ({
+                    ...prevState,
+                    page: prevState.page - 1
+                }));
+            }
+            fetchAllStudents(activeDeficiencyName.name, query.student_id, query.name, query.page + 1);
+        }
+        catch (error) {
+            console.error('An error occurred:', error.message);
+            setQuery(prevState => ({
+                student_id: "",
+                name: "",
+                page: 0
+            }));
+        }
+        
     }
 
     function searchStudents(id_query, name_query) {
@@ -54,7 +73,7 @@ const AddStudent = () => {
 
 
     return (
-        <>
+        <AddStudentContext.Provider value={refreshStudentList}>
             {financeDeficiencyModalIsOpen && <AddFinanceModal />}
             <div className="screenLayout">
                 <EmployeeNav />
@@ -72,7 +91,7 @@ const AddStudent = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </AddStudentContext.Provider>
     )
 }
 

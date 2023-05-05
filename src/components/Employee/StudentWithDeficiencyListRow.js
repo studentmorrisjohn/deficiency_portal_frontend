@@ -12,7 +12,6 @@ function StudentWithDeficiencyListRow({studentWithDeficiency}) {
     const openModalAdmin = useDeficiencyModalStore((state) => state.openDeficiencyModalAdmin);
     const openConfirmDeleteModal = useConfirmDeleteModalStore((state) => state.openDeleteModal);
     const setactiveDeficiencyId = useDeficiencyModalStore((state) => state.setactiveDeficiencyId);
-    const fetchStudentsWithDeficiency = useStudentWithDeficiencyListStore((state) => state.fetchStudentsWithDeficiency);
 
     const viewicon = new URL("../images/ViewIcon.png",import.meta.url);
     const editicon = new URL("../images/EditIcon.png",import.meta.url);
@@ -20,8 +19,6 @@ function StudentWithDeficiencyListRow({studentWithDeficiency}) {
 
     async function deleteDeficiency() {
         openConfirmDeleteModal(studentWithDeficiency.id);
-        // const response = await fetchDeleteDeficiency(studentWithDeficiency.id);
-        // fetchStudentsWithDeficiency(activeDeficiencyName.name, "", "");
     }
 
     return ( 

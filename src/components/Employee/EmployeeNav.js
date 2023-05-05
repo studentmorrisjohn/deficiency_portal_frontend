@@ -23,15 +23,15 @@ const EmployeeNav = () => {
     async function checkAuthenticationStatus() {
         const response = await checkAuthenticated();
 
-        if (response.isAuthenticated === "error") {
-            navigate('/');
-        } else {
-            authenticate();
+        // if (response.isAuthenticated === "error") {
+        //     navigate('/');
+        // } else {
+        //     authenticate();
 
-            if (response.role === "STUDENT") {
-                navigate('/HomescreenStudent');
-            }
-        }
+        //     if (response.role === "STUDENT") {
+        //         navigate('/HomescreenStudent');
+        //     }
+        // }
     } 
 
     async function logout() {

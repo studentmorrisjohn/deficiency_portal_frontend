@@ -4,15 +4,16 @@ import { fetchStudentsWithDeficiencyList } from '../functions/employee';
 
 const useStudentWithDeficiencyListStore = create((set) => ({
   studentsWithDeficiencyList: [],
+  count: 0,
+  pages: 0,
   setStudentsWithDeficiencyList: (_studentsWithDeficiencyList) => set((state) => ({ studentsWithDeficiencyList: _studentsWithDeficiencyList })),
-  fetchStudentsWithDeficiency: async(deficiencyName, student_id, student_name) => {
-    const response = await fetchStudentsWithDeficiencyList(deficiencyName, student_id, student_name);
+  fetchStudentsWithDeficiency: async(deficiencyName, student_id, student_name, page) => {
+    const response = await fetchStudentsWithDeficiencyList(deficiencyName, student_id, student_name, page);
+    
     if (response.warning) {
-      set(
-      {studentsWithDeficiencyList: []}
-      );
+      set({studentsWithDeficiencyList: []});
   } else {
-      set({studentsWithDeficiencyList: response});
+      set({studentsWithDeficiencyList: response.results, count: response.count, pages: Math.ceil(response.count / 10)});
   }
   }
 }));

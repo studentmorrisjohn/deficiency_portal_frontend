@@ -4,9 +4,8 @@ import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 import { useNavigate } from "react-router-dom";
 import { fetchGenerateReport } from "../../functions/employee";
 
-function StudentsWithDeficiencySearch() {
+function StudentsWithDeficiencySearch({searchStudents}) {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
-    const fetchStudentsWithDeficiency = useStudentWithDeficiencyListStore((state) => state.fetchStudentsWithDeficiency);
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -18,17 +17,16 @@ function StudentsWithDeficiencySearch() {
 
 
     useEffect(() => {
-        fetchStudentsWithDeficiency(activeDeficiencyName.name, "", "");
-        
-    }, []);
-
-
-    useEffect(() => {
         if (formData.student_id === "" && formData.student_name === "") {
-            fetchStudentsWithDeficiency(activeDeficiencyName.name, "", "");
+            searchStudents("", "");
         }
         
     }, [formData]);
+
+
+    function search() {
+        searchStudents(formData.student_id, formData.student_name);
+    }
 
 
     function donwloadReport() {
@@ -36,16 +34,12 @@ function StudentsWithDeficiencySearch() {
     }
 
 
-    function searchStudents() {
-        fetchStudentsWithDeficiency(activeDeficiencyName.name, formData.student_id, formData.student_name);
-    }
-
     return ( <div className="addStudentSearch">
     <span className="addStudentSearch_subtext">Enter:</span>
     <input placeholder="Student Number" name="student_id" className="standard_textinput" onChange={onChange}></input>
     <span className="addStudentSearch_subtext">Enter:</span>
     <input placeholder="Name" name="student_name" className="standard_textinput" onChange={onChange}></input>
-    <button className="blue_button" onClick={searchStudents}>Search</button>
+    <button className="blue_button" onClick={search}>Search</button>
     <button className="red_button" onClick={() => {navigate("/AddStudent")}} >Add New Student</button>
     <button className="green_button" onClick={donwloadReport}>Generate Report</button>
     

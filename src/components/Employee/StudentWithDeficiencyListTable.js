@@ -4,23 +4,15 @@ import StudentWithDeficiencyListRow from "./StudentWithDeficiencyListRow";
 import ReactPaginate from 'react-paginate';
 import { useState } from "react";
 
-function StudentListTable() {
+function StudentListTable({changePage, currentPage}) {
     const studentsWithDeficiencyList = useStudentWithDeficiencyListStore((state) => state.studentsWithDeficiencyList);
+    const count = useStudentWithDeficiencyListStore((state) => state.count);
+    const pageCount = useStudentWithDeficiencyListStore((state) => state.pages);
+
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
 
-    const itemsPerPage  = 10;
-
-    const [itemOffset, setItemOffset] = useState(0);
-
-    const endOffset = itemOffset + itemsPerPage;
-
-    const currentItems = studentsWithDeficiencyList.slice(itemOffset, endOffset);
-    const pageCount = Math.ceil(studentsWithDeficiencyList.length / itemsPerPage);
-
     const handlePageClick = (event) => {
-        const newOffset = (event.selected * itemsPerPage) % studentsWithDeficiencyList.length;
-
-        setItemOffset(newOffset);
+        changePage(event.selected);
     };
 
     return (
@@ -51,14 +43,14 @@ function StudentListTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {currentItems.map((studentWithDeficiency) => 
+                    {studentsWithDeficiencyList? studentsWithDeficiencyList.map((studentWithDeficiency) => 
                         <StudentWithDeficiencyListRow studentWithDeficiency={studentWithDeficiency} />
-                    )}            
+                    ): <td>"No students with that keyword"</td>}            
                 </tbody>
             </table>
         </div>
         <div className="footer_container">
-            <span className="footer_text">{currentItems.length ? `Showing ${itemOffset + 1} to ${itemOffset + currentItems.length} of ${studentsWithDeficiencyList.length} entries` : ""}</span>
+        <span className="footer_text">{studentsWithDeficiencyList.length > 0 ? `Showing ${currentPage * 10 + 1} to ${currentPage * 10 + studentsWithDeficiencyList.length} of ${count} entries` : "No entries to show"}</span>
             <ReactPaginate
                 breakLabel="..."
                 nextLabel="Next"
@@ -72,6 +64,7 @@ function StudentListTable() {
                 previousLinkClassName="pagination_buttons"
                 nextLinkClassName="pagination_buttons"
                 activeLinkClassName="pagination_buttons_active"
+                forcePage={currentPage}
             />
         </div>
     </>

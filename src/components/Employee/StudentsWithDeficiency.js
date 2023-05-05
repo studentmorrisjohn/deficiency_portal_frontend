@@ -11,6 +11,8 @@ import useAlertModalStore from "../../hooks/useAlertModalStore";
 import { useNavigate } from "react-router-dom";
 import useConfirmDeleteModalStore from "../../hooks/useConfirmDeleteModalStore";
 import ConfirmDeleteModal from "../Modals/ConfirmDeleteModal";
+import { useState } from "react";
+import useStudentWithDeficiencyListStore from "../../hooks/useStudentWithDeficiencyListStore";
 
 const StudentsWithDeficiency = () => {
     const activeDeficiencyName = useDeficiencyNamesStore((state) => state.activeDeficiencyName);
@@ -19,6 +21,43 @@ const StudentsWithDeficiency = () => {
     const confirmDeleteIsOpen = useConfirmDeleteModalStore((state) => state.isOpen);
     const arrowLeft = new URL("../images/ArrowCircleLeft.png", import.meta.url);
     const navigate = useNavigate();
+
+
+    const fetchStudentsWithDeficiency = useStudentWithDeficiencyListStore((state) => state.fetchStudentsWithDeficiency);
+
+    const [query, setQuery] = useState({
+        student_id: "",
+        name: "",
+        page: 0
+    });
+
+    function refreshStudentList() {
+        fetchStudentsWithDeficiency(activeDeficiencyName.name, query.student_id, query.name, query.page + 1);
+    }
+
+    function searchStudents(id_query, name_query) {
+        setQuery(prevState => ({
+            student_id: id_query,
+            name: name_query,
+            page: 0
+        }));
+    }
+
+    function changePage(page_num) {
+        setQuery(prevState => ({
+            ...prevState,
+            page: page_num
+        }));
+    }
+
+    useEffect(() => {
+        refreshStudentList();
+    }, []);
+
+    useEffect(() => {
+        refreshStudentList();
+    }, [query]);
+
 
 
     return (
@@ -35,8 +74,8 @@ const StudentsWithDeficiency = () => {
                             <span className="red_name">{activeDeficiencyName.name} ({activeDeficiencyName.category})</span>
                         </div>
                         <div className="innerDivider">
-                            <StudentsWithDeficiencySearch />
-                            <StudentWithDeficiencyListTable />
+                            <StudentsWithDeficiencySearch searchStudents={searchStudents} />
+                            <StudentWithDeficiencyListTable changePage={changePage} currentPage={query.page} />
                         </div>
                     </div>
 

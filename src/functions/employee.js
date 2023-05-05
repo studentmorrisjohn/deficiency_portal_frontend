@@ -31,8 +31,8 @@ export async function fetchDeficiencyNamesOption(inputValue) {
 }
 
 
-export async function fetchStudentsWithDeficiencyList(deficiencyName, student_id, student_name) {
-    var url = `${process.env.REACT_APP_API_URL}/api/employee/student-list/${deficiencyName}?student-id=${student_id}&student-name=${student_name}`;
+export async function fetchStudentsWithDeficiencyList(deficiencyName, student_id, student_name, page) {
+    var url = `${process.env.REACT_APP_API_URL}/api/employee/student-list/${deficiencyName}?student-id=${student_id}&student-name=${student_name}&page=${page}`;
 
     const response = await fetch(url);
 
@@ -83,8 +83,10 @@ export async function fetchStudentsWithDeficiencyList(deficiencyName, student_id
     return jsonData;
 }
 
-export async function fetchAllStudentsList(deficiencyName, student_id, student_name) {
-    var url = `${process.env.REACT_APP_API_URL}/api/employee/all-students/${deficiencyName}?student-id=${student_id}&student-name=${student_name}`;
+export async function fetchAllStudentsList(deficiencyName, student_id, student_name, page) {
+    console.log(page);
+
+    var url = `${process.env.REACT_APP_API_URL}/api/employee/all-students/${deficiencyName}?student-id=${student_id}&student-name=${student_name}&page=${page}`;
 
     const response = await fetch(url);
 

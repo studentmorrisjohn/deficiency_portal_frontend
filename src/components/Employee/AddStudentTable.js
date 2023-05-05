@@ -2,23 +2,18 @@ import { useState } from "react";
 import useAddStudentListStore from "../../hooks/useAddStudentListStore";
 import AddStudentRow from "./AddStudentRow";
 import ReactPaginate from 'react-paginate';
+import { useEffect } from "react";
+import useDeficiencyNamesStore from "../../hooks/useDeficiencyNamesStore";
 
-function AddStudentTable() {
-    const itemsPerPage  = 10;
-
+function AddStudentTable({changePage, currentPage}) {
     const addStudentList = useAddStudentListStore((state) => state.addStudentList);
-    const [itemOffset, setItemOffset] = useState(0);
-
-    const endOffset = itemOffset + itemsPerPage;
-
-    const currentItems = addStudentList.slice(itemOffset, endOffset);
-    const pageCount = Math.ceil(addStudentList.length / itemsPerPage);
+    const count = useAddStudentListStore((state) => state.count);
+    const pageCount = useAddStudentListStore((state) => state.pages);
 
     const handlePageClick = (event) => {
-        const newOffset = (event.selected * itemsPerPage) % addStudentList.length;
-
-        setItemOffset(newOffset);
+        changePage(event.selected);
     };
+
 
     return ( 
     <>
@@ -41,14 +36,14 @@ function AddStudentTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {addStudentList ? currentItems.map((student) => 
+                    {addStudentList ? addStudentList.map((student) => 
                 <AddStudentRow student={student} /> 
             ): <td>"No students with that keyword"</td>}            
                 </tbody>
             </table>
         </div>
         <div className="footer_container">
-            <span className="footer_text">{currentItems.length ? `Showing ${itemOffset + 1} to ${itemOffset + currentItems.length} of ${addStudentList.length} entries` : ""}</span>
+            <span className="footer_text">{addStudentList.length > 0 ? `Showing ${currentPage * 10 + 1} to ${currentPage * 10 + addStudentList.length} of ${count} entries` : "No entries to show"}</span>
             <ReactPaginate
                 breakLabel="..."
                 nextLabel="Next"
@@ -62,6 +57,7 @@ function AddStudentTable() {
                 previousLinkClassName="pagination_buttons"
                 nextLinkClassName="pagination_buttons"
                 activeLinkClassName="pagination_buttons_active"
+                forcePage={currentPage}
             />
         </div>
 </>);
